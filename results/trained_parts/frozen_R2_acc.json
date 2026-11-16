@@ -1,0 +1,17 @@
+{
+ "rung": "R2",
+ "model": "frozen",
+ "name": "+ channels_last",
+ "meta": {},
+ "eval_s": 5.029617071151733,
+ "accuracy": 0.7149931224209078,
+ "auc": 0.7815597690488855,
+ "tp": 4742,
+ "tn": 3055,
+ "fp": 2358,
+ "fn": 750,
+ "n": 10905,
+ "pred_flips_vs_R0s": 132,
+ "max_abs_dprob_vs_R0s": 0.7612946182489395,
+ "mean_abs_dprob_vs_R0s": 0.011963115533207364
+}

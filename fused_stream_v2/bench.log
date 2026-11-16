@@ -1,0 +1,42 @@
+idle {'samples_pct': [4.0, 1.0, 0.0], 'passed': True, 'waited_s': 313.8}
+USDT:2026-11-15 11:32:37 480:480 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-11-15 11:32:37 480:480 SyncActivityProfilerHandler.cpp:46] profiler_stop
+1 a_unfused_pytorch_trunk_plus_pytorch_mamba_step 1.0304 [1.1285360000101718, 1.0328930000014225, 1.0304420000011305] kernels 504
+USDT:2026-11-15 11:32:46 480:480 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-11-15 11:32:46 480:480 SyncActivityProfilerHandler.cpp:46] profiler_stop
+1 b_fused_v2_trunk_plus_pytorch_mamba_step 0.6383 [0.6383260000006885, 0.6415099999799168, 0.6389699999544973] kernels 217
+USDT:2026-11-15 11:32:55 480:480 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-11-15 11:32:55 480:480 SyncActivityProfilerHandler.cpp:46] profiler_stop
+1 new_fused_v2_trunk_plus_kernels_A_B 0.5266 [0.5265500000177781, 0.52744600003507, 0.5323909999788157] kernels 94
+USDT:2026-11-15 11:33:02 480:480 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-11-15 11:33:02 480:480 SyncActivityProfilerHandler.cpp:46] profiler_stop
+1 c1_window30_fused_scan_mamba_recompute 0.7223 [0.7222639999895364, 0.7239469999831272, 0.725279999983286] kernels 193
+USDT:2026-11-15 11:33:09 480:480 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-11-15 11:33:09 480:480 SyncActivityProfilerHandler.cpp:46] profiler_stop
+1 c2_window30_attention_RANDOM_weights 0.4226 [0.42527199997266507, 0.42333400000416077, 0.42263299997102877] kernels 101
+USDT:2026-11-15 11:33:18 480:480 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-11-15 11:33:18 480:480 SyncActivityProfilerHandler.cpp:46] profiler_stop
+USDT:2026-11-15 11:33:18 480:480 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-11-15 11:33:18 480:480 SyncActivityProfilerHandler.cpp:46] profiler_stop
+1 stages {'unfused_trunk_incl_pool_ms': 0.7519904136657715, 'fused_trunk_stem_blocks_ms': 0.3442608118057251, 'torch_after_trunk_ms (fused headconv + mean + proj + PyTorch Mamba step)': 0.2878495931625366, 'torch_mamba_step_from_proj_ms': 0.2732111930847168, 'kernel_A_ms (headconv+SiLU+pool+proj)': 0.007364799827337265, 'kernel_B_ms (4 Mamba layers + norm_f + mean + MLP)': 0.058455997705459596, 'fused_after_trunk_A_plus_B_ms': 0.0658079981803894, 'launches_after_trunk': {'fused_A_plus_B': 11, 'torch_headconv_mean_proj_step': 137}}
+USDT:2026-11-15 11:33:19 480:480 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-11-15 11:33:19 480:480 SyncActivityProfilerHandler.cpp:46] profiler_stop
+8 a_unfused_pytorch_trunk_plus_pytorch_mamba_step 3.0499 [3.0499049999548333, 3.054777999977887, 3.062306999993325] kernels 507
+USDT:2026-11-15 11:33:32 480:480 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-11-15 11:33:32 480:480 SyncActivityProfilerHandler.cpp:46] profiler_stop
+8 b_fused_v2_trunk_plus_pytorch_mamba_step 1.543 [1.6363810000257217, 1.6402260000063507, 1.5429849999577527] kernels 205
+USDT:2026-11-15 11:33:42 480:480 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-11-15 11:33:42 480:480 SyncActivityProfilerHandler.cpp:46] profiler_stop
+8 new_fused_v2_trunk_plus_kernels_A_B 1.4154 [1.4718129999664598, 1.4153509999914604, 1.4937259999783237] kernels 77
+USDT:2026-11-15 11:33:53 480:480 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-11-15 11:33:53 480:480 SyncActivityProfilerHandler.cpp:46] profiler_stop
+8 c1_window30_fused_scan_mamba_recompute 1.6801 [1.7510140000354113, 1.723312999956761, 1.680050000004485] kernels 170
+USDT:2026-11-15 11:34:03 480:480 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-11-15 11:34:03 480:480 SyncActivityProfilerHandler.cpp:46] profiler_stop
+8 c2_window30_attention_RANDOM_weights 1.3552 [1.3552100000424616, 1.3595099999861304, 1.3578419999475955] kernels 84
+USDT:2026-11-15 11:34:16 480:480 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-11-15 11:34:16 480:480 SyncActivityProfilerHandler.cpp:46] profiler_stop
+USDT:2026-11-15 11:34:16 480:480 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-11-15 11:34:16 480:480 SyncActivityProfilerHandler.cpp:46] profiler_stop
+8 stages {'unfused_trunk_incl_pool_ms': 2.633815956115723, 'fused_trunk_stem_blocks_ms': 1.088974380493164, 'torch_after_trunk_ms (fused headconv + mean + proj + PyTorch Mamba step)': 0.3233920097351074, 'torch_mamba_step_from_proj_ms': 0.2770416021347046, 'kernel_A_ms (headconv+SiLU+pool+proj)': 0.020363199710845947, 'kernel_B_ms (4 Mamba layers + norm_f + mean + MLP)': 0.1529855966567993, 'fused_after_trunk_A_plus_B_ms': 0.17822400331497193, 'launches_after_trunk': {'fused_A_plus_B': 11, 'torch_headconv_mean_proj_step': 141}}
+written

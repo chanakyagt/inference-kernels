@@ -1,0 +1,20 @@
+{
+ "tot_mac": 505071360,
+ "wbytes8": 3987821,
+ "g16": 76341980,
+ "g8": 38170990,
+ "lat": {
+  "A0: 2048 MAC, dw 32x9, 1 GHz": 0.00052678,
+  "A: 2048 MAC, dw 64x25, 1 GHz": 0.000342128,
+  "B: 4096 MAC, dw 64x25, 1 GHz": 0.000230464,
+  "A @ 500 MHz": 0.000684256,
+  "SKY130: 256 MAC, 90.8 MHz": 0.022014361233480176
+ },
+ "energy": {
+  "45nm best (W on chip, banked 32KB SRAM, 1.5x ovh)": 0.00038000154075000004,
+  "45nm central (W on chip, 2x ovh, 0.1 W leak)": 0.000754583861,
+  "45nm worst (W from DRAM 20pJ/b, 1MB-SRAM cost, 3x)": 0.0023358063515,
+  "45nm W8A16 central": 0.0012074856210000002,
+  "7nm-class assumed (logic x0.25, SRAM x0.5), central": 0.0003265019465
+ }
+}

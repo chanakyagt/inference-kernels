@@ -1,0 +1,14 @@
+{
+ "rung": "R0s",
+ "model": "/tmp/bb_runs/ft_effnet_b0_v2",
+ "name": "fp32 eager NCHW, TF32 off",
+ "meta": {},
+ "eval_s": 12.144452095031738,
+ "accuracy": 0.8961944062356717,
+ "auc": 0.9586613160112373,
+ "tp": 5344,
+ "tn": 4429,
+ "fp": 984,
+ "fn": 148,
+ "n": 10905
+}

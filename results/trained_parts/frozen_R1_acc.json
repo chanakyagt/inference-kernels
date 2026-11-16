@@ -1,0 +1,17 @@
+{
+ "rung": "R1",
+ "model": "frozen",
+ "name": "+ bf16 autocast",
+ "meta": {},
+ "eval_s": 7.26285457611084,
+ "accuracy": 0.7143512150389729,
+ "auc": 0.7815824074895092,
+ "tp": 4740,
+ "tn": 3050,
+ "fp": 2363,
+ "fn": 752,
+ "n": 10905,
+ "pred_flips_vs_R0s": 131,
+ "max_abs_dprob_vs_R0s": 0.7783032283186913,
+ "mean_abs_dprob_vs_R0s": 0.011940369729104117
+}

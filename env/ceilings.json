@@ -1,0 +1,11 @@
+{
+  "gpu": "NVIDIA GeForce RTX 4060 Ti",
+  "sms": 34,
+  "torch": "2.14.0+cu130",
+  "cuda": "13.0",
+  "copy_GBps": 233.9,
+  "read_GBps": 272.4,
+  "bf16_dense_TFLOPs": 45.1,
+  "fp8_dense_TFLOPs": 90.6,
+  "triton": "3.8.0"
+}

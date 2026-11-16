@@ -1,0 +1,17 @@
+{
+ "rung": "R1",
+ "model": "/tmp/bb_runs/ft_effnet_b0_v2",
+ "name": "+ bf16 autocast",
+ "meta": {},
+ "eval_s": 6.42385196685791,
+ "accuracy": 0.8961944062356717,
+ "auc": 0.9582409406880928,
+ "tp": 5345,
+ "tn": 4428,
+ "fp": 985,
+ "fn": 147,
+ "n": 10905,
+ "pred_flips_vs_R0s": 18,
+ "max_abs_dprob_vs_R0s": 0.1857292652130127,
+ "mean_abs_dprob_vs_R0s": 0.002741172314646702
+}

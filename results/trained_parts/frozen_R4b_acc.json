@@ -1,0 +1,21 @@
+{
+ "rung": "R4b",
+ "model": "frozen",
+ "name": "+ fused dwconv+BN+SiLU (NHWC variant)",
+ "meta": {
+  "dw_blocks_fused": 16,
+  "dw_variant": "nhwc",
+  "conv_bn_folded": 33
+ },
+ "eval_s": 3.7941694259643555,
+ "accuracy": 0.7141678129298487,
+ "auc": 0.7808178807755438,
+ "tp": 4756,
+ "tn": 3032,
+ "fp": 2381,
+ "fn": 736,
+ "n": 10905,
+ "pred_flips_vs_R0s": 127,
+ "max_abs_dprob_vs_R0s": 0.5927382707595825,
+ "mean_abs_dprob_vs_R0s": 0.009898299411739699
+}

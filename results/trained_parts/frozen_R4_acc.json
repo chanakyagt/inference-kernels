@@ -1,0 +1,21 @@
+{
+ "rung": "R4",
+ "model": "frozen",
+ "name": "+ fused dwconv+BN+SiLU (repo, NCHW)",
+ "meta": {
+  "dw_blocks_fused": 16,
+  "dw_variant": "nchw",
+  "conv_bn_folded": 33
+ },
+ "eval_s": 9.294815063476562,
+ "accuracy": 0.7147180192572214,
+ "auc": 0.7807655062554082,
+ "tp": 4763,
+ "tn": 3031,
+ "fp": 2382,
+ "fn": 729,
+ "n": 10905,
+ "pred_flips_vs_R0s": 133,
+ "max_abs_dprob_vs_R0s": 0.5824752897024155,
+ "mean_abs_dprob_vs_R0s": 0.009867973092355268
+}

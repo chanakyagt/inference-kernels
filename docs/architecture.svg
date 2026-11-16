@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 923" width="1200" height="923">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748B"/></marker></defs>
+<rect x="1" y="1" width="1198" height="921" rx="18" fill="#ffffff" stroke="#E5E7EB" stroke-width="2"/>
+<text x="30" y="44" font-size="24" font-weight="700" fill="#1E293B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Fused detector, one frame at a time: EfficientNet-B0 body + Mamba head</text>
+<text x="30" y="70" font-size="14" font-weight="400" fill="#64748B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">RTX 4060 Ti, fp16, batch 1. Every box is a Triton kernel: all 75 kernels in the measured frame. One CUDA graph replays the whole frame.</text>
+<rect x="30" y="84" width="16" height="16" rx="4" fill="#16A34A"/>
+<text x="54" y="97" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">EfficientNet-B0 kernels</text>
+<rect x="240" y="84" width="16" height="16" rx="4" fill="#A855F7"/>
+<text x="264" y="97" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">hand-off kernels</text>
+<rect x="400" y="84" width="16" height="16" rx="4" fill="#6D28D9"/>
+<text x="424" y="97" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Mamba head kernels</text>
+<rect x="590" y="84" width="16" height="16" rx="4" fill="#334155"/>
+<text x="614" y="97" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">data</text>
+<rect x="670" y="84" width="16" height="16" rx="4" fill="#FDE047" stroke="#CA8A04" stroke-width="1.5"/>
+<text x="694" y="97" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">measured numbers</text>
+<rect x="30" y="114" width="1140" height="290" rx="14" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1.5"/>
+<text x="50" y="144" font-size="18" font-weight="700" fill="#166534" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">1  EfficientNet-B0 body (fused v2 trunk, fp16, NHWC)</text>
+<rect x="50" y="190" width="150" height="120" rx="10" fill="#334155"/>
+<text x="125.0" y="218" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Input frame</text>
+<text x="125.0" y="244" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">256 x 256 x 3</text>
+<text x="125.0" y="263" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">fp32, NCHW</text>
+<text x="125.0" y="282" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">one new frame</text>
+<rect x="240" y="190" width="150" height="120" rx="10" fill="#16A34A"/>
+<text x="315.0" y="218" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">_stem_kernel</text>
+<text x="315.0" y="244" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">3x3 stride-2 conv</text>
+<text x="315.0" y="263" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">+ bias + SiLU</text>
+<text x="315.0" y="282" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">3 -> 32 ch</text>
+<rect x="420" y="154" width="740" height="235" rx="12" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1.5"/>
+<text x="436" y="176" font-size="15" font-weight="700" fill="#166534" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">x16 MBConv blocks, four kernels each</text>
+<rect x="430" y="190" width="150" height="120" rx="10" fill="#16A34A"/>
+<text x="505.0" y="218" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">pw_kernel</text>
+<text x="505.0" y="244" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">expand 1x1 GEMM</text>
+<text x="505.0" y="263" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">+ bias + SiLU</text>
+<text x="505.0" y="282" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">autotuned tiles</text>
+<rect x="620" y="190" width="150" height="120" rx="10" fill="#16A34A"/>
+<text x="695.0" y="218" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">_dw_pool_kernel</text>
+<text x="695.0" y="244" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">depthwise conv</text>
+<text x="695.0" y="263" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">+ SE pooling sums</text>
+<text x="695.0" y="282" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">(no extra mean pass)</text>
+<rect x="810" y="190" width="150" height="120" rx="10" fill="#16A34A"/>
+<text x="885.0" y="218" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">se_tail_kernel</text>
+<text x="885.0" y="244" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">SE FC, SiLU, FC,</text>
+<text x="885.0" y="263" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">sigmoid -> gate</text>
+<text x="885.0" y="282" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">one program / image</text>
+<rect x="1000" y="190" width="150" height="120" rx="10" fill="#16A34A"/>
+<text x="1075.0" y="218" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">pw_kernel</text>
+<text x="1075.0" y="244" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">project 1x1 GEMM</text>
+<text x="1075.0" y="263" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">SE gate on load;</text>
+<text x="1075.0" y="282" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">bias + residual</text>
+<line x1="580" y1="250.0" x2="620" y2="250.0" stroke="#64748B" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="770" y1="250.0" x2="810" y2="250.0" stroke="#64748B" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="960" y1="250.0" x2="1000" y2="250.0" stroke="#64748B" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="200" y1="250.0" x2="240" y2="250.0" stroke="#64748B" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="390" y1="250.0" x2="430" y2="250.0" stroke="#64748B" stroke-width="2.5" marker-end="url(#ah)"/>
+<text x="436" y="336" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Activations between kernels are NHWC fp16. The SE gate multiply and the residual add</text>
+<text x="436" y="355" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">run inside the project GEMM, so they cost no extra kernels or feature-map passes.</text>
+<text x="436" y="378" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Trunk output: 8 x 8 x 320, then kernel A.</text>
+<rect x="50" y="328" width="340" height="52" rx="8" fill="#FDE047" stroke="#CA8A04" stroke-width="1.5"/>
+<text x="220" y="350" font-size="14" font-weight="700" fill="#1E293B" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Fused trunk: 0.344 ms at batch 1</text>
+<text x="220" y="370" font-size="13" font-weight="400" fill="#1E293B" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">unfused PyTorch trunk: 0.752 ms</text>
+<rect x="30" y="426" width="1140" height="262" rx="14" fill="#F5F3FF" stroke="#DDD6FE" stroke-width="1.5"/>
+<text x="50" y="456" font-size="18" font-weight="700" fill="#5B21B6" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">2  Hand-off and Mamba head: kernels A and B, state carried to the next frame</text>
+<rect x="50" y="476" width="130" height="110" rx="10" fill="#334155"/>
+<text x="115.0" y="504" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Trunk output</text>
+<text x="115.0" y="530" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">8 x 8 x 320</text>
+<text x="115.0" y="549" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">fp16, NHWC</text>
+<rect x="210" y="476" width="160" height="110" rx="10" fill="#A855F7"/>
+<text x="290.0" y="504" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">_tail_pool_kernel</text>
+<text x="290.0" y="530" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">A: 1x1 conv</text>
+<text x="290.0" y="549" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">320 -> 1280</text>
+<text x="290.0" y="568" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">+ SiLU + pool</text>
+<rect x="400" y="476" width="130" height="110" rx="10" fill="#A855F7"/>
+<text x="465.0" y="504" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">_proj_kernel</text>
+<text x="465.0" y="530" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">A: 1280 -> 512</text>
+<text x="465.0" y="549" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">(Mamba d_model)</text>
+<rect x="560" y="476" width="250" height="110" rx="10" fill="#6D28D9"/>
+<text x="685.0" y="504" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">4 x Mamba layer (B)</text>
+<text x="685.0" y="530" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">_norm_inproj_conv_kernel</text>
+<text x="685.0" y="549" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">_xproj_dt_scan_kernel</text>
+<text x="685.0" y="568" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">one recurrent step</text>
+<rect x="840" y="476" width="140" height="110" rx="10" fill="#6D28D9"/>
+<text x="910.0" y="504" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">_head_kernel</text>
+<text x="910.0" y="530" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">B: final norm,</text>
+<text x="910.0" y="549" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">running mean,</text>
+<text x="910.0" y="568" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">MLP</text>
+<rect x="1010" y="476" width="120" height="110" rx="10" fill="#334155"/>
+<text x="1070.0" y="504" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Output</text>
+<text x="1070.0" y="530" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">real / fake</text>
+<text x="1070.0" y="549" font-size="13" font-weight="400" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">logits (2)</text>
+<line x1="180" y1="531.0" x2="210" y2="531.0" stroke="#64748B" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="370" y1="531.0" x2="400" y2="531.0" stroke="#64748B" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="530" y1="531.0" x2="560" y2="531.0" stroke="#64748B" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="810" y1="531.0" x2="840" y2="531.0" stroke="#64748B" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="980" y1="531.0" x2="1010" y2="531.0" stroke="#64748B" stroke-width="2.5" marker-end="url(#ah)"/>
+<rect x="560" y="610" width="250" height="56" rx="8" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1.5"/>
+<text x="685" y="632" font-size="14" font-weight="700" fill="#1E293B" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Mamba state: 313 KB per stream</text>
+<text x="685" y="652" font-size="13" font-weight="400" fill="#334155" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">read and updated every frame</text>
+<line x1="640" y1="610" x2="640" y2="588" stroke="#64748B" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="730" y1="588" x2="730" y2="610" stroke="#64748B" stroke-width="2.5" marker-end="url(#ah)"/>
+<text x="830" y="642" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">carried to the next frame</text>
+<rect x="50" y="608" width="490" height="60" rx="8" fill="#FDE047" stroke="#CA8A04" stroke-width="1.5"/>
+<text x="295" y="632" font-size="14" font-weight="700" fill="#1E293B" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">After the trunk (batch 1): 0.066 ms, 11 kernels</text>
+<text x="295" y="654" font-size="13" font-weight="400" fill="#1E293B" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">PyTorch version of the same stage: 0.288 ms, 137 kernels</text>
+<rect x="990" y="608" width="140" height="60" rx="8" fill="#FDE047" stroke="#CA8A04" stroke-width="1.5"/>
+<text x="1060" y="630" font-size="13" font-weight="400" fill="#1E293B" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Whole frame</text>
+<text x="1060" y="654" font-size="18" font-weight="700" fill="#1E293B" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">0.527 ms</text>
+<rect x="30" y="706" width="360" height="205" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+<text x="46" y="734" font-size="16" font-weight="700" fill="#1E293B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Unfused PyTorch vs fused</text>
+<rect x="420" y="706" width="360" height="205" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+<text x="436" y="734" font-size="16" font-weight="700" fill="#1E293B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Own kernels vs TensorRT 11.4 fp16</text>
+<rect x="810" y="706" width="360" height="205" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+<text x="826" y="734" font-size="16" font-weight="700" fill="#1E293B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">What the fusion buys</text>
+<text x="46" y="753" font-size="13" font-weight="400" fill="#64748B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">batch 1, one frame; DRAM from Nsight Compute</text>
+<text x="46" y="787" font-size="13" font-weight="600" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">GPU kernels</text>
+<rect x="150" y="768" width="140" height="12" rx="3" fill="#94A3B8"/>
+<text x="296" y="779" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">507</text>
+<rect x="150" y="783" width="20.71005917159763" height="12" rx="3" fill="#16A34A"/>
+<text x="176.71005917159763" y="794" font-size="13" font-weight="700" fill="#166534" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">75</text>
+<text x="46" y="827" font-size="13" font-weight="600" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">DRAM per frame</text>
+<rect x="150" y="808" width="140" height="12" rx="3" fill="#94A3B8"/>
+<text x="296" y="819" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">111.0 MB</text>
+<rect x="150" y="823" width="67.35135135135135" height="12" rx="3" fill="#16A34A"/>
+<text x="223.35135135135135" y="834" font-size="13" font-weight="700" fill="#166534" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">53.4 MB</text>
+<text x="46" y="867" font-size="13" font-weight="600" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Latency</text>
+<rect x="150" y="848" width="140" height="12" rx="3" fill="#94A3B8"/>
+<text x="296" y="859" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">1.030 ms</text>
+<rect x="150" y="863" width="71.63106796116504" height="12" rx="3" fill="#16A34A"/>
+<text x="227.63106796116506" y="874" font-size="13" font-weight="700" fill="#166534" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">0.527 ms</text>
+<text x="46" y="899" font-size="13" font-weight="400" fill="#64748B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">gray = unfused PyTorch, green = fused</text>
+<text x="436" y="753" font-size="13" font-weight="400" fill="#64748B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">EfficientNet-B0 latency, ms, one quiet run</text>
+<text x="436" y="774" font-size="13" font-weight="700" fill="#64748B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">batch</text>
+<text x="500" y="774" font-size="13" font-weight="700" fill="#64748B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">own v2</text>
+<text x="580" y="774" font-size="13" font-weight="700" fill="#64748B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">TensorRT</text>
+<text x="670" y="774" font-size="13" font-weight="700" fill="#64748B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">own is</text>
+<rect x="430" y="780" width="340" height="27" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+<text x="436" y="798" font-size="14" font-weight="700" fill="#1E293B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">1</text>
+<text x="500" y="798" font-size="14" font-weight="700" fill="#166534" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">0.344</text>
+<text x="580" y="798" font-size="14" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">0.407</text>
+<text x="670" y="798" font-size="14" font-weight="700" fill="#1E293B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">1.19x (sustained)</text>
+<rect x="430" y="810" width="340" height="27" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+<text x="436" y="828" font-size="14" font-weight="700" fill="#1E293B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">8</text>
+<text x="500" y="828" font-size="14" font-weight="700" fill="#166534" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">1.114</text>
+<text x="580" y="828" font-size="14" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">1.122</text>
+<text x="670" y="828" font-size="14" font-weight="700" fill="#1E293B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">tie</text>
+<rect x="430" y="840" width="340" height="27" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+<text x="436" y="858" font-size="14" font-weight="700" fill="#1E293B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">64</text>
+<text x="500" y="858" font-size="14" font-weight="700" fill="#166534" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">10.17</text>
+<text x="580" y="858" font-size="14" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">15.35</text>
+<text x="670" y="858" font-size="14" font-weight="700" fill="#1E293B" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">1.51x faster</text>
+<text x="436" y="877" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Accuracy 89.6% (linear head); with the Mamba head:</text>
+<text x="436" y="897" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">89.10% fp32, 89.12% fp16 (10,905 Test images).</text>
+<text x="826" y="760" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">SE pooling sums come out of the depthwise</text>
+<text x="826" y="779" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">kernel, so the feature map is not re-read.</text>
+<text x="826" y="798" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Kernels A and B replace the PyTorch head:</text>
+<text x="826" y="817" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">137 kernels -> 11 after the trunk.</text>
+<text x="826" y="836" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Whole frame: 507 -> 75 GPU kernels,</text>
+<text x="826" y="855" font-size="13" font-weight="400" fill="#334155" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">111.0 -> 53.4 MB DRAM (L2 flushed per kernel).</text>
+<text x="826" y="874" font-size="13" font-weight="600" fill="#9A3412" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Not the fastest streaming option: window</text>
+<text x="826" y="893" font-size="13" font-weight="600" fill="#9A3412" text-anchor="start" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">attention with random weights is 1.25x faster.</text>
+</svg>

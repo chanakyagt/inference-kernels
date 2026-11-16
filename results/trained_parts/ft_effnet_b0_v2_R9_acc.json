@@ -1,0 +1,22 @@
+{
+ "rung": "R9",
+ "model": "/tmp/bb_runs/ft_effnet_b0_v2",
+ "name": "R6c + FP8 head Linears",
+ "meta": {
+  "conv_bn_folded": 49,
+  "scans_fused": 0,
+  "head_linears_quantized": 0,
+  "head_linears_total": 1
+ },
+ "eval_s": 6.14766526222229,
+ "accuracy": 0.8962861072902338,
+ "auc": 0.9596272844810361,
+ "tp": 5345,
+ "tn": 4429,
+ "fp": 984,
+ "fn": 147,
+ "n": 10905,
+ "pred_flips_vs_R0s": 525,
+ "max_abs_dprob_vs_R0s": 0.9465941905123145,
+ "mean_abs_dprob_vs_R0s": 0.045455924483172226
+}

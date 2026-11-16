@@ -1,0 +1,157 @@
+{
+ "n": 512,
+ "bf16_floor_vs_fp32": {
+  "acc": 0.697265625,
+  "auc": 0.7618033937618263,
+  "kl": 0.004527186043560505,
+  "logit_mse": 0.08147512376308441,
+  "flip": 0.0234375
+ },
+ "rows": [
+  {
+   "layer": "trunk.4.0.block.1.0",
+   "kind": "dw3x3",
+   "scheme": "W8A8pc",
+   "kl_fake": 0.00031457620207220316,
+   "kl_real": 0.004930204711854458,
+   "mean_abs_logit_diff_real_vs_fake": 0.1395503580570221
+  },
+  {
+   "layer": "trunk.5.2.block.1.0",
+   "kind": "dw5x5",
+   "scheme": "W8A8pc",
+   "kl_fake": 5.0215796363772824e-05,
+   "kl_real": 0.004681524820625782,
+   "mean_abs_logit_diff_real_vs_fake": 0.1364670991897583
+  },
+  {
+   "layer": "head.head.3",
+   "kind": "head_mlp",
+   "scheme": "W8A8",
+   "kl_fake": 2.3848135242587887e-05,
+   "kl_real": 0.0045256661251187325,
+   "mean_abs_logit_diff_real_vs_fake": 0.140269473195076
+  },
+  {
+   "layer": "head.proj",
+   "kind": "head_proj",
+   "scheme": "W8A8",
+   "kl_fake": 0.0006905492627993226,
+   "kl_real": 0.005309784319251776,
+   "mean_abs_logit_diff_real_vs_fake": 0.15698575973510742
+  },
+  {
+   "layer": "head.proj",
+   "kind": "head_proj",
+   "scheme": "FP8",
+   "kl_fake": 0.0005782708176411688,
+   "kl_real": 0.00573615962639451,
+   "mean_abs_logit_diff_real_vs_fake": 0.15698836743831635
+  },
+  {
+   "layer": "head.layers.2.mixer.dt_proj",
+   "kind": "mamba_dt_proj",
+   "scheme": "W8A8",
+   "kl_fake": 5.6540219617318144e-08,
+   "kl_real": 0.0045394292101264,
+   "mean_abs_logit_diff_real_vs_fake": 0.13866226375102997
+  },
+  {
+   "layer": "head.layers.2.mixer.dt_proj",
+   "kind": "mamba_dt_proj",
+   "scheme": "FP8",
+   "kl_fake": 2.9669321222058898e-08,
+   "kl_real": 0.0045352475717663765,
+   "mean_abs_logit_diff_real_vs_fake": 0.1389373242855072
+  },
+  {
+   "layer": "head.layers.2.mixer.in_proj",
+   "kind": "mamba_in_proj",
+   "scheme": "W8A8",
+   "kl_fake": 1.7291682752329507e-06,
+   "kl_real": 0.004538435954600573,
+   "mean_abs_logit_diff_real_vs_fake": 0.13853135704994202
+  },
+  {
+   "layer": "head.layers.2.mixer.in_proj",
+   "kind": "mamba_in_proj",
+   "scheme": "FP8",
+   "kl_fake": 3.206527480870136e-06,
+   "kl_real": 0.004525511059910059,
+   "mean_abs_logit_diff_real_vs_fake": 0.1383458375930786
+  },
+  {
+   "layer": "head.layers.2.mixer.out_proj",
+   "kind": "mamba_out_proj",
+   "scheme": "W8A8",
+   "kl_fake": 0.0016755384858697653,
+   "kl_real": 0.005425413604825735,
+   "mean_abs_logit_diff_real_vs_fake": 0.1437174528837204
+  },
+  {
+   "layer": "head.layers.2.mixer.out_proj",
+   "kind": "mamba_out_proj",
+   "scheme": "FP8",
+   "kl_fake": 3.3785631785576697e-06,
+   "kl_real": 0.004535850137472153,
+   "mean_abs_logit_diff_real_vs_fake": 0.14039403200149536
+  },
+  {
+   "layer": "head.layers.2.mixer.x_proj",
+   "kind": "mamba_x_proj",
+   "scheme": "W8A8",
+   "kl_fake": 2.327997634665735e-07,
+   "kl_real": 0.0045374599285423756,
+   "mean_abs_logit_diff_real_vs_fake": 0.13881075382232666
+  },
+  {
+   "layer": "head.layers.2.mixer.x_proj",
+   "kind": "mamba_x_proj",
+   "scheme": "FP8",
+   "kl_fake": 1.6126611512845557e-07,
+   "kl_real": 0.004533597733825445,
+   "mean_abs_logit_diff_real_vs_fake": 0.13904735445976257
+  },
+  {
+   "layer": "trunk.5.0.block.3.0",
+   "kind": "pw1x1",
+   "scheme": "W8A8",
+   "kl_fake": 0.0005586169427260756,
+   "kl_real": 0.004510584287345409,
+   "mean_abs_logit_diff_real_vs_fake": 0.1468055695295334
+  },
+  {
+   "layer": "trunk.5.0.block.3.0",
+   "kind": "pw1x1",
+   "scheme": "FP8",
+   "kl_fake": 0.0019871515687555075,
+   "kl_real": 0.00664635980501771,
+   "mean_abs_logit_diff_real_vs_fake": 0.14906510710716248
+  },
+  {
+   "layer": "trunk.5.0.block.2.fc1",
+   "kind": "se_fc",
+   "scheme": "W8A8",
+   "kl_fake": 6.350444891722873e-05,
+   "kl_real": 0.004507668316364288,
+   "mean_abs_logit_diff_real_vs_fake": 0.13570235669612885
+  }
+ ],
+ "all_int8": {
+  "fake_all_W8A8": {
+   "acc": 0.640625,
+   "auc": 0.7004974668864067,
+   "kl": 0.17023032903671265,
+   "logit_mse": 2.4481492042541504,
+   "flip": 0.119140625
+  },
+  "real_all_int8": {
+   "acc": 0.6640625,
+   "auc": 0.715001831166453,
+   "kl": 0.17612995207309723,
+   "logit_mse": 2.510829210281372,
+   "flip": 0.130859375
+  },
+  "mean_abs_logit_diff_real_vs_fake": 0.4101039469242096
+ }
+}

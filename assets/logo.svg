@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" width="760" height="180">
+  <defs>
+    <linearGradient id="k1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#84CC16"/>
+      <stop offset="1" stop-color="#16A34A"/>
+    </linearGradient>
+    <linearGradient id="k2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#A855F7"/>
+      <stop offset="1" stop-color="#6D28D9"/>
+    </linearGradient>
+  </defs>
+  <!-- three separate kernels on the left collapse into one fused kernel on the right -->
+  <rect x="14" y="30" width="34" height="34" rx="7" fill="url(#k1)" opacity="0.45"/>
+  <rect x="14" y="73" width="34" height="34" rx="7" fill="url(#k1)" opacity="0.7"/>
+  <rect x="14" y="116" width="34" height="34" rx="7" fill="url(#k1)"/>
+  <path d="M56 47 L84 78 M56 90 L84 90 M56 133 L84 102" stroke="#94A3B8" stroke-width="5" stroke-linecap="round"/>
+  <rect x="90" y="30" width="80" height="120" rx="14" fill="url(#k2)"/>
+  <!-- tile grid inside the fused kernel -->
+  <g fill="#ffffff" opacity="0.9">
+    <rect x="102" y="44" width="16" height="16" rx="3"/><rect x="122" y="44" width="16" height="16" rx="3" opacity="0.6"/><rect x="142" y="44" width="16" height="16" rx="3"/>
+    <rect x="102" y="64" width="16" height="16" rx="3" opacity="0.6"/><rect x="122" y="64" width="16" height="16" rx="3"/><rect x="142" y="64" width="16" height="16" rx="3" opacity="0.6"/>
+  </g>
+  <path d="M133 88 L118 116 L131 116 L124 140 L148 106 L135 106 L142 88 Z" fill="#FDE047"/>
+  <!-- wordmark -->
+  <text x="200" y="100" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="64" font-weight="700" fill="#16A34A" letter-spacing="-1">inference<tspan fill="#7C3AED">-kernels</tspan></text>
+  <text x="203" y="144" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="500" fill="#94A3B8" letter-spacing="3">FUSED · TRITON · CUDA</text>
+</svg>

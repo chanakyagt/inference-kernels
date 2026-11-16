@@ -1,0 +1,21 @@
+{
+ "rung": "R4b",
+ "model": "/tmp/bb_runs/ft_effnet_b0_v2",
+ "name": "+ fused dwconv+BN+SiLU (NHWC variant)",
+ "meta": {
+  "dw_blocks_fused": 16,
+  "dw_variant": "nhwc",
+  "conv_bn_folded": 33
+ },
+ "eval_s": 5.150303840637207,
+ "accuracy": 0.8959193030719853,
+ "auc": 0.958989640676481,
+ "tp": 5346,
+ "tn": 4424,
+ "fp": 989,
+ "fn": 146,
+ "n": 10905,
+ "pred_flips_vs_R0s": 523,
+ "max_abs_dprob_vs_R0s": 0.9473785280329139,
+ "mean_abs_dprob_vs_R0s": 0.04547434752561553
+}

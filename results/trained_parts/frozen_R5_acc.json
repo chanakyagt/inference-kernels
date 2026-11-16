@@ -1,0 +1,22 @@
+{
+ "rung": "R5",
+ "model": "frozen",
+ "name": "+ fused Triton scan",
+ "meta": {
+  "dw_blocks_fused": 16,
+  "dw_variant": "nhwc",
+  "conv_bn_folded": 33,
+  "scans_fused": 4
+ },
+ "eval_s": 10.230999231338501,
+ "accuracy": 0.7138927097661623,
+ "auc": 0.7809076104046139,
+ "tp": 4755,
+ "tn": 3030,
+ "fp": 2383,
+ "fn": 737,
+ "n": 10905,
+ "pred_flips_vs_R0s": 128,
+ "max_abs_dprob_vs_R0s": 0.5927382707595825,
+ "mean_abs_dprob_vs_R0s": 0.009840083659109333
+}

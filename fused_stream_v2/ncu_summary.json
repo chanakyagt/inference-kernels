@@ -1,0 +1,350 @@
+{
+ "fused_AB_B1_all": {
+  "kernels": 75,
+  "dram_read_MB": 53.341056,
+  "dram_write_MB": 0.018688,
+  "dram_total_MB": 53.359744,
+  "kernel_time_sum_ms": 0.662112,
+  "top5_by_bytes": [
+   {
+    "name": "_xproj_dt_scan_kernel",
+    "MB": 3.390848
+   },
+   {
+    "name": "_xproj_dt_scan_kernel",
+    "MB": 3.384576
+   },
+   {
+    "name": "_xproj_dt_scan_kernel",
+    "MB": 3.381504
+   },
+   {
+    "name": "_xproj_dt_scan_kernel",
+    "MB": 3.381504
+   },
+   {
+    "name": "_dw_pool_kernel",
+    "MB": 3.203712
+   }
+  ]
+ },
+ "fused_AB_B1_none": {
+  "kernels": 75,
+  "dram_read_MB": 34.0192,
+  "dram_write_MB": 18.150528,
+  "dram_total_MB": 52.169728,
+  "kernel_time_sum_ms": 0.624288,
+  "top5_by_bytes": [
+   {
+    "name": "_xproj_dt_scan_kernel",
+    "MB": 4.801152
+   },
+   {
+    "name": "_xproj_dt_scan_kernel",
+    "MB": 4.778624
+   },
+   {
+    "name": "_xproj_dt_scan_kernel",
+    "MB": 3.651584
+   },
+   {
+    "name": "_xproj_dt_scan_kernel",
+    "MB": 3.417984
+   },
+   {
+    "name": "_norm_inproj_conv_kernel",
+    "MB": 2.580736
+   }
+  ]
+ },
+ "fused_AB_B8_all": {
+  "kernels": 75,
+  "dram_read_MB": 189.907072,
+  "dram_write_MB": 6.83584,
+  "dram_total_MB": 196.742912,
+  "kernel_time_sum_ms": 1.687712,
+  "top5_by_bytes": [
+   {
+    "name": "_dw_pool_kernel",
+    "MB": 25.356672
+   },
+   {
+    "name": "pw_kernel",
+    "MB": 11.067648
+   },
+   {
+    "name": "pw_kernel",
+    "MB": 10.779008
+   },
+   {
+    "name": "_dw_pool_kernel",
+    "MB": 9.480704
+   },
+   {
+    "name": "_dw_pool_kernel",
+    "MB": 9.459328
+   }
+  ]
+ },
+ "fused_AB_B8_none": {
+  "kernels": 75,
+  "dram_read_MB": 44.105472,
+  "dram_write_MB": 91.385216,
+  "dram_total_MB": 135.490688,
+  "kernel_time_sum_ms": 1.552256,
+  "top5_by_bytes": [
+   {
+    "name": "pw_kernel",
+    "MB": 19.772928
+   },
+   {
+    "name": "_dw_pool_kernel",
+    "MB": 11.03872
+   },
+   {
+    "name": "pw_kernel",
+    "MB": 8.565632
+   },
+   {
+    "name": "_dw_pool_kernel",
+    "MB": 8.206208
+   },
+   {
+    "name": "_dw_pool_kernel",
+    "MB": 7.721088
+   }
+  ]
+ },
+ "fused_trunk_torch_mamba_B1_all": {
+  "kernels": 201,
+  "dram_read_MB": 57.853568,
+  "dram_write_MB": 0.0,
+  "dram_total_MB": 57.853568,
+  "kernel_time_sum_ms": 0.967456,
+  "top5_by_bytes": [
+   {
+    "name": "_dw_pool_kernel",
+    "MB": 3.166976
+   },
+   {
+    "name": "std::enable_if<!T7, void>::type internal::kernel<int, int, __half, __half, __hal",
+    "MB": 2.121216
+   },
+   {
+    "name": "std::enable_if<!T7, void>::type internal::kernel<int, int, __half, __half, __hal",
+    "MB": 2.121216
+   },
+   {
+    "name": "std::enable_if<!T7, void>::type internal::kernel<int, int, __half, __half, __hal",
+    "MB": 2.121216
+   },
+   {
+    "name": "std::enable_if<!T7, void>::type internal::kernel<int, int, __half, __half, __hal",
+    "MB": 2.121216
+   }
+  ]
+ },
+ "fused_trunk_torch_mamba_B1_none": {
+  "kernels": 201,
+  "dram_read_MB": 23.804288,
+  "dram_write_MB": 0.359296,
+  "dram_total_MB": 24.163584,
+  "kernel_time_sum_ms": 0.815168,
+  "top5_by_bytes": [
+   {
+    "name": "std::enable_if<!T7, void>::type internal::kernel<int, int, __half, __half, __hal",
+    "MB": 2.169216
+   },
+   {
+    "name": "std::enable_if<!T7, void>::type internal::kernel<int, int, __half, __half, __hal",
+    "MB": 2.149888
+   },
+   {
+    "name": "std::enable_if<!T7, void>::type internal::kernel<int, int, __half, __half, __hal",
+    "MB": 2.124544
+   },
+   {
+    "name": "std::enable_if<!T7, void>::type internal::kernel<int, int, __half, __half, __hal",
+    "MB": 2.111232
+   },
+   {
+    "name": "std::enable_if<!T7, void>::type internal::kernel<int, int, __half, __half, __hal",
+    "MB": 2.108416
+   }
+  ]
+ },
+ "fused_trunk_torch_mamba_B8_all": {
+  "kernels": 205,
+  "dram_read_MB": 211.353216,
+  "dram_write_MB": 6.47488,
+  "dram_total_MB": 217.828096,
+  "kernel_time_sum_ms": 2.033696,
+  "top5_by_bytes": [
+   {
+    "name": "_dw_pool_kernel",
+    "MB": 25.226752
+   },
+   {
+    "name": "pw_kernel",
+    "MB": 11.035776
+   },
+   {
+    "name": "pw_kernel",
+    "MB": 10.71424
+   },
+   {
+    "name": "_dw_pool_kernel",
+    "MB": 9.480704
+   },
+   {
+    "name": "_dw_pool_kernel",
+    "MB": 9.459456
+   }
+  ]
+ },
+ "fused_trunk_torch_mamba_B8_none": {
+  "kernels": 205,
+  "dram_read_MB": 43.965312,
+  "dram_write_MB": 78.563968,
+  "dram_total_MB": 122.52928,
+  "kernel_time_sum_ms": 1.7736,
+  "top5_by_bytes": [
+   {
+    "name": "pw_kernel",
+    "MB": 19.75808
+   },
+   {
+    "name": "_dw_pool_kernel",
+    "MB": 12.795392
+   },
+   {
+    "name": "_dw_pool_kernel",
+    "MB": 10.536576
+   },
+   {
+    "name": "pw_kernel",
+    "MB": 7.12896
+   },
+   {
+    "name": "_stem_kernel",
+    "MB": 6.321536
+   }
+  ]
+ },
+ "unfused_B1_all": {
+  "kernels": 507,
+  "dram_read_MB": 111.027456,
+  "dram_write_MB": 0.0,
+  "dram_total_MB": 111.027456,
+  "kernel_time_sum_ms": 1.857536,
+  "top5_by_bytes": [
+   {
+    "name": "void at::vectorized_elementwise_kernel<4, at::<unnamed>::silu_kernel(at::TensorI",
+    "MB": 3.158912
+   },
+   {
+    "name": "void cudnn::conv2d_grouped_direct_kernel<0, 1, 0, 0, 0, 0, 1, 3, int, float, __h",
+    "MB": 3.152768
+   },
+   {
+    "name": "void at::batch_norm_transform_input_kernel<c10::Half, c10::Half, float, 1, int>(",
+    "MB": 3.15264
+   },
+   {
+    "name": "std::enable_if<!T7, void>::type internal::kernel<int, int, __half, __half, __hal",
+    "MB": 2.123392
+   },
+   {
+    "name": "std::enable_if<!T7, void>::type internal::kernel<int, int, __half, __half, __hal",
+    "MB": 2.121344
+   }
+  ]
+ },
+ "unfused_B1_none": {
+  "kernels": 505,
+  "dram_read_MB": 39.616128,
+  "dram_write_MB": 23.765632,
+  "dram_total_MB": 63.38176,
+  "kernel_time_sum_ms": 1.633088,
+  "top5_by_bytes": [
+   {
+    "name": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_f16_s161616gemm_f16_32x32_32x1_nn",
+    "MB": 2.360192
+   },
+   {
+    "name": "std::enable_if<!T7, void>::type internal::kernel<int, int, __half, __half, __hal",
+    "MB": 2.149888
+   },
+   {
+    "name": "std::enable_if<!T7, void>::type internal::kernel<int, int, __half, __half, __hal",
+    "MB": 2.142208
+   },
+   {
+    "name": "std::enable_if<!T7, void>::type internal::kernel<int, int, __half, __half, __hal",
+    "MB": 2.119296
+   },
+   {
+    "name": "std::enable_if<!T7, void>::type internal::kernel<int, int, __half, __half, __hal",
+    "MB": 2.118016
+   }
+  ]
+ },
+ "unfused_B8_all": {
+  "kernels": 507,
+  "dram_read_MB": 588.318464,
+  "dram_write_MB": 24.168704,
+  "dram_total_MB": 612.487168,
+  "kernel_time_sum_ms": 4.455008,
+  "top5_by_bytes": [
+   {
+    "name": "void at::batch_norm_transform_input_kernel<c10::Half, c10::Half, float, 1, int>(",
+    "MB": 35.035648
+   },
+   {
+    "name": "void at::vectorized_elementwise_kernel<4, at::<unnamed>::silu_kernel(at::TensorI",
+    "MB": 29.025536
+   },
+   {
+    "name": "void at::<unnamed>::conv_depthwise2d_forward_kernel<3, c10::Half, int>(torch::Ge",
+    "MB": 25.367552
+   },
+   {
+    "name": "ampere_fp16_s16816gemm_fp16_256x128_ldg8_f2f_stages_32x3_nn",
+    "MB": 11.469568
+   },
+   {
+    "name": "void at::<unnamed>::conv_depthwise2d_forward_kernel<5, c10::Half, int>(torch::Ge",
+    "MB": 9.537792
+   }
+  ]
+ },
+ "unfused_B8_none": {
+  "kernels": 509,
+  "dram_read_MB": 104.341504,
+  "dram_write_MB": 199.978368,
+  "dram_total_MB": 304.319872,
+  "kernel_time_sum_ms": 3.67904,
+  "top5_by_bytes": [
+   {
+    "name": "void at::batch_norm_transform_input_kernel<c10::Half, c10::Half, float, 1, int>(",
+    "MB": 50.069248
+   },
+   {
+    "name": "void at::vectorized_elementwise_kernel<4, at::<unnamed>::silu_kernel(at::TensorI",
+    "MB": 34.058752
+   },
+   {
+    "name": "ampere_fp16_s16816gemm_fp16_256x128_ldg8_f2f_stages_32x3_nn",
+    "MB": 20.2688
+   },
+   {
+    "name": "void at::<unnamed>::conv_depthwise2d_forward_kernel<3, c10::Half, int>(torch::Ge",
+    "MB": 13.979392
+   },
+   {
+    "name": "void at::elementwise_kernel<128, 4, void at::gpu_kernel_impl_nocast<at::BinaryFu",
+    "MB": 13.869696
+   }
+  ]
+ }
+}

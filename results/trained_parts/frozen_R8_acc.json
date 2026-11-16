@@ -1,0 +1,22 @@
+{
+ "rung": "R8",
+ "model": "frozen",
+ "name": "R6c + INT8 weight-only head Linears",
+ "meta": {
+  "conv_bn_folded": 49,
+  "scans_fused": 4,
+  "head_linears_quantized": 18,
+  "head_linears_total": 19
+ },
+ "eval_s": 4.569235324859619,
+ "accuracy": 0.7148097203117836,
+ "auc": 0.7785954452130227,
+ "tp": 4741,
+ "tn": 3054,
+ "fp": 2359,
+ "fn": 751,
+ "n": 10905,
+ "pred_flips_vs_R0s": 190,
+ "max_abs_dprob_vs_R0s": 0.7806508243083954,
+ "mean_abs_dprob_vs_R0s": 0.015605423620517474
+}

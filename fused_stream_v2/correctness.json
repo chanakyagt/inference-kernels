@@ -1,0 +1,106 @@
+{
+ "head_on_stored_features": {
+  "accuracy": 0.8915176524530032,
+  "auc": 0.9362817541972611,
+  "tp": 5305,
+  "tn": 4417,
+  "fp": 996,
+  "fn": 187,
+  "n": 10905
+ },
+ "ref_fp32_end_to_end": {
+  "accuracy": 0.8909674461256304,
+  "auc": 0.9368289283345683,
+  "tp": 5303,
+  "tn": 4413,
+  "fp": 1000,
+  "fn": 189,
+  "n": 10905
+ },
+ "fp32_trunk_plus_fused_kernels_A_B_fp32": {
+  "accuracy": 0.8909674461256304,
+  "auc": 0.9368298533822906,
+  "tp": 5303,
+  "tn": 4413,
+  "fp": 1000,
+  "fn": 189,
+  "n": 10905,
+  "flips_vs_ref_fp32": 0,
+  "max_abs_dprob_vs_ref_fp32": 5.066394805908203e-07
+ },
+ "fused_path_fp16": {
+  "accuracy": 0.8911508482347547,
+  "auc": 0.9369773396273356,
+  "tp": 5302,
+  "tn": 4416,
+  "fp": 997,
+  "fn": 190,
+  "n": 10905,
+  "flips_vs_ref_fp32": 6,
+  "max_abs_dprob_vs_ref_fp32": 0.06524741649627686
+ },
+ "fused_trunk_torch_head_fp16": {
+  "accuracy": 0.8911508482347547,
+  "auc": 0.9369702083503486,
+  "tp": 5302,
+  "tn": 4416,
+  "fp": 997,
+  "fn": 190,
+  "n": 10905,
+  "flips_vs_ref_fp32": 6,
+  "max_abs_dprob_vs_ref_fp32": 0.06483018398284912
+ },
+ "unfused_pytorch_fp16": {
+  "accuracy": 0.8909674461256304,
+  "auc": 0.9368778044924085,
+  "tp": 5303,
+  "tn": 4413,
+  "fp": 1000,
+  "fn": 189,
+  "n": 10905,
+  "flips_vs_ref_fp32": 4,
+  "max_abs_dprob_vs_ref_fp32": 0.11031234264373779
+ },
+ "stream_30_frames_vs_parallel": {
+  "streams": 4,
+  "frames": 30,
+  "checks": {
+   "fused_kernels_A_B_fp32_on_fp32_trunk": [
+    {
+     "frames": 1,
+     "max_abs_logit_diff_vs_parallel_fp32": 1.430511474609375e-06,
+     "max_abs_logit": 7.234773635864258
+    },
+    {
+     "frames": 10,
+     "max_abs_logit_diff_vs_parallel_fp32": 4.76837158203125e-07,
+     "max_abs_logit": 5.090140342712402
+    },
+    {
+     "frames": 30,
+     "max_abs_logit_diff_vs_parallel_fp32": 2.384185791015625e-07,
+     "max_abs_logit": 4.054879188537598
+    }
+   ],
+   "fused_path_fp16": [
+    {
+     "frames": 1,
+     "max_abs_logit_diff_vs_parallel_fp32": 0.014351367950439453,
+     "max_abs_logit": 7.234773635864258
+    },
+    {
+     "frames": 10,
+     "max_abs_logit_diff_vs_parallel_fp32": 0.008929967880249023,
+     "max_abs_logit": 5.090140342712402
+    },
+    {
+     "frames": 30,
+     "max_abs_logit_diff_vs_parallel_fp32": 0.0018498897552490234,
+     "max_abs_logit": 4.054879188537598
+    }
+   ]
+  }
+ },
+ "n_images": 10905,
+ "wall_s": 241.7
+}

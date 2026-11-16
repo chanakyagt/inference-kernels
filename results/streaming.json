@@ -1,0 +1,179 @@
+{
+ "verify": [
+  {
+   "dtype": "float32",
+   "frames": 30,
+   "max_abs_diff_vs_parallel_fp32": 1.0728836059570312e-06,
+   "logit_abs_max": 0.4367198646068573,
+   "max_abs_diff_torch_step_vs_triton_step": 3.5762786865234375e-07
+  },
+  {
+   "dtype": "float32",
+   "frames": 300,
+   "max_abs_diff_vs_parallel_fp32": 1.6689300537109375e-06,
+   "logit_abs_max": 0.9996675252914429,
+   "max_abs_diff_torch_step_vs_triton_step": 5.364418029785156e-07
+  },
+  {
+   "dtype": "bfloat16",
+   "frames": 30,
+   "max_abs_diff_vs_parallel_fp32": 0.011744588613510132,
+   "logit_abs_max": 0.4367198646068573,
+   "max_abs_diff_vs_parallel_same_dtype": 0.0146484375,
+   "max_abs_diff_torch_step_vs_triton_step": 0.0
+  },
+  {
+   "dtype": "bfloat16",
+   "frames": 300,
+   "max_abs_diff_vs_parallel_fp32": 0.02376997470855713,
+   "logit_abs_max": 0.9996675252914429,
+   "max_abs_diff_vs_parallel_same_dtype": 0.0390625,
+   "max_abs_diff_torch_step_vs_triton_step": 0.0009765625
+  }
+ ],
+ "idle_check": {
+  "samples_pct": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "passed": true,
+  "waited_s": 25.2
+ },
+ "gpu_state_start": {
+  "util_pct": 0.0,
+  "sm_clock_mhz": 210.0,
+  "mem_clock_mhz": 405.0,
+  "max_sm_clock_mhz": 3105.0,
+  "temp_c": 51.0,
+  "power_w": 6.8,
+  "mem_used_mib": 2626.0
+ },
+ "timing": {
+  "trunk": {
+   "1": 1.1898880004882812,
+   "30": 7.156735897064209
+  },
+  "head": {
+   "mamba4_trained": {
+    "30": {
+     "recompute_torch_scan_loop_ms": 11.147583961486816,
+     "recompute_fused_scan_ms": 3.1242880821228027,
+     "recompute_fused_scan_peak_mb": 0.7734375,
+     "step_eager_ms": 3.1150081157684326,
+     "step_peak_mb": 0.0595703125,
+     "step_state_bytes": 288768,
+     "step_cuda_graph_ms": 0.20272000133991241,
+     "modeled_flops_recompute": 689602560,
+     "modeled_flops_step": 22986752
+    },
+    "300": {
+     "recompute_torch_scan_loop_ms": 210.59075927734375,
+     "recompute_fused_scan_ms": 5.714943885803223,
+     "recompute_fused_scan_peak_mb": 7.88623046875,
+     "step_eager_ms": 1.5452159643173218,
+     "step_peak_mb": 0.0595703125,
+     "step_state_bytes": 288768,
+     "step_cuda_graph_ms": 0.21401600539684296,
+     "modeled_flops_recompute": 6896025600,
+     "modeled_flops_step": 22986752
+    },
+    "3000": {
+     "recompute_fused_scan_ms": 10.854399681091309,
+     "recompute_fused_scan_peak_mb": 73.048828125,
+     "step_eager_ms": 2.12172794342041,
+     "step_peak_mb": 0.0595703125,
+     "step_state_bytes": 288768,
+     "step_cuda_graph_ms": 0.23651200532913208,
+     "modeled_flops_recompute": 68960256000,
+     "modeled_flops_step": 22986752
+    }
+   },
+   "mamba1": {
+    "30": {
+     "recompute_torch_scan_loop_ms": 3.5448319911956787,
+     "recompute_fused_scan_ms": 0.49641600251197815,
+     "recompute_fused_scan_peak_mb": 0.7734375,
+     "step_eager_ms": 0.48742398619651794,
+     "step_peak_mb": 0.0595703125,
+     "step_state_bytes": 73728,
+     "step_cuda_graph_ms": 0.06348799914121628,
+     "modeled_flops_recompute": 201891840,
+     "modeled_flops_step": 6729728
+    },
+    "300": {
+     "recompute_torch_scan_loop_ms": 23.5743350982666,
+     "recompute_fused_scan_ms": 0.5089600086212158,
+     "recompute_fused_scan_peak_mb": 7.55810546875,
+     "step_eager_ms": 0.4761599898338318,
+     "step_peak_mb": 0.0595703125,
+     "step_state_bytes": 73728,
+     "step_cuda_graph_ms": 0.06947200000286102,
+     "modeled_flops_recompute": 2018918400,
+     "modeled_flops_step": 6729728
+    },
+    "3000": {
+     "recompute_fused_scan_ms": 2.8515520095825195,
+     "recompute_fused_scan_peak_mb": 72.2265625,
+     "step_eager_ms": 1.0302400588989258,
+     "step_peak_mb": 0.0595703125,
+     "step_state_bytes": 73728,
+     "step_cuda_graph_ms": 0.0764160007238388,
+     "modeled_flops_recompute": 20189184000,
+     "modeled_flops_step": 6729728
+    }
+   },
+   "attention1": {
+    "30": {
+     "recompute_sdpa_ms": 0.476063996553421,
+     "recompute_sdpa_peak_mb": 0.205078125,
+     "recompute_naive_weights_ms": 0.6092479825019836,
+     "recompute_naive_weights_peak_mb": 0.234375,
+     "kv_cache_step_ms": 0.47305598855018616,
+     "kv_cache_step_peak_mb": 0.0087890625,
+     "kv_cache_bytes": 61440,
+     "modeled_flops_recompute": 104079360,
+     "modeled_flops_kv_cache_step": 3469312
+    },
+    "300": {
+     "recompute_sdpa_ms": 0.42211198806762695,
+     "recompute_sdpa_peak_mb": 2.05078125,
+     "recompute_naive_weights_ms": 0.4423680007457733,
+     "recompute_naive_weights_peak_mb": 3.42431640625,
+     "kv_cache_step_ms": 0.4864000082015991,
+     "kv_cache_step_peak_mb": 0.01171875,
+     "kv_cache_bytes": 614400,
+     "modeled_flops_recompute": 1206681600,
+     "modeled_flops_kv_cache_step": 4022272
+    },
+    "3000": {
+     "recompute_sdpa_ms": 0.8273919820785522,
+     "recompute_sdpa_peak_mb": 20.54052734375,
+     "recompute_naive_weights_ms": 3.5160000324249268,
+     "recompute_naive_weights_peak_mb": 173.16650390625,
+     "kv_cache_step_ms": 0.48025599122047424,
+     "kv_cache_step_peak_mb": 0.01953125,
+     "kv_cache_bytes": 6144000,
+     "modeled_flops_recompute": 28655616000,
+     "modeled_flops_kv_cache_step": 9551872
+    }
+   }
+  },
+  "window30_total": {
+   "(a) recompute everything: trunk on 30 frames + 4-layer Mamba, fused scan": 10.281023979187012,
+   "(a2) cache old features: trunk on 1 frame + 4-layer Mamba over 30, fused scan": 4.314176082611084,
+   "(b) recurrent step: trunk on 1 frame + eager step": 4.304896116256714,
+   "(b2) recurrent step: trunk on 1 frame + CUDA-graph step": 1.3926080018281937
+  }
+ },
+ "gpu_state_end": {
+  "util_pct": 69.0,
+  "sm_clock_mhz": 2805.0,
+  "mem_clock_mhz": 8751.0,
+  "max_sm_clock_mhz": 3105.0,
+  "temp_c": 54.0,
+  "power_w": 60.49,
+  "mem_used_mib": 2250.0
+ },
+ "note": "Frame tensors are random but fixed for timing; outputs match the parallel scan, so accuracy is unchanged."
+}

@@ -1,0 +1,1028 @@
+{
+ "batch": 64,
+ "iters": 50,
+ "idle_check": {
+  "samples_pct": [
+   0.0,
+   0.0,
+   4.0
+  ],
+  "passed": true,
+  "waited_s": 116.4
+ },
+ "gpu_state_start": {
+  "util_pct": 4.0,
+  "sm_clock_mhz": 210.0,
+  "mem_clock_mhz": 405.0,
+  "max_sm_clock_mhz": 3105.0,
+  "temp_c": 35.0,
+  "power_w": 9.48,
+  "mem_used_mib": 2300.0
+ },
+ "by_stage_kind": [
+  {
+   "stage": "head conv",
+   "kind": "head conv",
+   "own_ms": 0.12622336208820342,
+   "trt_ms": 0.06866815999150276,
+   "own_over_trt": 1.83816432687031
+  },
+  {
+   "stage": "pool+fc",
+   "kind": "pool+fc",
+   "own_ms": 0.02579072032356635,
+   "trt_ms": 0.010895359870046377,
+   "own_over_trt": 2.367128817329883
+  },
+  {
+   "stage": "reformat/other",
+   "kind": "reformat/other",
+   "own_ms": 0.0,
+   "trt_ms": 0.010280959941446781,
+   "own_over_trt": 0.0
+  },
+  {
+   "stage": "stage1",
+   "kind": "SE",
+   "own_ms": 0.8038227319717407,
+   "trt_ms": 0.7384281582571566,
+   "own_over_trt": 1.08855915498798
+  },
+  {
+   "stage": "stage1",
+   "kind": "depthwise",
+   "own_ms": 0.5236959862709045,
+   "trt_ms": 1.1363897597789765,
+   "own_over_trt": 0.4608418738063615
+  },
+  {
+   "stage": "stage1",
+   "kind": "project 1x1",
+   "own_ms": 0.665952000617981,
+   "trt_ms": 0.4541235190629959,
+   "own_over_trt": 1.4664556506389625
+  },
+  {
+   "stage": "stage1",
+   "kind": "residual/other",
+   "own_ms": 0.005971193313598633,
+   "trt_ms": 0.0,
+   "own_over_trt": null
+  },
+  {
+   "stage": "stage2",
+   "kind": "SE",
+   "own_ms": 1.4632889533042908,
+   "trt_ms": 1.5118188791163267,
+   "own_over_trt": 0.9678996429516727
+  },
+  {
+   "stage": "stage2",
+   "kind": "depthwise",
+   "own_ms": 1.8543494141101835,
+   "trt_ms": 2.5787961542606355,
+   "own_over_trt": 0.7190756086115858
+  },
+  {
+   "stage": "stage2",
+   "kind": "expand 1x1",
+   "own_ms": 5.610149729251861,
+   "trt_ms": 1.2633107101917267,
+   "own_over_trt": 4.440831288765402
+  },
+  {
+   "stage": "stage2",
+   "kind": "project 1x1",
+   "own_ms": 0.7693478417396545,
+   "trt_ms": 0.751496958732605,
+   "own_over_trt": 1.0237537661325402
+  },
+  {
+   "stage": "stage2",
+   "kind": "residual/other",
+   "own_ms": 0.06410753846168538,
+   "trt_ms": 0.0,
+   "own_over_trt": null
+  },
+  {
+   "stage": "stage3",
+   "kind": "SE",
+   "own_ms": 0.48895743787288665,
+   "trt_ms": 0.4505817614588886,
+   "own_over_trt": 1.0851691739358151
+  },
+  {
+   "stage": "stage3",
+   "kind": "depthwise",
+   "own_ms": 0.8010873609781266,
+   "trt_ms": 1.1203622439503669,
+   "own_over_trt": 0.7150253101653214
+  },
+  {
+   "stage": "stage3",
+   "kind": "expand 1x1",
+   "own_ms": 1.9299385488033294,
+   "trt_ms": 0.4865593652427197,
+   "own_over_trt": 3.966501698802121
+  },
+  {
+   "stage": "stage3",
+   "kind": "project 1x1",
+   "own_ms": 0.27530816331505775,
+   "trt_ms": 0.22689024060964583,
+   "own_over_trt": 1.2133979962087162
+  },
+  {
+   "stage": "stage3",
+   "kind": "residual/other",
+   "own_ms": 0.03711106881499315,
+   "trt_ms": 0.0,
+   "own_over_trt": null
+  },
+  {
+   "stage": "stage4",
+   "kind": "SE",
+   "own_ms": 0.22971967846155167,
+   "trt_ms": 0.18529728087596595,
+   "own_over_trt": 1.2397358308529154
+  },
+  {
+   "stage": "stage4",
+   "kind": "depthwise",
+   "own_ms": 0.2401350388675928,
+   "trt_ms": 0.40695296144112947,
+   "own_over_trt": 0.590080578397096
+  },
+  {
+   "stage": "stage4",
+   "kind": "expand 1x1",
+   "own_ms": 0.759526395201683,
+   "trt_ms": 0.2986521583795548,
+   "own_over_trt": 2.543180666507712
+  },
+  {
+   "stage": "stage4",
+   "kind": "project 1x1",
+   "own_ms": 0.16581888310611248,
+   "trt_ms": 0.156689279563725,
+   "own_over_trt": 1.058265655236959
+  },
+  {
+   "stage": "stage4",
+   "kind": "residual/other",
+   "own_ms": 0.06724864721298213,
+   "trt_ms": 0.0,
+   "own_over_trt": null
+  },
+  {
+   "stage": "stage5",
+   "kind": "SE",
+   "own_ms": 0.4245382407307625,
+   "trt_ms": 0.38122367884032426,
+   "own_over_trt": 1.1136198098245114
+  },
+  {
+   "stage": "stage5",
+   "kind": "depthwise",
+   "own_ms": 0.5264172863960266,
+   "trt_ms": 0.7039884843677282,
+   "own_over_trt": 0.7477640587669793
+  },
+  {
+   "stage": "stage5",
+   "kind": "expand 1x1",
+   "own_ms": 0.4562259225547314,
+   "trt_ms": 0.2715724802017212,
+   "own_over_trt": 1.6799416576224937
+  },
+  {
+   "stage": "stage5",
+   "kind": "project 1x1",
+   "own_ms": 0.27993344262242315,
+   "trt_ms": 0.23792063891887666,
+   "own_over_trt": 1.1765832669853897
+  },
+  {
+   "stage": "stage5",
+   "kind": "residual/other",
+   "own_ms": 0.0688518217206,
+   "trt_ms": 0.0,
+   "own_over_trt": null
+  },
+  {
+   "stage": "stage6",
+   "kind": "SE",
+   "own_ms": 0.3012006399780512,
+   "trt_ms": 0.1926099193561822,
+   "own_over_trt": 1.5637857125159713
+  },
+  {
+   "stage": "stage6",
+   "kind": "depthwise",
+   "own_ms": 0.2740608086436987,
+   "trt_ms": 0.2791705566272139,
+   "own_over_trt": 0.9816966801755587
+  },
+  {
+   "stage": "stage6",
+   "kind": "expand 1x1",
+   "own_ms": 0.44923776417970657,
+   "trt_ms": 0.25229120343923567,
+   "own_over_trt": 1.7806318970130304
+  },
+  {
+   "stage": "stage6",
+   "kind": "project 1x1",
+   "own_ms": 0.2042367995530367,
+   "trt_ms": 0.14399296022951602,
+   "own_over_trt": 1.4183804487906608
+  },
+  {
+   "stage": "stage6",
+   "kind": "residual/other",
+   "own_ms": 0.07654206119477747,
+   "trt_ms": 0.0,
+   "own_over_trt": null
+  },
+  {
+   "stage": "stage7",
+   "kind": "SE",
+   "own_ms": 0.0821343992650509,
+   "trt_ms": 0.049555839933454984,
+   "own_over_trt": 1.6574111018064337
+  },
+  {
+   "stage": "stage7",
+   "kind": "depthwise",
+   "own_ms": 0.03449024014174938,
+   "trt_ms": 0.05348864030092955,
+   "own_over_trt": 0.6448142997785269
+  },
+  {
+   "stage": "stage7",
+   "kind": "expand 1x1",
+   "own_ms": 0.09400448054075242,
+   "trt_ms": 0.051206401214003563,
+   "own_over_trt": 1.8357954925964362
+  },
+  {
+   "stage": "stage7",
+   "kind": "project 1x1",
+   "own_ms": 0.09573248118162155,
+   "trt_ms": 0.05446207955479622,
+   "own_over_trt": 1.7577823315634087
+  },
+  {
+   "stage": "stage7",
+   "kind": "residual/other",
+   "own_ms": 0.00903039954602719,
+   "trt_ms": 0.0,
+   "own_over_trt": null
+  },
+  {
+   "stage": "stem",
+   "kind": "stem",
+   "own_ms": 1.4231232190132141,
+   "trt_ms": 1.4871942347288132,
+   "own_over_trt": 0.9569181925135137
+  }
+ ],
+ "by_kind": {
+  "head conv": {
+   "own_ms": 0.12622336208820342,
+   "trt_ms": 0.06866815999150276,
+   "own_over_trt": 1.83816432687031
+  },
+  "pool+fc": {
+   "own_ms": 0.02579072032356635,
+   "trt_ms": 0.010895359870046377,
+   "own_over_trt": 2.367128817329883
+  },
+  "reformat/other": {
+   "own_ms": 0.0,
+   "trt_ms": 0.010280959941446781,
+   "own_over_trt": 0.0
+  },
+  "SE": {
+   "own_ms": 3.793662081584334,
+   "trt_ms": 3.5095155178382993,
+   "own_over_trt": 1.0809646124377463
+  },
+  "depthwise": {
+   "own_ms": 4.2542361354082825,
+   "trt_ms": 6.27914880072698,
+   "own_over_trt": 0.6775179678678327
+  },
+  "project 1x1": {
+   "own_ms": 2.456329612135887,
+   "trt_ms": 2.0255756766721604,
+   "own_over_trt": 1.2126575375210946
+  },
+  "residual/other": {
+   "own_ms": 0.32886273026466395,
+   "trt_ms": 0.0,
+   "own_over_trt": null
+  },
+  "expand 1x1": {
+   "own_ms": 9.299082840532062,
+   "trt_ms": 2.6235923186689614,
+   "own_over_trt": 3.544408471682752
+  },
+  "stem": {
+   "own_ms": 1.4231232190132141,
+   "trt_ms": 1.4871942347288132,
+   "own_over_trt": 0.9569181925135137
+  }
+ },
+ "own_total_ms_eager_hooks": 22.4178564453125,
+ "own_sum_ms": 21.707310701350217,
+ "trt_sum_ms": 16.01487102843821,
+ "trt_layers": [
+  {
+   "layer": "node_conv2d_6",
+   "ms": 1.0212665629386901,
+   "group": [
+    "stage2",
+    "depthwise"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm50_xmma_convolution_depthwiseHMMA_FP16NHWCx8_TR3_TS3_STRIDEH2_STRIDEW2"
+  },
+  {
+   "layer": "node_conv2d_5 + PWN(PWN(node_Sigmoid_6), PWN(node_silu_3))",
+   "ms": 0.9219987106323242,
+   "group": [
+    "stage2",
+    "expand 1x1"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_fprop_implicit_gemm_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x32x32_stage4_warpsize4x1x1_g1_tensor16x8x16_linkable"
+  },
+  {
+   "layer": "node_conv2d_11",
+   "ms": 0.6220761609077453,
+   "group": [
+    "stage2",
+    "depthwise"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_depthwise_convolution_fprop_tiling_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize1x4x4_1x3x3_1x1x1_1x1x1_stage6_warpsize4x1x1_g32_betaFalse"
+  },
+  {
+   "layer": "node_conv2d_1",
+   "ms": 0.5926572799682617,
+   "group": [
+    "stage1",
+    "depthwise"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_depthwise_convolution_fprop_tiling_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize1x4x4_1x3x3_1x1x1_1x1x1_stage6_warpsize4x1x1_g64_betaFalse"
+  },
+  {
+   "layer": "node_conv2d",
+   "ms": 0.5853337585926056,
+   "group": [
+    "stem",
+    "stem"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm75_xmma_fprop_implicit_gemm_indexed_wo_smem_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x32x64_stage1_warpsize4x1x1_g1_tensor16x8x8_aligna2_alignc8"
+  },
+  {
+   "layer": "__myl_CastMulTanhMulAddMulCast_myl27_0",
+   "ms": 0.5836236727237701,
+   "group": [
+    "stage2",
+    "depthwise"
+   ],
+   "type": "kgen",
+   "tactic": "__myl_CastMulTanhMulAddMulCast_0x209304aebdb550d1b954bd04e3d4cce4"
+  },
+  {
+   "layer": "__myl_CastMulTanhMulAddMulCast_myl2_0",
+   "ms": 0.5611206358671188,
+   "group": [
+    "stem",
+    "stem"
+   ],
+   "type": "kgen",
+   "tactic": "__myl_CastMulTanhMulAddMulCast_0x37b8619eced9f5e9e854f0c6cfbae76e"
+  },
+  {
+   "layer": "__myl_CastMulTanhMulAddMulCast_myl4_0",
+   "ms": 0.5437324798107147,
+   "group": [
+    "stage1",
+    "depthwise"
+   ],
+   "type": "kgen",
+   "tactic": "__myl_CastMulTanhMulAddMulCast_0x37b8619eced9f5e9e854f0c6cfbae76e"
+  },
+  {
+   "layer": "__myl_CastCastMulTanhMulAddMulCast_myl34_0",
+   "ms": 0.5253817617893219,
+   "group": [
+    "stage2",
+    "SE"
+   ],
+   "type": "kgen",
+   "tactic": "__myl_CastCastMulTanhMulAddMulCast_0x197a615a9fb8e73b6b03bb85eafbfe2a"
+  },
+  {
+   "layer": "node_conv2d_16",
+   "ms": 0.459917442202568,
+   "group": [
+    "stage3",
+    "depthwise"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_depthwise_convolution_fprop_tiling_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize1x4x4_1x5x5_1x2x2_1x1x1_stage3_warpsize4x1x1_g32_betaFalse"
+  },
+  {
+   "layer": "node_conv2d_14 + node_add",
+   "ms": 0.4549932795763016,
+   "group": [
+    "stage2",
+    "project 1x1"
+   ],
+   "type": "CaskGemmConvolution",
+   "tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16"
+  },
+  {
+   "layer": "node_conv2d_4",
+   "ms": 0.4541235190629959,
+   "group": [
+    "stage1",
+    "project 1x1"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm75_xmma_fprop_implicit_gemm_indexed_wo_smem_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x32x64_stage1_warpsize4x1x1_g1_tensor16x8x8_aligna2_alignc4"
+  },
+  {
+   "layer": "__myl_CastCastMulTanhMulAddMulCast_myl10_0",
+   "ms": 0.4351807999610901,
+   "group": [
+    "stage1",
+    "SE"
+   ],
+   "type": "kgen",
+   "tactic": "__myl_CastCastMulTanhMulAddMulCast_0x159f973ea56446cf08434e37a9f14c86"
+  },
+  {
+   "layer": "node_mean_2",
+   "ms": 0.41049663841724393,
+   "group": [
+    "stage2",
+    "SE"
+   ],
+   "type": "CaskPooling",
+   "tactic": "sm50_xmma_pooling_fw_4d_FP16FP32NHWC_Average_FastDiv_CAlign8"
+  },
+  {
+   "layer": "node_conv2d_15 + PWN(PWN(node_Sigmoid_16), PWN(node_silu_9))",
+   "ms": 0.3807833629846573,
+   "group": [
+    "stage3",
+    "expand 1x1"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_fprop_implicit_gemm_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x256x32_stage3_warpsize2x4x1_g1_tensor16x8x16_simple_t1r1s1_linkable"
+  },
+  {
+   "layer": "__myl_CastMulTanhMulAddMulCast_myl15_0",
+   "ms": 0.3518297576904297,
+   "group": [
+    "stage2",
+    "depthwise"
+   ],
+   "type": "kgen",
+   "tactic": "__myl_CastMulTanhMulAddMulCast_0x4fdfcaa437812bee010cd4dca325d705"
+  },
+  {
+   "layer": "__myl_CastCastMulTanhMulAddMulCast_myl21_0",
+   "ms": 0.3460755205154419,
+   "group": [
+    "stage2",
+    "SE"
+   ],
+   "type": "kgen",
+   "tactic": "__myl_CastCastMulTanhMulAddMulCast_0x99a2bb529e49a16eed12638f3bca8888"
+  },
+  {
+   "layer": "node_conv2d_10 + PWN(PWN(node_Sigmoid_11), PWN(node_silu_6))",
+   "ms": 0.34131199955940245,
+   "group": [
+    "stage2",
+    "expand 1x1"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_fprop_implicit_gemm_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x256x32_stage3_warpsize2x4x1_g1_tensor16x8x16_simple_t1r1s1_linkable"
+  },
+  {
+   "layer": "Reformatting CopyNode for Input Tensor 0 to node_conv2d",
+   "ms": 0.34073984026908877,
+   "group": [
+    "stem",
+    "stem"
+   ],
+   "type": "Reformat",
+   "tactic": null
+  },
+  {
+   "layer": "node_conv2d_9",
+   "ms": 0.2965036791563034,
+   "group": [
+    "stage2",
+    "project 1x1"
+   ],
+   "type": "CaskGemmConvolution",
+   "tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16"
+  },
+  {
+   "layer": "node_conv2d_21",
+   "ms": 0.2941516816616058,
+   "group": [
+    "stage3",
+    "depthwise"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_depthwise_convolution_fprop_tiling_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize1x4x4_1x5x5_1x1x1_1x1x1_stage4_warpsize4x1x1_g64_betaFalse_relu"
+  },
+  {
+   "layer": "node_mean",
+   "ms": 0.29031999826431276,
+   "group": [
+    "stage1",
+    "SE"
+   ],
+   "type": "CaskPooling",
+   "tactic": "sm50_xmma_pooling_fw_4d_FP16FP32NHWC_Average_FastDiv_CAlign8"
+  },
+  {
+   "layer": "__myl_CastMulTanhMulAddMulCast_myl53_0",
+   "ms": 0.2351379182934761,
+   "group": [
+    "stage3",
+    "depthwise"
+   ],
+   "type": "kgen",
+   "tactic": "__myl_CastMulTanhMulAddMulCast_0xfb18a3136fc9f4ac27cdc74bc54e50bd"
+  },
+  {
+   "layer": "node_mean_1",
+   "ms": 0.20443775832653047,
+   "group": [
+    "stage2",
+    "SE"
+   ],
+   "type": "CaskPooling",
+   "tactic": "sm50_xmma_pooling_fw_4d_FP16FP32NHWC_Average_FastDiv_CAlign8"
+  },
+  {
+   "layer": "node_conv2d_24 + node_add_1",
+   "ms": 0.1892383998632431,
+   "group": [
+    "stage3",
+    "project 1x1"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm75_xmma_fprop_implicit_gemm_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize64x64x64_stage1_warpsize2x2x1_g1_tensor16x8x8"
+  },
+  {
+   "layer": "node_conv2d_26",
+   "ms": 0.18364032059907914,
+   "group": [
+    "stage4",
+    "depthwise"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_depthwise_convolution_fprop_tiling_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize1x4x8_1x3x3_1x2x2_1x1x1_stage2_warpsize4x1x1_g32_betaFalse_relu"
+  },
+  {
+   "layer": "__myl_CastCastMulTanhMulAddMulCast_myl60_0",
+   "ms": 0.1779097616672516,
+   "group": [
+    "stage3",
+    "SE"
+   ],
+   "type": "kgen",
+   "tactic": "__myl_CastCastMulTanhMulAddMulCast_0x6575f77d70234cb5223862f54f89a682"
+  },
+  {
+   "layer": "node_conv2d_51",
+   "ms": 0.1728896015882492,
+   "group": [
+    "stage5",
+    "depthwise"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_depthwise_convolution_fprop_tiling_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize1x8x8_1x5x5_1x1x1_1x1x1_stage2_warpsize4x1x1_g64_betaFalse_relu"
+  },
+  {
+   "layer": "node_conv2d_25 + PWN(PWN(node_Sigmoid_26), PWN(node_silu_15))",
+   "ms": 0.16060479819774628,
+   "group": [
+    "stage4",
+    "expand 1x1"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_fprop_implicit_gemm_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x256x32_stage3_warpsize2x4x1_g1_tensor16x8x16_linkable"
+  },
+  {
+   "layer": "node_mean_4",
+   "ms": 0.14405696019530295,
+   "group": [
+    "stage3",
+    "SE"
+   ],
+   "type": "CaskPooling",
+   "tactic": "sm50_xmma_pooling_nd_NDHWC_kAVERAGE_kGENERIC_3D_POOLING_MODE_kHALF_3"
+  },
+  {
+   "layer": "node_conv2d_46",
+   "ms": 0.14393216133117676,
+   "group": [
+    "stage5",
+    "depthwise"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_depthwise_convolution_fprop_tiling_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize1x8x8_1x5x5_1x1x1_1x1x1_stage2_warpsize4x1x1_g64_betaFalse_relu"
+  },
+  {
+   "layer": "__myl_CastMulTanhMulAddMulCast_myl113_0",
+   "ms": 0.14158464193344117,
+   "group": [
+    "stage5",
+    "depthwise"
+   ],
+   "type": "kgen",
+   "tactic": "__myl_CastMulTanhMulAddMulCast_0xdde746a48d80d140180324b65795bc93"
+  },
+  {
+   "layer": "__myl_CastMulTanhMulAddMulCast_myl40_0",
+   "ms": 0.13115520179271697,
+   "group": [
+    "stage3",
+    "depthwise"
+   ],
+   "type": "kgen",
+   "tactic": "__myl_CastMulTanhMulAddMulCast_0x36beb1c99c36d7577bfd67ed054805fd"
+  },
+  {
+   "layer": "__myl_CastMulTanhMulAddMulCast_myl126_0",
+   "ms": 0.12863936066627502,
+   "group": [
+    "stage5",
+    "depthwise"
+   ],
+   "type": "kgen",
+   "tactic": "__myl_CastMulTanhMulAddMulCast_0xdde746a48d80d140180324b65795bc93"
+  },
+  {
+   "layer": "node_conv2d_50 + PWN(PWN(node_Sigmoid_51), PWN(node_silu_30))",
+   "ms": 0.11560831993818282,
+   "group": [
+    "stage5",
+    "expand 1x1"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_fprop_implicit_gemm_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x256x32_stage3_warpsize2x4x1_g1_tensor16x8x16_simple_t1r1s1_linkable"
+  },
+  {
+   "layer": "node_conv2d_20 + PWN(PWN(node_Sigmoid_21), PWN(node_silu_12))",
+   "ms": 0.10577600225806236,
+   "group": [
+    "stage3",
+    "expand 1x1"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_fprop_implicit_gemm_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x256x32_stage3_warpsize2x4x1_g1_tensor16x8x16_linkable"
+  },
+  {
+   "layer": "node_conv2d_45 + PWN(PWN(node_Sigmoid_46), PWN(node_silu_27))",
+   "ms": 0.09565696001052856,
+   "group": [
+    "stage5",
+    "expand 1x1"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_fprop_implicit_gemm_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x256x32_stage3_warpsize2x4x1_g1_tensor16x8x16_simple_t1r1s1_linkable"
+  },
+  {
+   "layer": "node_conv2d_55 + PWN(PWN(node_Sigmoid_56), PWN(node_silu_33))",
+   "ms": 0.09532800003886223,
+   "group": [
+    "stage6",
+    "expand 1x1"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_fprop_implicit_gemm_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x256x32_stage3_warpsize2x4x1_g1_tensor16x8x16_simple_t1r1s1_linkable"
+  },
+  {
+   "layer": "node_conv2d_41",
+   "ms": 0.08752639874815941,
+   "group": [
+    "stage5",
+    "depthwise"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_depthwise_convolution_fprop_tiling_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize1x8x8_1x5x5_1x1x1_1x1x1_stage2_warpsize4x1x1_g32_betaFalse"
+  },
+  {
+   "layer": "node_conv2d_49 + node_add_4",
+   "ms": 0.08600639894604684,
+   "group": [
+    "stage5",
+    "project 1x1"
+   ],
+   "type": "CaskGemmConvolution",
+   "tactic": "sm86_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize256x128x32_stage2_warpsize4x2x1_tensor16x8x16"
+  },
+  {
+   "layer": "__myl_CastCastMulTanhMulAddMulCast_myl120_0",
+   "ms": 0.08509759858250618,
+   "group": [
+    "stage5",
+    "SE"
+   ],
+   "type": "kgen",
+   "tactic": "__myl_CastCastMulTanhMulAddMulCast_0x13ea51534c244c8f18082fe7cf5b3c51"
+  },
+  {
+   "layer": "node_conv2d_54 + node_add_5",
+   "ms": 0.08488383919000625,
+   "group": [
+    "stage5",
+    "project 1x1"
+   ],
+   "type": "CaskGemmConvolution",
+   "tactic": "sm86_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize256x128x32_stage2_warpsize4x2x1_tensor16x8x16"
+  },
+  {
+   "layer": "__myl_CastCastMulTanhMulAddMulCast_myl133_0",
+   "ms": 0.08288959816098213,
+   "group": [
+    "stage5",
+    "SE"
+   ],
+   "type": "kgen",
+   "tactic": "__myl_CastCastMulTanhMulAddMulCast_0x13ea51534c244c8f18082fe7cf5b3c51"
+  },
+  {
+   "layer": "node_conv2d_36",
+   "ms": 0.07850688070058823,
+   "group": [
+    "stage4",
+    "depthwise"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_depthwise_convolution_fprop_tiling_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize1x8x8_1x3x3_1x1x1_1x1x1_stage4_warpsize4x1x1_g32_betaFalse"
+  },
+  {
+   "layer": "node_conv2d_30 + PWN(PWN(node_Sigmoid_31), PWN(node_silu_18))",
+   "ms": 0.0766668801009655,
+   "group": [
+    "stage4",
+    "expand 1x1"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_fprop_implicit_gemm_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize256x128x32_stage3_warpsize4x2x1_g1_tensor16x8x16_simple_t1r1s1_linkable"
+  },
+  {
+   "layer": "node_conv2d_80 + PWN(PWN(node_Sigmoid_81), PWN(node_silu_48))",
+   "ms": 0.06866815999150276,
+   "group": [
+    "head conv",
+    "head conv"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_fprop_implicit_gemm_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x256x32_stage3_warpsize2x4x1_g1_tensor16x8x16_simple_t1r1s1_linkable"
+  },
+  {
+   "layer": "node_conv2d_44",
+   "ms": 0.06703040078282356,
+   "group": [
+    "stage5",
+    "project 1x1"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm75_xmma_fprop_implicit_gemm_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x128x32_stage1_warpsize2x2x1_g1_tensor16x8x8_simple_t1r1s1"
+  },
+  {
+   "layer": "__myl_CastCastMulTanhMulAddMulCast_myl47_0",
+   "ms": 0.06637247942388058,
+   "group": [
+    "stage3",
+    "SE"
+   ],
+   "type": "kgen",
+   "tactic": "__myl_CastCastMulTanhMulAddMulCast_0xe5afc4708f4ad28df2252ff997f2cf92"
+  },
+  {
+   "layer": "node_conv2d_35 + PWN(PWN(node_Sigmoid_36), PWN(node_silu_21))",
+   "ms": 0.06138048008084297,
+   "group": [
+    "stage4",
+    "expand 1x1"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_fprop_implicit_gemm_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize256x128x32_stage3_warpsize4x2x1_g1_tensor16x8x16_simple_t1r1s1_linkable"
+  },
+  {
+   "layer": "node_conv2d_31",
+   "ms": 0.0609689599275589,
+   "group": [
+    "stage4",
+    "depthwise"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_depthwise_convolution_fprop_tiling_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize1x8x8_1x3x3_1x1x1_1x1x1_stage4_warpsize4x1x1_g32_betaFalse"
+  },
+  {
+   "layer": "node_conv2d_40 + PWN(PWN(node_Sigmoid_41), PWN(node_silu_24))",
+   "ms": 0.0603072002530098,
+   "group": [
+    "stage5",
+    "expand 1x1"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_fprop_implicit_gemm_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize256x128x32_stage3_warpsize4x2x1_g1_tensor16x8x16_simple_t1r1s1_linkable"
+  },
+  {
+   "layer": "node_conv2d_34 + node_add_2",
+   "ms": 0.05918399952352047,
+   "group": [
+    "stage4",
+    "project 1x1"
+   ],
+   "type": "CaskGemmConvolution",
+   "tactic": "sm86_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize256x128x32_stage2_warpsize4x2x1_tensor16x8x16"
+  },
+  {
+   "layer": "node_conv2d_56",
+   "ms": 0.05786943972110748,
+   "group": [
+    "stage6",
+    "depthwise"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_depthwise_convolution_fprop_tiling_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize1x8x8_1x5x5_1x2x2_1x1x1_stage2_warpsize4x1x1_g32_betaFalse"
+  },
+  {
+   "layer": "node_conv2d_60 + PWN(PWN(node_Sigmoid_61), PWN(node_silu_36))",
+   "ms": 0.05558592103421688,
+   "group": [
+    "stage6",
+    "expand 1x1"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_fprop_implicit_gemm_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize256x128x32_stage3_warpsize4x2x1_g1_tensor16x8x16_simple_t1r1s1_linkable"
+  },
+  {
+   "layer": "node_conv2d_79",
+   "ms": 0.05446207955479622,
+   "group": [
+    "stage7",
+    "project 1x1"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm75_xmma_fprop_implicit_gemm_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x128x32_stage1_warpsize2x2x1_g1_tensor16x8x8"
+  },
+  {
+   "layer": "node_conv2d_39 + node_add_3",
+   "ms": 0.05420480020344257,
+   "group": [
+    "stage4",
+    "project 1x1"
+   ],
+   "type": "CaskGemmConvolution",
+   "tactic": "sm86_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize256x128x32_stage2_warpsize4x2x1_tensor16x8x16"
+  },
+  {
+   "layer": "node_conv2d_71",
+   "ms": 0.05410687908530235,
+   "group": [
+    "stage6",
+    "depthwise"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_depthwise_convolution_fprop_tiling_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize1x8x8_1x5x5_1x1x1_1x1x1_stage2_warpsize4x1x1_g64_betaFalse"
+  },
+  {
+   "layer": "node_conv2d_66",
+   "ms": 0.05403903938829899,
+   "group": [
+    "stage6",
+    "depthwise"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_depthwise_convolution_fprop_tiling_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize1x8x8_1x5x5_1x1x1_1x1x1_stage2_warpsize4x1x1_g64_betaFalse"
+  },
+  {
+   "layer": "node_conv2d_61",
+   "ms": 0.05359295926988125,
+   "group": [
+    "stage6",
+    "depthwise"
+   ],
+   "type": "CaskConvolution",
+   "tactic": "sm80_xmma_depthwise_convolution_fprop_tiling_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize1x8x8_1x5x5_1x1x1_1x1x1_stage2_warpsize4x1x1_g64_betaFalse"
+  },
+  {
+   "layer": "node_mean_9",
+   "ms": 0.05302272073924542,
+   "group": [
+    "stage5",
+    "SE"
+   ],
+   "type": "CaskPooling",
+   "tactic": "sm50_xmma_pooling_coalescedC_NHWC_kAVERAGE_3_True"
+  }
+ ],
+ "own_modules_ms": {
+  "trunk.0.0": 1.4231232190132141,
+  "trunk.0.1.0": 1.9994419121742248,
+  "trunk.0.1.0.block.0": 0.5236959862709045,
+  "trunk.0.1.0.block.1": 0.8038227319717407,
+  "trunk.0.1.0.block.2": 0.665952000617981,
+  "trunk.0.2.0": 6.110576629638672,
+  "trunk.0.2.0.block.0": 4.149657564163208,
+  "trunk.0.2.0.block.1": 1.053086700439453,
+  "trunk.0.2.0.block.2": 0.5662195146083832,
+  "trunk.0.2.0.block.3": 0.33373568415641786,
+  "trunk.0.2.1": 3.650666847229004,
+  "trunk.0.2.1.block.0": 1.4604921650886535,
+  "trunk.0.2.1.block.1": 0.8012627136707305,
+  "trunk.0.2.1.block.2": 0.8970694386959076,
+  "trunk.0.2.1.block.3": 0.4356121575832367,
+  "trunk.0.3.0": 2.2094848060607912,
+  "trunk.0.3.0.block.0": 1.4858495903015136,
+  "trunk.0.3.0.block.1": 0.47514815866947174,
+  "trunk.0.3.0.block.2": 0.16571136116981505,
+  "trunk.0.3.0.block.3": 0.07474752202630043,
+  "trunk.0.3.1": 1.3229177737236022,
+  "trunk.0.3.1.block.0": 0.4440889585018158,
+  "trunk.0.3.1.block.1": 0.3259392023086548,
+  "trunk.0.3.1.block.2": 0.3232460767030716,
+  "trunk.0.3.1.block.3": 0.20056064128875734,
+  "trunk.0.4.0": 0.6758028829097747,
+  "trunk.0.4.0.block.0": 0.4415078365802765,
+  "trunk.0.4.0.block.1": 0.11255872085690498,
+  "trunk.0.4.0.block.2": 0.05934336096048355,
+  "trunk.0.4.0.block.3": 0.038070400953292845,
+  "trunk.0.4.1": 0.4382982414960861,
+  "trunk.0.4.1.block.0": 0.20893951892852783,
+  "trunk.0.4.1.block.1": 0.06270975895226001,
+  "trunk.0.4.1.block.2": 0.0853004787862301,
+  "trunk.0.4.1.block.3": 0.0603296010941267,
+  "trunk.0.4.2": 0.34834751844406125,
+  "trunk.0.4.2.block.0": 0.10907903969287873,
+  "trunk.0.4.2.block.1": 0.06486655905842781,
+  "trunk.0.4.2.block.2": 0.08507583871483802,
+  "trunk.0.4.2.block.3": 0.06741888105869293,
+  "trunk.0.5.0": 0.42049535930156706,
+  "trunk.0.5.0.block.0": 0.10953215971589088,
+  "trunk.0.5.0.block.1": 0.12644864201545716,
+  "trunk.0.5.0.block.2": 0.08431935876607895,
+  "trunk.0.5.0.block.3": 0.08717119857668877,
+  "trunk.0.5.1": 0.6653638386726379,
+  "trunk.0.5.1.block.0": 0.1707436817884445,
+  "trunk.0.5.1.block.1": 0.20308928251266478,
+  "trunk.0.5.1.block.2": 0.16892416179180145,
+  "trunk.0.5.1.block.3": 0.0925728015601635,
+  "trunk.0.5.2": 0.6701075160503387,
+  "trunk.0.5.2.block.0": 0.17595008105039597,
+  "trunk.0.5.2.block.1": 0.19687936186790467,
+  "trunk.0.5.2.block.2": 0.17129472017288208,
+  "trunk.0.5.2.block.3": 0.1001894424855709,
+  "trunk.0.6.0": 0.3535487961769104,
+  "trunk.0.6.0.block.0": 0.17842304229736328,
+  "trunk.0.6.0.block.1": 0.0495315208286047,
+  "trunk.0.6.0.block.2": 0.050225280821323395,
+  "trunk.0.6.0.block.3": 0.03864895984530449,
+  "trunk.0.6.1": 0.3170022416114807,
+  "trunk.0.6.1.block.0": 0.08948160052299499,
+  "trunk.0.6.1.block.1": 0.07467328295111657,
+  "trunk.0.6.1.block.2": 0.0840153593569994,
+  "trunk.0.6.1.block.3": 0.055311999917030334,
+  "trunk.0.6.2": 0.32432447850704194,
+  "trunk.0.6.2.block.0": 0.09120576083660126,
+  "trunk.0.6.2.block.1": 0.07510080248117447,
+  "trunk.0.6.2.block.2": 0.08954495996236801,
+  "trunk.0.6.2.block.3": 0.05548351995646954,
+  "trunk.0.6.3": 0.3104025572538376,
+  "trunk.0.6.3.block.0": 0.09012736052274704,
+  "trunk.0.6.3.block.1": 0.07475520238280296,
+  "trunk.0.6.3.block.2": 0.07741503983736038,
+  "trunk.0.6.3.block.3": 0.05479231983423233,
+  "trunk.0.7.0": 0.3153920006752014,
+  "trunk.0.7.0.block.0": 0.09400448054075242,
+  "trunk.0.7.0.block.1": 0.03449024014174938,
+  "trunk.0.7.0.block.2": 0.0821343992650509,
+  "trunk.0.7.0.block.3": 0.09573248118162155,
+  "trunk.0.8": 0.12622336208820342,
+  "trunk.1": 0.012173440363258124,
+  "trunk.2": 0.0013311999966390431,
+  "head": 0.012286079963669181
+ }
+}

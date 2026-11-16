@@ -1,0 +1,22 @@
+{
+ "rung": "R9",
+ "model": "frozen",
+ "name": "R6c + FP8 head Linears",
+ "meta": {
+  "conv_bn_folded": 49,
+  "scans_fused": 4,
+  "head_linears_quantized": 18,
+  "head_linears_total": 19
+ },
+ "eval_s": 4.612708330154419,
+ "accuracy": 0.7142595139844108,
+ "auc": 0.7777573519765545,
+ "tp": 4737,
+ "tn": 3052,
+ "fp": 2361,
+ "fn": 755,
+ "n": 10905,
+ "pred_flips_vs_R0s": 222,
+ "max_abs_dprob_vs_R0s": 0.9807863999158144,
+ "mean_abs_dprob_vs_R0s": 0.017835999828656378
+}

@@ -1,0 +1,208 @@
+{
+ "rung": "R4",
+ "model": "frozen",
+ "name": "+ fused dwconv+BN+SiLU (repo, NCHW)",
+ "latency_ms": {
+  "1": 8.170687675476074,
+  "8": 9.866239547729492,
+  "64": 29.55878448486328
+ },
+ "peak_mem_mb": {
+  "1": 74.47021484375,
+  "8": 121.73974609375,
+  "64": 498.89599609375
+ },
+ "sustained": {
+  "1": {
+   "batch": 1,
+   "img_per_s": 102.14892560824758,
+   "mean_power_w": 27.854764705882356,
+   "power_samples": 170,
+   "idle_power_w": 10.699,
+   "idle_peak_w": 11.02,
+   "idle_clean": true,
+   "idle_attempts": 2,
+   "idle_samples": 40,
+   "J_per_img_raw": 0.2726877893234869,
+   "J_per_img_idle_subtracted": 0.16794855749806523,
+   "window_s": 17.073111534118652,
+   "stable": true,
+   "throughput_cv": 0.05121366873539661,
+   "min_over_median": 0.8920850334041754,
+   "gpu_state_end": {
+    "util_pct": 34.0,
+    "sm_clock_mhz": 1260.0,
+    "mem_clock_mhz": 5001.0,
+    "max_sm_clock_mhz": 3105.0,
+    "temp_c": 43.0,
+    "power_w": 26.83,
+    "mem_used_mib": 1646.0
+   },
+   "attempts": [
+    {
+     "img_per_s": 102.14892560824758,
+     "stable": true,
+     "idle_clean": true,
+     "throughput_cv": 0.05121366873539661,
+     "mean_power_w": 27.854764705882356,
+     "idle_power_w": 10.699
+    }
+   ]
+  },
+  "8": {
+   "batch": 8,
+   "img_per_s": 837.4409226878391,
+   "mean_power_w": 75.50437869822485,
+   "power_samples": 169,
+   "idle_power_w": 11.723,
+   "idle_peak_w": 19.28,
+   "idle_clean": true,
+   "idle_attempts": 1,
+   "idle_samples": 40,
+   "J_per_img_raw": 0.09016084198021637,
+   "J_per_img_idle_subtracted": 0.07616224257767701,
+   "window_s": 16.965972900390625,
+   "stable": true,
+   "throughput_cv": 0.06406282810319049,
+   "min_over_median": 0.8916565358259637,
+   "gpu_state_end": {
+    "util_pct": 37.0,
+    "sm_clock_mhz": 2805.0,
+    "mem_clock_mhz": 8751.0,
+    "max_sm_clock_mhz": 3105.0,
+    "temp_c": 54.0,
+    "power_w": 74.92,
+    "mem_used_mib": 1696.0
+   },
+   "attempts": [
+    {
+     "img_per_s": 708.2330793866131,
+     "stable": false,
+     "idle_clean": true,
+     "throughput_cv": 0.09433674703555735,
+     "mean_power_w": 68.56947368421052,
+     "idle_power_w": 12.70675
+    },
+    {
+     "img_per_s": 737.4132734488905,
+     "stable": false,
+     "idle_clean": true,
+     "throughput_cv": 0.08380039741125961,
+     "mean_power_w": 71.12349112426035,
+     "idle_power_w": 12.34923076923077
+    },
+    {
+     "img_per_s": 837.4409226878391,
+     "stable": true,
+     "idle_clean": true,
+     "throughput_cv": 0.06406282810319049,
+     "mean_power_w": 75.50437869822485,
+     "idle_power_w": 11.723
+    }
+   ]
+  },
+  "64": {
+   "batch": 64,
+   "img_per_s": 2126.1446578880964,
+   "mean_power_w": 137.99613095238095,
+   "power_samples": 168,
+   "idle_power_w": 10.45875,
+   "idle_peak_w": 10.75,
+   "idle_clean": true,
+   "idle_attempts": 4,
+   "idle_samples": 40,
+   "J_per_img_raw": 0.06490439417675972,
+   "J_per_img_idle_subtracted": 0.05998527921381609,
+   "window_s": 16.856802225112915,
+   "stable": true,
+   "throughput_cv": 0.0038626894952127487,
+   "min_over_median": 0.9901441683414749,
+   "gpu_state_end": {
+    "util_pct": 97.0,
+    "sm_clock_mhz": 2805.0,
+    "mem_clock_mhz": 8751.0,
+    "max_sm_clock_mhz": 3105.0,
+    "temp_c": 59.0,
+    "power_w": 130.98,
+    "mem_used_mib": 2165.0
+   },
+   "attempts": [
+    {
+     "img_per_s": 2126.1446578880964,
+     "stable": true,
+     "idle_clean": true,
+     "throughput_cv": 0.0038626894952127487,
+     "mean_power_w": 137.99613095238095,
+     "idle_power_w": 10.45875
+    }
+   ]
+  }
+ },
+ "gpu_state_start": {
+  "util_pct": 4.0,
+  "sm_clock_mhz": 210.0,
+  "mem_clock_mhz": 405.0,
+  "max_sm_clock_mhz": 3105.0,
+  "temp_c": 43.0,
+  "power_w": 8.24,
+  "mem_used_mib": 1402.0
+ },
+ "meta": {
+  "dw_blocks_fused": 16,
+  "dw_variant": "nchw",
+  "conv_bn_folded": 33
+ },
+ "latency_trials_ms": {
+  "1": [
+   8.255167961120605,
+   8.352767944335938,
+   8.170687675476074
+  ],
+  "8": [
+   10.202112197875977,
+   9.866239547729492,
+   10.046879768371582
+  ],
+  "64": [
+   29.572799682617188,
+   29.660127639770508,
+   29.55878448486328
+  ]
+ },
+ "gpu_state_after_bs1": {
+  "util_pct": 34.0,
+  "sm_clock_mhz": 1260.0,
+  "mem_clock_mhz": 5001.0,
+  "max_sm_clock_mhz": 3105.0,
+  "temp_c": 43.0,
+  "power_w": 26.37,
+  "mem_used_mib": 1646.0
+ },
+ "gpu_state_after_bs8": {
+  "util_pct": 37.0,
+  "sm_clock_mhz": 2805.0,
+  "mem_clock_mhz": 8751.0,
+  "max_sm_clock_mhz": 3105.0,
+  "temp_c": 54.0,
+  "power_w": 74.92,
+  "mem_used_mib": 1696.0
+ },
+ "gpu_state_after_bs64": {
+  "util_pct": 97.0,
+  "sm_clock_mhz": 2805.0,
+  "mem_clock_mhz": 8751.0,
+  "max_sm_clock_mhz": 3105.0,
+  "temp_c": 59.0,
+  "power_w": 130.98,
+  "mem_used_mib": 2165.0
+ },
+ "idle_check": {
+  "samples_pct": [
+   0.0,
+   5.0,
+   4.0
+  ],
+  "passed": true,
+  "waited_s": 55.8
+ }
+}

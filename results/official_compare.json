@@ -1,0 +1,4949 @@
+{
+ "meta": {
+  "gpu": "NVIDIA GeForce RTX 4060 Ti",
+  "torch": "2.14.0+cu130",
+  "vllm": "0.33.0",
+  "official_commit": "e9594ce",
+  "iters": 200,
+  "idle_gate_met": true,
+  "smi_start": {
+   "util_pct": 4.0,
+   "temp_c": 41.0,
+   "sm_mhz": 210.0,
+   "mem_mhz": 405.0,
+   "power_w": 11.36
+  },
+  "spec_bw_GBps": 288.0,
+  "argv": [
+   "--wait-idle",
+   "600"
+  ],
+  "smi_end": {
+   "util_pct": 98.0,
+   "temp_c": 72.0,
+   "sm_mhz": 2790.0,
+   "mem_mhz": 8751.0,
+   "power_w": 151.89
+  },
+  "scan_v2": {
+   "gpu": "NVIDIA GeForce RTX 4060 Ti",
+   "torch": "2.14.0+cu130",
+   "vllm": "0.33.0",
+   "official_commit": "e9594ce",
+   "iters": 200,
+   "idle_gate_met": true,
+   "smi_start": {
+    "util_pct": 0.0,
+    "temp_c": 52.0,
+    "sm_mhz": 210.0,
+    "mem_mhz": 405.0,
+    "power_w": 12.0
+   },
+   "spec_bw_GBps": 288.0,
+   "argv": [
+    "--only",
+    "scan",
+    "--wait-idle",
+    "300",
+    "--merge"
+   ],
+   "smi_end": {
+    "util_pct": 95.0,
+    "temp_c": 77.0,
+    "sm_mhz": 2775.0,
+    "mem_mhz": 8751.0,
+    "power_w": 158.94
+   }
+  },
+  "scan_fixed": {
+   "gpu": "NVIDIA GeForce RTX 4060 Ti",
+   "torch": "2.14.0+cu130",
+   "vllm": "0.33.0",
+   "official_commit": "e9594ce",
+   "iters": 200,
+   "idle_gate_met": true,
+   "smi_start": {
+    "util_pct": 4.0,
+    "temp_c": 35.0,
+    "sm_mhz": 210.0,
+    "mem_mhz": 405.0,
+    "power_w": 9.76
+   },
+   "spec_bw_GBps": 288.0,
+   "argv": [
+    "--only",
+    "scan",
+    "--fixed-cfg",
+    "16,2",
+    "--idle-per-row",
+    "600",
+    "--wait-idle",
+    "600",
+    "--cold-l2",
+    "--out",
+    "results/official_compare_fixed.json",
+    "--md",
+    "results/official_compare_fixed.md"
+   ],
+   "smi_end": {
+    "util_pct": 96.0,
+    "temp_c": 70.0,
+    "sm_mhz": 2760.0,
+    "mem_mhz": 8751.0,
+    "power_w": 159.82
+   }
+  }
+ },
+ "scan": [
+  {
+   "batch": 1,
+   "d_inner": 1024,
+   "T": 30,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 16,
+   "ref_absmax": 4.458230018615723,
+   "analytic_min_bytes": 442112,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 5.960464477539062e-07,
+    "ours_cuda_default": 5.960464477539062e-07,
+    "ours_triton_tuned": 4.76837158203125e-07,
+    "ours_triton_default": 9.5367431640625e-07,
+    "vllm_scan": 9.5367431640625e-07,
+    "vllm_scan_with_delta_restore": 9.5367431640625e-07,
+    "official_scan": 9.5367431640625e-07,
+    "official_scan_with_layout_transposes": 9.5367431640625e-07
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 9.5367431640625e-07,
+    "ours_triton_tuned": 9.5367431640625e-07,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.015359999611973763,
+    "ours_cuda_default": 0.016383999958634377,
+    "ours_triton_tuned": 0.03379200026392937,
+    "ours_triton_default": 0.03891199827194214,
+    "vllm_scan": 0.04598399996757507,
+    "vllm_scan_with_delta_restore": 0.05185599997639656,
+    "official_scan": 0.02348800003528595,
+    "official_scan_with_layout_transposes": 0.08614400029182434
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.005324799939990044,
+    "ours_cuda_default": 0.006758400052785873,
+    "ours_triton_tuned": 0.007782399654388428,
+    "ours_triton_default": 0.01515520066022873,
+    "vllm_scan": 0.02144639939069748,
+    "official_scan": 0.020640000700950623
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 83.02884708957284,
+    "ours_cuda_default": 65.4166661557357,
+    "ours_triton_tuned": 56.809213049177814,
+    "ours_triton_default": 29.172296026420767,
+    "vllm_scan": 20.614742453773804,
+    "official_scan": 21.420154311314416
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 28.783334060461513,
+    "ours_cuda_default": 26.984375068128994,
+    "ours_triton_tuned": 13.08333323114714,
+    "ours_triton_default": 11.361842609835564,
+    "vllm_scan": 9.614474606640323,
+    "vllm_scan_with_delta_restore": 8.525763657074155,
+    "official_scan": 18.82288825510118,
+    "official_scan_with_layout_transposes": 5.132243667606408
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 9.5367431640625e-07,
+   "smi_before": {
+    "util_pct": 4.0,
+    "temp_c": 48.0,
+    "sm_mhz": 2535.0,
+    "mem_mhz": 8751.0,
+    "power_w": 27.53
+   },
+   "smi_after": {
+    "util_pct": 44.0,
+    "temp_c": 48.0,
+    "sm_mhz": 2535.0,
+    "mem_mhz": 8751.0,
+    "power_w": 34.9
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 1024,
+   "T": 300,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 16,
+   "ref_absmax": 9.068425178527832,
+   "analytic_min_bytes": 3794432,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 1.0728836059570312e-06,
+    "ours_cuda_default": 1.0728836059570312e-06,
+    "ours_triton_tuned": 1.1920928955078125e-06,
+    "ours_triton_default": 1.0728836059570312e-06,
+    "vllm_scan": 1.430511474609375e-06,
+    "vllm_scan_with_delta_restore": 1.430511474609375e-06,
+    "official_scan": 1.430511474609375e-06,
+    "official_scan_with_layout_transposes": 1.430511474609375e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 1.430511474609375e-06,
+    "ours_triton_tuned": 1.430511474609375e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.03782400116324425,
+    "ours_cuda_default": 0.04814400151371956,
+    "ours_triton_tuned": 0.0870399996638298,
+    "ours_triton_default": 0.15769599378108978,
+    "vllm_scan": 0.09523200243711472,
+    "vllm_scan_with_delta_restore": 0.10547199845314026,
+    "official_scan": 0.060496000573039055,
+    "official_scan_with_layout_transposes": 0.12086400017142296
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.030720001459121703,
+    "ours_cuda_default": 0.04628480076789856,
+    "ours_triton_tuned": 0.05836799740791321,
+    "ours_triton_default": 0.12615679502487182,
+    "vllm_scan": 0.07761920094490052,
+    "official_scan": 0.05304319858551025
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 123.5166607999401,
+    "ours_cuda_default": 81.98008713546584,
+    "ours_triton_tuned": 65.00877481682406,
+    "ours_triton_default": 30.077111575733415,
+    "vllm_scan": 48.885223679300054,
+    "official_scan": 71.53475094234834
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 100.31810182174137,
+    "ours_cuda_default": 78.81422151664529,
+    "ours_triton_tuned": 43.59411781543018,
+    "ours_triton_default": 24.061689260586732,
+    "vllm_scan": 39.84408500184176,
+    "vllm_scan_with_delta_restore": 35.97572868296236,
+    "official_scan": 62.722030614550164,
+    "official_scan_with_layout_transposes": 31.394228178930934
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.430511474609375e-06,
+   "smi_before": {
+    "util_pct": 56.0,
+    "temp_c": 51.0,
+    "sm_mhz": 2535.0,
+    "mem_mhz": 8751.0,
+    "power_w": 41.0
+   },
+   "smi_after": {
+    "util_pct": 79.0,
+    "temp_c": 57.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 65.54
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 1024,
+   "T": 3000,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 16,
+   "ref_absmax": 8.16541862487793,
+   "analytic_min_bytes": 37317632,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 1.9073486328125e-06,
+    "ours_cuda_default": 1.9073486328125e-06,
+    "ours_triton_tuned": 1.6689300537109375e-06,
+    "ours_triton_default": 1.5497207641601562e-06,
+    "vllm_scan": 1.9073486328125e-06,
+    "vllm_scan_with_delta_restore": 1.9073486328125e-06,
+    "official_scan": 1.9073486328125e-06,
+    "official_scan_with_layout_transposes": 1.9073486328125e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 1.9073486328125e-06,
+    "ours_triton_tuned": 1.9073486328125e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.4700160026550293,
+    "ours_cuda_default": 0.7861120104789734,
+    "ours_triton_tuned": 1.1057759523391724,
+    "ours_triton_default": 2.3797919750213623,
+    "vllm_scan": 0.49454399943351746,
+    "vllm_scan_with_delta_restore": 0.5304319858551025,
+    "official_scan": 0.4280320107936859,
+    "official_scan_with_layout_transposes": 0.7680000066757202
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.4587520122528076,
+    "ours_cuda_default": 0.7796351909637451,
+    "ours_triton_tuned": 1.0771967887878418,
+    "ours_triton_default": 2.3517184257507324,
+    "vllm_scan": 0.4734975814819336,
+    "official_scan": 0.4292287826538086
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 81.34597997018729,
+    "ours_cuda_default": 47.865504831650625,
+    "ours_triton_tuned": 34.643281885376894,
+    "ours_triton_default": 15.868239833213535,
+    "vllm_scan": 78.81271934527054,
+    "official_scan": 86.94112209641419
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 79.39651371272451,
+    "ours_cuda_default": 47.471138339767364,
+    "ours_triton_tuned": 33.74791423258736,
+    "ours_triton_default": 15.681047920024614,
+    "vllm_scan": 75.4586690825205,
+    "vllm_scan_with_delta_restore": 70.35328372937528,
+    "official_scan": 87.184208327791,
+    "official_scan_with_layout_transposes": 48.59066624429988
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.9073486328125e-06,
+   "smi_before": {
+    "util_pct": 98.0,
+    "temp_c": 51.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 63.19
+   },
+   "smi_after": {
+    "util_pct": 95.0,
+    "temp_c": 66.0,
+    "sm_mhz": 2730.0,
+    "mem_mhz": 8751.0,
+    "power_w": 154.39
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 2048,
+   "T": 30,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 16,
+   "ref_absmax": 5.103926658630371,
+   "analytic_min_bytes": 880384,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 7.152557373046875e-07,
+    "ours_cuda_default": 7.152557373046875e-07,
+    "ours_triton_tuned": 7.152557373046875e-07,
+    "ours_triton_default": 5.960464477539062e-07,
+    "vllm_scan": 9.5367431640625e-07,
+    "vllm_scan_with_delta_restore": 9.5367431640625e-07,
+    "official_scan": 9.5367431640625e-07,
+    "official_scan_with_layout_transposes": 9.5367431640625e-07
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 1.430511474609375e-06,
+    "ours_triton_tuned": 9.5367431640625e-07,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.01945599913597107,
+    "ours_cuda_default": 0.019264000467956066,
+    "ours_triton_tuned": 0.03788800165057182,
+    "ours_triton_default": 0.04372800141572952,
+    "vllm_scan": 0.05430399999022484,
+    "vllm_scan_with_delta_restore": 0.06654400005936623,
+    "official_scan": 0.03686400130391121,
+    "official_scan_with_layout_transposes": 0.09932799637317657
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.004915200173854828,
+    "ours_cuda_default": 0.006143999844789505,
+    "ours_triton_tuned": 0.007577600330114365,
+    "ours_triton_default": 0.01372160017490387,
+    "vllm_scan": 0.03624959886074066,
+    "official_scan": 0.034406399726867674
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 179.11457699789756,
+    "ours_cuda_default": 143.29167028651875,
+    "ours_triton_tuned": 116.18242737100293,
+    "ours_triton_default": 64.1604469433659,
+    "vllm_scan": 24.2867239271296,
+    "official_scan": 25.58779782217421
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 45.250002009524614,
+    "ours_cuda_default": 45.700995567584194,
+    "ours_triton_tuned": 23.236485474200585,
+    "ours_triton_default": 20.13318632219296,
+    "vllm_scan": 16.212139071863515,
+    "vllm_scan_with_delta_restore": 13.230103378435002,
+    "official_scan": 23.881943599719673,
+    "official_scan_with_layout_transposes": 8.86340238549045
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.430511474609375e-06,
+   "smi_before": {
+    "util_pct": 68.0,
+    "temp_c": 66.0,
+    "sm_mhz": 2730.0,
+    "mem_mhz": 8751.0,
+    "power_w": 141.79
+   },
+   "smi_after": {
+    "util_pct": 56.0,
+    "temp_c": 54.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 119.67
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 2048,
+   "T": 300,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 16,
+   "ref_absmax": 6.8896379470825195,
+   "analytic_min_bytes": 7550464,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 1.9073486328125e-06,
+    "ours_cuda_default": 1.9073486328125e-06,
+    "ours_triton_tuned": 1.430511474609375e-06,
+    "ours_triton_default": 1.5497207641601562e-06,
+    "vllm_scan": 1.9073486328125e-06,
+    "vllm_scan_with_delta_restore": 1.9073486328125e-06,
+    "official_scan": 1.9073486328125e-06,
+    "official_scan_with_layout_transposes": 1.9073486328125e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 1.430511474609375e-06,
+    "ours_triton_tuned": 1.430511474609375e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.03379200026392937,
+    "ours_cuda_default": 0.04879999905824661,
+    "ours_triton_tuned": 0.09380799904465675,
+    "ours_triton_default": 0.1605919972062111,
+    "vllm_scan": 0.17299199849367142,
+    "vllm_scan_with_delta_restore": 0.18329599499702454,
+    "official_scan": 0.10438399761915207,
+    "official_scan_with_layout_transposes": 0.18227200210094452
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.03188480138778686,
+    "ours_cuda_default": 0.046489599347114566,
+    "ours_triton_tuned": 0.06287360191345215,
+    "ours_triton_default": 0.1263167977333069,
+    "vllm_scan": 0.15319039821624755,
+    "official_scan": 0.10192959904670715
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 236.80448587934833,
+    "ours_cuda_default": 162.41189655398975,
+    "ours_triton_tuned": 120.08957289250732,
+    "ours_triton_default": 59.77402954705456,
+    "vllm_scan": 49.28810217818983,
+    "official_scan": 74.07528402559646
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 223.43939219424075,
+    "ours_cuda_default": 154.72262593669174,
+    "ours_triton_tuned": 80.48848794233042,
+    "ours_triton_default": 47.016439992988495,
+    "vllm_scan": 43.64631928497097,
+    "vllm_scan_with_delta_restore": 41.19273855450343,
+    "official_scan": 72.33353935675159,
+    "official_scan_with_layout_transposes": 41.42415682589835
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.430511474609375e-06,
+   "smi_before": {
+    "util_pct": 49.0,
+    "temp_c": 54.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 94.51
+   },
+   "smi_after": {
+    "util_pct": 85.0,
+    "temp_c": 63.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 84.67
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 2048,
+   "T": 3000,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 16,
+   "ref_absmax": 9.737300872802734,
+   "analytic_min_bytes": 74251264,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 1.6689300537109375e-06,
+    "ours_cuda_default": 1.6689300537109375e-06,
+    "ours_triton_tuned": 1.9073486328125e-06,
+    "ours_triton_default": 1.430511474609375e-06,
+    "vllm_scan": 2.384185791015625e-06,
+    "vllm_scan_with_delta_restore": 2.384185791015625e-06,
+    "official_scan": 2.384185791015625e-06,
+    "official_scan_with_layout_transposes": 2.384185791015625e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 1.9073486328125e-06,
+    "ours_triton_tuned": 1.9073486328125e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.522896021604538,
+    "ours_cuda_default": 0.8294399976730347,
+    "ours_triton_tuned": 1.1612160205841064,
+    "ours_triton_default": 2.381824016571045,
+    "vllm_scan": 0.9553920030593872,
+    "vllm_scan_with_delta_restore": 1.1458080410957336,
+    "official_scan": 0.851967990398407,
+    "official_scan_with_layout_transposes": 1.9546560049057007
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.521830415725708,
+    "ours_cuda_default": 0.8195807933807373,
+    "ours_triton_tuned": 1.1384448051452636,
+    "ours_triton_default": 2.350483226776123,
+    "vllm_scan": 0.948195219039917,
+    "official_scan": 0.8709984302520752
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 142.29002710916916,
+    "ours_cuda_default": 90.59663745134458,
+    "ours_triton_tuned": 65.2216635048246,
+    "ours_triton_default": 31.589786795390832,
+    "vllm_scan": 78.30799239336196,
+    "official_scan": 85.2484475528974
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 142.00005533060957,
+    "ours_cuda_default": 89.51975333756435,
+    "ours_triton_tuned": 63.942679642544604,
+    "ours_triton_default": 31.174118441753997,
+    "vllm_scan": 77.71811336313283,
+    "vllm_scan_with_delta_restore": 64.80253352821096,
+    "official_scan": 87.15264521297073,
+    "official_scan_with_layout_transposes": 37.986870228647795
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.9073486328125e-06,
+   "smi_before": {
+    "util_pct": 99.0,
+    "temp_c": 55.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 77.1
+   },
+   "smi_after": {
+    "util_pct": 96.0,
+    "temp_c": 65.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 152.16
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 1024,
+   "T": 30,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 7.904454231262207,
+   "analytic_min_bytes": 1559552,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 9.5367431640625e-07,
+    "ours_cuda_default": 9.5367431640625e-07,
+    "ours_triton_tuned": 9.5367431640625e-07,
+    "ours_triton_default": 9.5367431640625e-07,
+    "vllm_scan": 1.430511474609375e-06,
+    "vllm_scan_with_delta_restore": 1.430511474609375e-06,
+    "official_scan": 1.430511474609375e-06,
+    "official_scan_with_layout_transposes": 1.430511474609375e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 1.430511474609375e-06,
+    "ours_triton_tuned": 1.430511474609375e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.027648000046610832,
+    "ours_cuda_default": 0.016383999958634377,
+    "ours_triton_tuned": 0.036720000207424164,
+    "ours_triton_default": 0.04203199967741966,
+    "vllm_scan": 0.08681599795818329,
+    "vllm_scan_with_delta_restore": 0.1003200002014637,
+    "official_scan": 0.06851200014352798,
+    "official_scan_with_layout_transposes": 0.13312000036239624
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.006124800071120262,
+    "ours_cuda_default": 0.006758400052785873,
+    "ours_triton_tuned": 0.008742400258779526,
+    "ours_triton_default": 0.014336000382900237,
+    "vllm_scan": 0.06798080205917359,
+    "official_scan": 0.06568000018596648
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 254.62904615509333,
+    "ours_cuda_default": 230.75757395526455,
+    "ours_triton_tuned": 178.3894529919086,
+    "ours_triton_default": 108.78571138015661,
+    "vllm_scan": 22.941065017775088,
+    "official_scan": 23.744701516204042
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 56.40740731231206,
+    "ours_cuda_default": 95.18750024032533,
+    "ours_triton_tuned": 42.47145945507606,
+    "ours_triton_default": 37.1039211069898,
+    "vllm_scan": 17.96387804873464,
+    "vllm_scan_with_delta_restore": 15.545773493501706,
+    "official_scan": 22.76319472111228,
+    "official_scan_with_layout_transposes": 11.7153845834915
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.430511474609375e-06,
+   "smi_before": {
+    "util_pct": 75.0,
+    "temp_c": 65.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 144.0
+   },
+   "smi_after": {
+    "util_pct": 70.0,
+    "temp_c": 59.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 113.15
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 1024,
+   "T": 300,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 9.221839904785156,
+   "analytic_min_bytes": 14968832,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 1.6689300537109375e-06,
+    "ours_cuda_default": 1.6689300537109375e-06,
+    "ours_triton_tuned": 1.6689300537109375e-06,
+    "ours_triton_default": 1.6689300537109375e-06,
+    "vllm_scan": 1.9073486328125e-06,
+    "vllm_scan_with_delta_restore": 1.9073486328125e-06,
+    "official_scan": 1.9073486328125e-06,
+    "official_scan_with_layout_transposes": 1.9073486328125e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 1.9073486328125e-06,
+    "ours_triton_tuned": 1.9073486328125e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.04108799993991852,
+    "ours_cuda_default": 0.05222399905323982,
+    "ours_triton_tuned": 0.09956800192594528,
+    "ours_triton_default": 0.15638399869203568,
+    "vllm_scan": 0.33003200590610504,
+    "vllm_scan_with_delta_restore": 0.3409920036792755,
+    "official_scan": 0.2017280012369156,
+    "official_scan_with_layout_transposes": 0.3172000050544739
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.03870719969272614,
+    "ours_cuda_default": 0.04976640045642853,
+    "ours_triton_tuned": 0.07331839799880982,
+    "ours_triton_default": 0.12837120294570922,
+    "vllm_scan": 0.3047424077987671,
+    "official_scan": 0.19927040338516236
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 386.71957978951764,
+    "ours_cuda_default": 300.7818902455183,
+    "ours_triton_tuned": 204.16201674568762,
+    "ours_triton_default": 116.60584037940829,
+    "vllm_scan": 49.1196223988769,
+    "official_scan": 75.11818988526511
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 364.3115270124702,
+    "ours_cuda_default": 286.62745617661346,
+    "ours_triton_tuned": 150.33777629818485,
+    "ours_triton_default": 95.71843746928266,
+    "vllm_scan": 45.355698029659195,
+    "vllm_scan_with_delta_restore": 43.89789742424321,
+    "official_scan": 74.20304523029571,
+    "official_scan_with_layout_transposes": 47.19051627199486
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.9073486328125e-06,
+   "smi_before": {
+    "util_pct": 80.0,
+    "temp_c": 59.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 100.1
+   },
+   "smi_after": {
+    "util_pct": 91.0,
+    "temp_c": 64.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 114.78
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 1024,
+   "T": 3000,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 9.250447273254395,
+   "analytic_min_bytes": 149061632,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 1.9073486328125e-06,
+    "ours_cuda_default": 1.9073486328125e-06,
+    "ours_triton_tuned": 1.9073486328125e-06,
+    "ours_triton_default": 1.9073486328125e-06,
+    "vllm_scan": 1.9073486328125e-06,
+    "vllm_scan_with_delta_restore": 1.9073486328125e-06,
+    "official_scan": 1.9073486328125e-06,
+    "official_scan_with_layout_transposes": 1.9073486328125e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 1.9073486328125e-06,
+    "ours_triton_tuned": 1.9073486328125e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.6758400201797485,
+    "ours_cuda_default": 0.9183360040187836,
+    "ours_triton_tuned": 1.3208799958229065,
+    "ours_triton_default": 2.5057759284973145,
+    "vllm_scan": 1.8959360122680664,
+    "vllm_scan_with_delta_restore": 2.2466559410095215,
+    "official_scan": 1.726464033126831,
+    "official_scan_with_layout_transposes": 3.1650400161743164
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.6703104019165039,
+    "ours_cuda_default": 0.9103360176086426,
+    "ours_triton_tuned": 1.2918784141540527,
+    "ours_triton_default": 2.4785887718200685,
+    "vllm_scan": 1.9016608238220214,
+    "official_scan": 1.7394687652587892
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 222.37702350107287,
+    "ours_cuda_default": 163.74352889119922,
+    "ours_triton_tuned": 115.38363855828374,
+    "ours_triton_default": 60.13971889759735,
+    "vllm_scan": 78.38497282623247,
+    "official_scan": 85.69376753242439
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 220.55756917199886,
+    "ours_cuda_default": 162.31709455763763,
+    "ours_triton_tuned": 112.8502456478908,
+    "ours_triton_default": 59.48721523930936,
+    "vllm_scan": 78.62165760630332,
+    "vllm_scan_with_delta_restore": 66.34822416690116,
+    "official_scan": 86.33926287478559,
+    "official_scan_with_layout_transposes": 47.09628669408594
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.9073486328125e-06,
+   "smi_before": {
+    "util_pct": 97.0,
+    "temp_c": 61.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 97.7
+   },
+   "smi_after": {
+    "util_pct": 86.0,
+    "temp_c": 71.0,
+    "sm_mhz": 2715.0,
+    "mem_mhz": 8751.0,
+    "power_w": 157.11
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 2048,
+   "T": 30,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    64,
+    2
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 6.192359924316406,
+   "analytic_min_bytes": 3103744,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 9.5367431640625e-07,
+    "ours_cuda_default": 9.5367431640625e-07,
+    "ours_triton_tuned": 7.152557373046875e-07,
+    "ours_triton_default": 7.152557373046875e-07,
+    "vllm_scan": 1.9073486328125e-06,
+    "vllm_scan_with_delta_restore": 1.9073486328125e-06,
+    "official_scan": 1.9073486328125e-06,
+    "official_scan_with_layout_transposes": 1.9073486328125e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 1.430511474609375e-06,
+    "ours_triton_tuned": 1.6689300537109375e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.01740800030529499,
+    "ours_cuda_default": 0.01740800030529499,
+    "ours_triton_tuned": 0.03891199827194214,
+    "ours_triton_default": 0.04179200157523155,
+    "vllm_scan": 0.14950400590896606,
+    "vllm_scan_with_delta_restore": 0.15956799685955048,
+    "official_scan": 0.1300159990787506,
+    "official_scan_with_layout_transposes": 0.19760000705718994
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.008575999736785888,
+    "ours_cuda_default": 0.008601599931716919,
+    "ours_triton_tuned": 0.011059200018644333,
+    "ours_triton_default": 0.014934400469064713,
+    "vllm_scan": 0.12940800189971924,
+    "official_scan": 0.12738560438156127
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 361.91045886892954,
+    "ours_cuda_default": 360.8333361977786,
+    "ours_triton_tuned": 280.64814767501286,
+    "ours_triton_default": 207.82514881860376,
+    "vllm_scan": 23.984173732974803,
+    "official_scan": 24.36495093043071
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 178.29411452020335,
+    "ours_cuda_default": 178.29411452020335,
+    "ours_triton_tuned": 79.76316143696953,
+    "ours_triton_default": 74.26645968159288,
+    "vllm_scan": 20.760273152077872,
+    "vllm_scan_with_delta_restore": 19.450917860000917,
+    "official_scan": 23.872015921056484,
+    "official_scan_with_layout_transposes": 15.707205916757411
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.430511474609375e-06,
+   "smi_before": {
+    "util_pct": 86.0,
+    "temp_c": 71.0,
+    "sm_mhz": 2715.0,
+    "mem_mhz": 8751.0,
+    "power_w": 149.37
+   },
+   "smi_after": {
+    "util_pct": 82.0,
+    "temp_c": 70.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 116.46
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 2048,
+   "T": 300,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    32,
+    1
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 10.44076156616211,
+   "analytic_min_bytes": 29784064,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 1.430511474609375e-06,
+    "ours_cuda_default": 1.5497207641601562e-06,
+    "ours_triton_tuned": 1.430511474609375e-06,
+    "ours_triton_default": 1.430511474609375e-06,
+    "vllm_scan": 1.9073486328125e-06,
+    "vllm_scan_with_delta_restore": 1.9073486328125e-06,
+    "official_scan": 1.9073486328125e-06,
+    "official_scan_with_layout_transposes": 1.9073486328125e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 1.9073486328125e-06,
+    "ours_triton_tuned": 1.9073486328125e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.06531199812889099,
+    "ours_cuda_default": 0.06860800087451935,
+    "ours_triton_tuned": 0.12492799758911133,
+    "ours_triton_default": 0.16281600296497345,
+    "vllm_scan": 0.6144000291824341,
+    "vllm_scan_with_delta_restore": 0.6276960074901581,
+    "official_scan": 0.39423999190330505,
+    "official_scan_with_layout_transposes": 0.6488479971885681
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.0626688003540039,
+    "ours_cuda_default": 0.06793919801712037,
+    "ours_triton_tuned": 0.09809920191764832,
+    "ours_triton_default": 0.13428159952163696,
+    "vllm_scan": 0.5937151908874512,
+    "official_scan": 0.393830394744873
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 475.26143522383694,
+    "ours_cuda_default": 438.39292881400445,
+    "ours_triton_tuned": 303.6116850879473,
+    "ours_triton_default": 221.80301773364604,
+    "vllm_scan": 50.16557510593674,
+    "official_scan": 75.62662607413628
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 456.0274505952516,
+    "ours_cuda_default": 434.11939745152443,
+    "ours_triton_tuned": 238.40984066646058,
+    "ours_triton_default": 182.93081427878704,
+    "vllm_scan": 48.47666436414866,
+    "vllm_scan_with_delta_restore": 47.449822277971066,
+    "official_scan": 75.54805349961836,
+    "official_scan_with_layout_transposes": 45.90299134628316
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.9073486328125e-06,
+   "smi_before": {
+    "util_pct": 85.0,
+    "temp_c": 70.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 117.45
+   },
+   "smi_after": {
+    "util_pct": 96.0,
+    "temp_c": 73.0,
+    "sm_mhz": 2760.0,
+    "mem_mhz": 8751.0,
+    "power_w": 142.62
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 2048,
+   "T": 3000,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 8.434913635253906,
+   "analytic_min_bytes": 296587264,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 1.9073486328125e-06,
+    "ours_cuda_default": 1.9073486328125e-06,
+    "ours_triton_tuned": 1.9073486328125e-06,
+    "ours_triton_default": 1.9073486328125e-06,
+    "vllm_scan": 2.384185791015625e-06,
+    "vllm_scan_with_delta_restore": 2.384185791015625e-06,
+    "official_scan": 2.384185791015625e-06,
+    "official_scan_with_layout_transposes": 2.384185791015625e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 1.9073486328125e-06,
+    "ours_triton_tuned": 1.9073486328125e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 1.1621280312538147,
+    "ours_cuda_default": 1.2759040594100952,
+    "ours_triton_tuned": 1.5902719497680664,
+    "ours_triton_default": 2.7205759286880493,
+    "vllm_scan": 3.8010880947113037,
+    "vllm_scan_with_delta_restore": 4.5617759227752686,
+    "official_scan": 3.492271900177002,
+    "official_scan_with_layout_transposes": 8.037888050079346
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 1.1536383628845215,
+    "ours_cuda_default": 1.2613600254058839,
+    "ours_triton_tuned": 1.5605759620666504,
+    "ours_triton_default": 2.677964782714844,
+    "vllm_scan": 3.822182464599609,
+    "official_scan": 3.482284736633301
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 257.0885933945733,
+    "ours_cuda_default": 235.13291845804557,
+    "ours_triton_tuned": 190.0498733859987,
+    "ours_triton_default": 110.75099490267692,
+    "vllm_scan": 77.59631225011881,
+    "official_scan": 85.17030812556206
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 255.210489742695,
+    "ours_cuda_default": 232.45263765139592,
+    "ours_triton_tuned": 186.5009717635124,
+    "ours_triton_default": 109.01635233647902,
+    "vllm_scan": 78.02693771098353,
+    "vllm_scan_with_delta_restore": 65.01574584565824,
+    "official_scan": 84.9267389474937,
+    "official_scan_with_layout_transposes": 36.89865573545432
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.9073486328125e-06,
+   "smi_before": {
+    "util_pct": 97.0,
+    "temp_c": 68.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 126.7
+   },
+   "smi_after": {
+    "util_pct": 98.0,
+    "temp_c": 73.0,
+    "sm_mhz": 2775.0,
+    "mem_mhz": 8751.0,
+    "power_w": 149.95
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 1024,
+   "T": 30,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 4.445616245269775,
+   "analytic_min_bytes": 255872,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 0.013617515563964844,
+    "ours_cuda_default": 0.013617515563964844,
+    "ours_triton_tuned": 0.013617515563964844,
+    "ours_triton_default": 0.013617515563964844,
+    "vllm_scan": 0.013617515563964844,
+    "vllm_scan_with_delta_restore": 0.013617515563964844,
+    "official_scan": 0.013617515563964844,
+    "official_scan_with_layout_transposes": 0.013617515563964844
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 1.9073486328125e-06,
+    "ours_triton_tuned": 1.9073486328125e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.020479999482631683,
+    "ours_cuda_default": 0.016288000158965588,
+    "ours_triton_tuned": 0.03993599861860275,
+    "ours_triton_default": 0.04287999868392944,
+    "vllm_scan": 0.03788800165057182,
+    "vllm_scan_with_delta_restore": 0.051024001091718674,
+    "official_scan": 0.020640000700950623,
+    "official_scan_with_layout_transposes": 0.0942080020904541
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.004915200173854828,
+    "ours_cuda_default": 0.006886400282382965,
+    "ours_triton_tuned": 0.0071103997528553006,
+    "ours_triton_default": 0.01324159950017929,
+    "vllm_scan": 0.01937600001692772,
+    "official_scan": 0.01863040030002594
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 52.0572898253558,
+    "ours_cuda_default": 37.15613230537598,
+    "ours_triton_tuned": 35.98559981065063,
+    "ours_triton_default": 19.323345340306926,
+    "vllm_scan": 13.205615182517496,
+    "official_scan": 13.73411176783162
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 12.493750315618682,
+    "ours_cuda_default": 15.709233638431511,
+    "ours_triton_tuned": 6.40705150367296,
+    "ours_triton_default": 5.967164362248351,
+    "vllm_scan": 6.753378084170831,
+    "vllm_scan_with_delta_restore": 5.014738055137128,
+    "official_scan": 12.396898803797775,
+    "official_scan_with_layout_transposes": 2.716032548427507
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.9073486328125e-06,
+   "smi_before": {
+    "util_pct": 64.0,
+    "temp_c": 73.0,
+    "sm_mhz": 2775.0,
+    "mem_mhz": 8751.0,
+    "power_w": 133.4
+   },
+   "smi_after": {
+    "util_pct": 44.0,
+    "temp_c": 65.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 109.69
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 1024,
+   "T": 300,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 9.062033653259277,
+   "analytic_min_bytes": 1932032,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 0.015619754791259766,
+    "ours_cuda_default": 0.015619754791259766,
+    "ours_triton_tuned": 0.015619754791259766,
+    "ours_triton_default": 0.015619754791259766,
+    "vllm_scan": 0.015619754791259766,
+    "vllm_scan_with_delta_restore": 0.015619754791259766,
+    "official_scan": 0.015619754791259766,
+    "official_scan_with_layout_transposes": 0.015619754791259766
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 0.0078125,
+    "ours_triton_tuned": 0.0078125,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.033952001482248306,
+    "ours_cuda_default": 0.058368001133203506,
+    "ours_triton_tuned": 0.08499199897050858,
+    "ours_triton_default": 0.14847999811172485,
+    "vllm_scan": 0.0942080020904541,
+    "vllm_scan_with_delta_restore": 0.1074719987809658,
+    "official_scan": 0.05427199974656105,
+    "official_scan_with_layout_transposes": 0.12083200365304947
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.031948798894882204,
+    "ours_cuda_default": 0.05605120062828064,
+    "ours_triton_tuned": 0.059596800804138185,
+    "ours_triton_default": 0.12021759748458863,
+    "vllm_scan": 0.07864320278167725,
+    "official_scan": 0.05181440114974976
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 60.47275850202579,
+    "ours_cuda_default": 34.46905647593199,
+    "ours_triton_tuned": 32.41838444230461,
+    "ours_triton_default": 16.071124697427745,
+    "vllm_scan": 24.56705642270887,
+    "official_scan": 37.28754857971239
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 56.904804301748065,
+    "ours_cuda_default": 33.10087655033529,
+    "ours_triton_tuned": 22.731927986190758,
+    "ours_triton_default": 13.012069130996542,
+    "vllm_scan": 20.50815171884182,
+    "vllm_scan_with_delta_restore": 17.977073302019754,
+    "official_scan": 35.599056770013775,
+    "official_scan_with_layout_transposes": 15.989406296261816
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.0078125,
+   "smi_before": {
+    "util_pct": 58.0,
+    "temp_c": 65.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 93.61
+   },
+   "smi_after": {
+    "util_pct": 89.0,
+    "temp_c": 66.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 68.9
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 1024,
+   "T": 3000,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 8.159879684448242,
+   "analytic_min_bytes": 18693632,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 0.027620315551757812,
+    "ours_cuda_default": 0.027620315551757812,
+    "ours_triton_tuned": 0.027620315551757812,
+    "ours_triton_default": 0.027620315551757812,
+    "vllm_scan": 0.027620315551757812,
+    "vllm_scan_with_delta_restore": 0.027620315551757812,
+    "official_scan": 0.027620315551757812,
+    "official_scan_with_layout_transposes": 0.027620315551757812
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 0.015625,
+    "ours_triton_tuned": 0.015625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.30294400453567505,
+    "ours_cuda_default": 0.5481919944286346,
+    "ours_triton_tuned": 0.6133760213851929,
+    "ours_triton_default": 1.222656011581421,
+    "vllm_scan": 0.5273600220680237,
+    "vllm_scan_with_delta_restore": 0.5434399843215942,
+    "official_scan": 0.40038400888442993,
+    "official_scan_with_layout_transposes": 0.6686720252037048
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.30043840408325195,
+    "ours_cuda_default": 0.5459968090057373,
+    "ours_triton_tuned": 0.5847040176391601,
+    "ours_triton_default": 1.1905023574829101,
+    "vllm_scan": 0.5087232112884521,
+    "official_scan": 0.4009984016418457
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 62.221179935505056,
+    "ours_cuda_default": 34.237621340756895,
+    "ours_triton_tuned": 31.971102363001805,
+    "ours_triton_default": 15.702305738834582,
+    "vllm_scan": 36.74617470796017,
+    "official_scan": 46.617721974603626
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 61.70655870431203,
+    "ours_cuda_default": 34.10051987257467,
+    "ours_triton_tuned": 30.476626650295188,
+    "ours_triton_default": 15.28936333926096,
+    "vllm_scan": 35.44757133218704,
+    "vllm_scan_with_delta_restore": 34.398705541213126,
+    "official_scan": 46.68925727599646,
+    "official_scan_with_layout_transposes": 27.9563542295719
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.015625,
+   "smi_before": {
+    "util_pct": 97.0,
+    "temp_c": 65.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 66.49
+   },
+   "smi_after": {
+    "util_pct": 86.0,
+    "temp_c": 76.0,
+    "sm_mhz": 2760.0,
+    "mem_mhz": 8751.0,
+    "power_w": 145.76
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 2048,
+   "T": 30,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 5.11130952835083,
+   "analytic_min_bytes": 509824,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 0.015098094940185547,
+    "ours_cuda_default": 0.015098094940185547,
+    "ours_triton_tuned": 0.015098094940185547,
+    "ours_triton_default": 0.015098094940185547,
+    "vllm_scan": 0.015098094940185547,
+    "vllm_scan_with_delta_restore": 0.015098094940185547,
+    "official_scan": 0.015098094940185547,
+    "official_scan_with_layout_transposes": 0.015098094940185547
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 0.0009765625,
+    "ours_triton_tuned": 7.62939453125e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.014096000231802464,
+    "ours_cuda_default": 0.015647999942302704,
+    "ours_triton_tuned": 0.03379200026392937,
+    "ours_triton_default": 0.03993599861860275,
+    "vllm_scan": 0.05632000043988228,
+    "vllm_scan_with_delta_restore": 0.0655359998345375,
+    "official_scan": 0.03686400130391121,
+    "official_scan_with_layout_transposes": 0.1013759970664978
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.005119999870657921,
+    "ours_cuda_default": 0.006956800073385239,
+    "ours_triton_tuned": 0.007497599720954895,
+    "ours_triton_default": 0.013254399597644805,
+    "vllm_scan": 0.03660799860954285,
+    "official_scan": 0.0345888003706932
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 99.57500251547616,
+    "ours_cuda_default": 73.28426785620063,
+    "ours_triton_tuned": 67.99829531778055,
+    "ours_triton_default": 38.46451106624183,
+    "vllm_scan": 13.926573955537158,
+    "official_scan": 14.739568719820925
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 36.16799032464321,
+    "ours_cuda_default": 32.58077721624634,
+    "ours_triton_tuned": 15.087121094284614,
+    "ours_triton_default": 12.766026082606002,
+    "vllm_scan": 9.052272656570768,
+    "vllm_scan_with_delta_restore": 7.779296894640836,
+    "official_scan": 13.829860621937113,
+    "official_scan_with_layout_transposes": 5.029040549565001
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.0009765625,
+   "smi_before": {
+    "util_pct": 86.0,
+    "temp_c": 76.0,
+    "sm_mhz": 2760.0,
+    "mem_mhz": 8751.0,
+    "power_w": 138.96
+   },
+   "smi_after": {
+    "util_pct": 62.0,
+    "temp_c": 76.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 126.23
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 2048,
+   "T": 300,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 6.884157657623291,
+   "analytic_min_bytes": 3844864,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 0.01561737060546875,
+    "ours_cuda_default": 0.01561737060546875,
+    "ours_triton_tuned": 0.01561737060546875,
+    "ours_triton_default": 0.01561737060546875,
+    "vllm_scan": 0.01561737060546875,
+    "vllm_scan_with_delta_restore": 0.01561737060546875,
+    "official_scan": 0.01561737060546875,
+    "official_scan_with_layout_transposes": 0.01561737060546875
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 0.0078125,
+    "ours_triton_tuned": 0.0078125,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.03481600061058998,
+    "ours_cuda_default": 0.058368001133203506,
+    "ours_triton_tuned": 0.0881120003759861,
+    "ours_triton_default": 0.14847999811172485,
+    "vllm_scan": 0.1730560064315796,
+    "vllm_scan_with_delta_restore": 0.18432000279426575,
+    "official_scan": 0.1013759970664978,
+    "official_scan_with_layout_transposes": 0.17715199291706085
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.03275519907474518,
+    "ours_cuda_default": 0.05611519813537598,
+    "ours_triton_tuned": 0.061417600512504576,
+    "ours_triton_default": 0.12042239904403687,
+    "vllm_scan": 0.15374720096588135,
+    "official_scan": 0.0989184021949768
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 117.3817930773761,
+    "ours_cuda_default": 68.51733804315185,
+    "ours_triton_tuned": 62.60198978657899,
+    "ours_triton_default": 31.928146511962314,
+    "vllm_scan": 25.007700796148015,
+    "official_scan": 38.86904675655231
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 110.43382159266471,
+    "ours_cuda_default": 65.87280573863599,
+    "ours_triton_tuned": 43.636099323513626,
+    "ours_triton_default": 25.894827915521013,
+    "vllm_scan": 22.217454795596055,
+    "vllm_scan_with_delta_restore": 20.85972190599172,
+    "official_scan": 37.926768774248934,
+    "official_scan_with_layout_transposes": 21.703758093199045
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.0078125,
+   "smi_before": {
+    "util_pct": 50.0,
+    "temp_c": 64.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 102.96
+   },
+   "smi_after": {
+    "util_pct": 84.0,
+    "temp_c": 66.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 86.96
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 2048,
+   "T": 3000,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 9.712861061096191,
+   "analytic_min_bytes": 37195264,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 0.025361061096191406,
+    "ours_cuda_default": 0.025361061096191406,
+    "ours_triton_tuned": 0.025361061096191406,
+    "ours_triton_default": 0.025361061096191406,
+    "vllm_scan": 0.025361061096191406,
+    "vllm_scan_with_delta_restore": 0.025361061096191406,
+    "official_scan": 0.025361061096191406,
+    "official_scan_with_layout_transposes": 0.025361061096191406
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 0.015625,
+    "ours_triton_tuned": 0.015625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.4912639856338501,
+    "ours_cuda_default": 0.8743680119514465,
+    "ours_triton_tuned": 1.1150879859924316,
+    "ours_triton_default": 1.9618720412254333,
+    "vllm_scan": 1.0059680342674255,
+    "vllm_scan_with_delta_restore": 1.053712010383606,
+    "official_scan": 0.7997440099716187,
+    "official_scan_with_layout_transposes": 1.3301119804382324
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.48803200721740725,
+    "ours_cuda_default": 0.8706048011779786,
+    "ours_triton_tuned": 1.0925824165344238,
+    "ours_triton_default": 1.9277824401855468,
+    "vllm_scan": 0.9861120223999024,
+    "official_scan": 0.8014464378356934
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 76.21480445939348,
+    "ours_cuda_default": 42.723476771174084,
+    "ours_triton_tuned": 34.04344005276978,
+    "ours_triton_default": 19.29432659238249,
+    "vllm_scan": 37.71910610062113,
+    "official_scan": 46.41016822090548
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 75.71339460597555,
+    "ours_cuda_default": 42.53959830596529,
+    "ours_triton_tuned": 33.35634897626137,
+    "ours_triton_default": 18.95906726759148,
+    "vllm_scan": 36.97459833014142,
+    "vllm_scan_with_delta_restore": 35.29926928180214,
+    "official_scan": 46.50896228822018,
+    "official_scan_with_layout_transposes": 27.964009457117484
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.015625,
+   "smi_before": {
+    "util_pct": 98.0,
+    "temp_c": 65.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 81.59
+   },
+   "smi_after": {
+    "util_pct": 47.0,
+    "temp_c": 74.0,
+    "sm_mhz": 2700.0,
+    "mem_mhz": 8751.0,
+    "power_w": 146.2
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 1024,
+   "T": 30,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 7.8981242179870605,
+   "analytic_min_bytes": 814592,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 0.015505790710449219,
+    "ours_cuda_default": 0.015505790710449219,
+    "ours_triton_tuned": 0.015505790710449219,
+    "ours_triton_default": 0.015505790710449219,
+    "vllm_scan": 0.015505790710449219,
+    "vllm_scan_with_delta_restore": 0.015505790710449219,
+    "official_scan": 0.015505790710449219,
+    "official_scan_with_layout_transposes": 0.015505790710449219
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 0.00390625,
+    "ours_triton_tuned": 0.00390625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.014944000169634819,
+    "ours_cuda_default": 0.01616000011563301,
+    "ours_triton_tuned": 0.03379200026392937,
+    "ours_triton_default": 0.03891199827194214,
+    "vllm_scan": 0.09932799637317657,
+    "vllm_scan_with_delta_restore": 0.09932799637317657,
+    "official_scan": 0.06758400052785873,
+    "official_scan_with_layout_transposes": 0.13619199395179749
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.005939200147986412,
+    "ours_cuda_default": 0.007372800260782242,
+    "ours_triton_tuned": 0.008172799646854401,
+    "ours_triton_default": 0.013516800105571746,
+    "vllm_scan": 0.06715520024299622,
+    "official_scan": 0.06533120274543762
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 137.1551689963124,
+    "ours_cuda_default": 110.486107203123,
+    "ours_triton_tuned": 99.6711084571277,
+    "ours_triton_default": 60.26515104445599,
+    "vllm_scan": 12.129991378961838,
+    "official_scan": 12.468651513642717
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 54.50963535554523,
+    "ours_cuda_default": 50.407920431384916,
+    "ours_triton_tuned": 24.1060604177824,
+    "ours_triton_default": 20.934211455991175,
+    "vllm_scan": 8.201031227284272,
+    "vllm_scan_with_delta_restore": 8.201031227284272,
+    "official_scan": 12.0530302088912,
+    "official_scan_with_layout_transposes": 5.981203273140336
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.00390625,
+   "smi_before": {
+    "util_pct": 14.0,
+    "temp_c": 74.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 128.51
+   },
+   "smi_after": {
+    "util_pct": 75.0,
+    "temp_c": 70.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 105.41
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 1024,
+   "T": 300,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 9.241554260253906,
+   "analytic_min_bytes": 7519232,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 0.01562356948852539,
+    "ours_cuda_default": 0.01562356948852539,
+    "ours_triton_tuned": 0.01562356948852539,
+    "ours_triton_default": 0.01562356948852539,
+    "vllm_scan": 0.01562356948852539,
+    "vllm_scan_with_delta_restore": 0.01562356948852539,
+    "official_scan": 0.01562356948852539,
+    "official_scan_with_layout_transposes": 0.01562356948852539
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 0.015625,
+    "ours_triton_tuned": 0.015625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.04291199892759323,
+    "ours_cuda_default": 0.06143999844789505,
+    "ours_triton_tuned": 0.09521600231528282,
+    "ours_triton_default": 0.15137600153684616,
+    "vllm_scan": 0.3367519974708557,
+    "vllm_scan_with_delta_restore": 0.34880000352859497,
+    "official_scan": 0.19393600523471832,
+    "official_scan_with_layout_transposes": 0.30003198981285095
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.040345600247383116,
+    "ours_cuda_default": 0.058982402086257935,
+    "ours_triton_tuned": 0.0679744005203247,
+    "ours_triton_default": 0.12206079959869384,
+    "vllm_scan": 0.31660799980163573,
+    "official_scan": 0.19142720103263855
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 186.37055723288464,
+    "ours_cuda_default": 127.48263437971907,
+    "ours_triton_tuned": 110.61858497379039,
+    "ours_triton_default": 61.6023491958221,
+    "vllm_scan": 23.74934305106321,
+    "official_scan": 39.279851345253505
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 175.2244637376934,
+    "ours_cuda_default": 122.38333642499646,
+    "ours_triton_tuned": 78.97025517939763,
+    "ours_triton_default": 49.67254996605097,
+    "vllm_scan": 22.328693093055083,
+    "vllm_scan_with_delta_restore": 21.557430974577287,
+    "official_scan": 38.77171745854808,
+    "official_scan_with_layout_transposes": 25.061434298023432
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.015625,
+   "smi_before": {
+    "util_pct": 55.0,
+    "temp_c": 70.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 89.88
+   },
+   "smi_after": {
+    "util_pct": 93.0,
+    "temp_c": 73.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 114.21
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 1024,
+   "T": 3000,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 9.2735595703125,
+   "analytic_min_bytes": 74565632,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 0.028200149536132812,
+    "ours_cuda_default": 0.028200149536132812,
+    "ours_triton_tuned": 0.028200149536132812,
+    "ours_triton_default": 0.028200149536132812,
+    "vllm_scan": 0.028200149536132812,
+    "vllm_scan_with_delta_restore": 0.028200149536132812,
+    "official_scan": 0.028200149536132812,
+    "official_scan_with_layout_transposes": 0.028200149536132812
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 0.015625,
+    "ours_triton_tuned": 0.015625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.5631200075149536,
+    "ours_cuda_default": 0.939056009054184,
+    "ours_triton_tuned": 1.210368037223816,
+    "ours_triton_default": 2.044864058494568,
+    "vllm_scan": 1.994752049446106,
+    "vllm_scan_with_delta_restore": 6.115839958190918,
+    "official_scan": 4.238847970962524,
+    "official_scan_with_layout_transposes": 7.293440103530884
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.557260799407959,
+    "ours_cuda_default": 0.934441614151001,
+    "ours_triton_tuned": 1.173363208770752,
+    "ours_triton_default": 2.0158464431762697,
+    "vllm_scan": 1.9687423706054688,
+    "official_scan": 3.887820816040039
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 133.8074238834303,
+    "ours_cuda_default": 79.79699413081852,
+    "ours_triton_tuned": 63.5486364687683,
+    "ours_triton_default": 36.989738108479436,
+    "vllm_scan": 37.87475350422209,
+    "official_scan": 19.179287196663868
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 132.4151708426377,
+    "ours_cuda_default": 79.4048824362483,
+    "ours_triton_tuned": 61.605751066451575,
+    "ours_triton_default": 36.46483573822278,
+    "vllm_scan": 37.38090256415832,
+    "vllm_scan_with_delta_restore": 12.192214398961598,
+    "official_scan": 17.59101352792047,
+    "official_scan_with_layout_transposes": 10.223657278531904
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.015625,
+   "smi_before": {
+    "util_pct": 98.0,
+    "temp_c": 65.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 106.47
+   },
+   "smi_after": {
+    "util_pct": 100.0,
+    "temp_c": 67.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 112.25
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 2048,
+   "T": 30,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    64,
+    1
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 6.188297271728516,
+   "analytic_min_bytes": 1621504,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 0.015597343444824219,
+    "ours_cuda_default": 0.015597343444824219,
+    "ours_triton_tuned": 0.015597343444824219,
+    "ours_triton_default": 0.015597343444824219,
+    "vllm_scan": 0.015597343444824219,
+    "vllm_scan_with_delta_restore": 0.015597343444824219,
+    "official_scan": 0.015597343444824219,
+    "official_scan_with_layout_transposes": 0.015597343444824219
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 0.0078125,
+    "ours_triton_tuned": 0.00390625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.020479999482631683,
+    "ours_cuda_default": 0.023552000522613525,
+    "ours_triton_tuned": 0.023552000522613525,
+    "ours_triton_default": 0.028672000393271446,
+    "vllm_scan": 0.13926400244235992,
+    "vllm_scan_with_delta_restore": 0.14336000382900238,
+    "official_scan": 0.13209599256515503,
+    "official_scan_with_layout_transposes": 0.159743994474411
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.011059200018644333,
+    "ours_cuda_default": 0.011468800157308579,
+    "ours_triton_tuned": 0.013926400244235993,
+    "ours_triton_default": 0.01454080045223236,
+    "vllm_scan": 0.27054080963134763,
+    "official_scan": 0.26869759559631345
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 146.62037012318802,
+    "ours_cuda_default": 141.38392663217556,
+    "ours_triton_tuned": 116.43382148743896,
+    "ours_triton_default": 111.51408103885095,
+    "vllm_scan": 5.99356526732341,
+    "official_scan": 6.034679976951186
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 79.17500200012879,
+    "ours_cuda_default": 68.84782455923896,
+    "ours_triton_tuned": 68.84782455923896,
+    "ours_triton_default": 56.55357065287024,
+    "vllm_scan": 11.643382148743896,
+    "vllm_scan_with_delta_restore": 11.310713983616413,
+    "official_scan": 12.275194489342358,
+    "official_scan_with_layout_transposes": 10.150641376754509
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.0078125,
+   "smi_before": {
+    "util_pct": 98.0,
+    "temp_c": 67.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 103.03
+   },
+   "smi_after": {
+    "util_pct": 99.0,
+    "temp_c": 66.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 95.57
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 2048,
+   "T": 300,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    32,
+    1
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 10.45022964477539,
+   "analytic_min_bytes": 14961664,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 0.015623092651367188,
+    "ours_cuda_default": 0.015623092651367188,
+    "ours_triton_tuned": 0.015623092651367188,
+    "ours_triton_default": 0.015623092651367188,
+    "vllm_scan": 0.015623092651367188,
+    "vllm_scan_with_delta_restore": 0.015623092651367188,
+    "official_scan": 0.015623092651367188,
+    "official_scan_with_layout_transposes": 0.015623092651367188
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 0.015625,
+    "ours_triton_tuned": 0.015625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 0.06643199920654297,
+    "ours_cuda_default": 0.07545600086450577,
+    "ours_triton_tuned": 0.14344000071287155,
+    "ours_triton_default": 0.15955199301242828,
+    "vllm_scan": 0.6355839967727661,
+    "vllm_scan_with_delta_restore": 0.6562560200691223,
+    "official_scan": 0.3850240111351013,
+    "official_scan_with_layout_transposes": 0.5939199924468994
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.06384000182151794,
+    "ours_cuda_default": 0.07270399928092956,
+    "ours_triton_tuned": 0.10727359652519226,
+    "ours_triton_default": 0.12881920337677003,
+    "vllm_scan": 0.6146048069000244,
+    "official_scan": 0.3792863965034485
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 234.36189807496234,
+    "ours_cuda_default": 205.78873442969567,
+    "ours_triton_tuned": 139.47200881333725,
+    "ours_triton_default": 116.14467104132113,
+    "vllm_scan": 24.343551875984208,
+    "official_scan": 39.44687744651018
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 225.2177290868947,
+    "ours_cuda_default": 198.28328865276393,
+    "ours_triton_tuned": 104.30607867849389,
+    "ours_triton_default": 93.77296840682249,
+    "vllm_scan": 23.54002630017302,
+    "vllm_scan_with_delta_restore": 22.798516954441215,
+    "official_scan": 38.859041429367096,
+    "official_scan_with_layout_transposes": 25.19137963071293
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.015625,
+   "smi_before": {
+    "util_pct": 85.0,
+    "temp_c": 72.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 105.14
+   },
+   "smi_after": {
+    "util_pct": 96.0,
+    "temp_c": 73.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 126.02
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 2048,
+   "T": 3000,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": 32,
+   "ref_absmax": 8.414464950561523,
+   "analytic_min_bytes": 148363264,
+   "err_vs_fp32_ref": {
+    "ours_cuda_tuned": 0.030531883239746094,
+    "ours_cuda_default": 0.030531883239746094,
+    "ours_triton_tuned": 0.030531883239746094,
+    "ours_triton_default": 0.030531883239746094,
+    "vllm_scan": 0.030531883239746094,
+    "vllm_scan_with_delta_restore": 0.030531883239746094,
+    "official_scan": 0.030531883239746094,
+    "official_scan_with_layout_transposes": 0.030531883239746094
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_tuned": 0.015625,
+    "ours_triton_tuned": 0.015625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_tuned": 2.1043200492858887,
+    "ours_cuda_default": 1.0562559962272644,
+    "ours_triton_tuned": 1.4612320065498352,
+    "ours_triton_default": 2.1148959398269653,
+    "vllm_scan": 3.9167840480804443,
+    "vllm_scan_with_delta_restore": 4.294655799865723,
+    "official_scan": 3.1887359619140625,
+    "official_scan_with_layout_transposes": 5.497648000717163
+   },
+   "graph_ms": {
+    "ours_cuda_tuned": 0.8218624114990234,
+    "ours_cuda_default": 1.0465279579162599,
+    "ours_triton_tuned": 1.42991361618042,
+    "ours_triton_default": 2.0784736633300778,
+    "vllm_scan": 3.909632110595703,
+    "official_scan": 3.2250177383422853
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_tuned": 180.52080485028523,
+    "ours_cuda_default": 141.7671289885135,
+    "ours_triton_tuned": 103.75680203417282,
+    "ours_triton_default": 71.38087271324676,
+    "vllm_scan": 37.948139314160215,
+    "official_scan": 46.003859834972964
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_tuned": 70.50413460174359,
+    "ours_cuda_default": 140.46146438924274,
+    "ours_triton_tuned": 101.53299635853556,
+    "ours_triton_default": 70.15156689559802,
+    "vllm_scan": 37.878847079330434,
+    "vllm_scan_with_delta_restore": 34.54601973099654,
+    "official_scan": 46.52729663792666,
+    "official_scan_with_layout_transposes": 26.98667939101342
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.015625,
+   "smi_before": {
+    "util_pct": 99.0,
+    "temp_c": 66.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 97.76
+   },
+   "smi_after": {
+    "util_pct": 95.0,
+    "temp_c": 77.0,
+    "sm_mhz": 2775.0,
+    "mem_mhz": 8751.0,
+    "power_w": 158.94
+   }
+  }
+ ],
+ "step_core": [
+  {
+   "batch": 1,
+   "d_inner": 1024,
+   "d_state": 16,
+   "dtype": "float32",
+   "analytic_min_bytes": 213120,
+   "err_y_vs_ref": {
+    "ours_triton_ssm_step": 1.9073486328125e-06,
+    "vllm_triton_ssu": 1.9073486328125e-06
+   },
+   "err_state_vs_ref": {
+    "ours_triton_ssm_step": 4.76837158203125e-07,
+    "vllm_triton_ssu": 4.76837158203125e-07
+   },
+   "eager_ms": {
+    "ours_triton_ssm_step": 0.033376000821590424,
+    "vllm_triton_ssu": 0.07091199979186058
+   },
+   "graph_ms": {
+    "ours_triton_ssm_step": 0.0011776000261306762,
+    "vllm_triton_ssu": 0.0011264000087976456
+   },
+   "eager_bw_GBps": {
+    "ours_triton_ssm_step": 6.385426496698068,
+    "vllm_triton_ssu": 3.0054151712763053
+   },
+   "graph_bw_GBps": {
+    "ours_triton_ssm_step": 180.97825685369887,
+    "vllm_triton_ssu": 189.20454397678043
+   },
+   "smi_before": {
+    "util_pct": 86.0,
+    "temp_c": 75.0,
+    "sm_mhz": 2775.0,
+    "mem_mhz": 8751.0,
+    "power_w": 157.89
+   },
+   "smi_after": {
+    "util_pct": 86.0,
+    "temp_c": 75.0,
+    "sm_mhz": 2775.0,
+    "mem_mhz": 8751.0,
+    "power_w": 147.26
+   }
+  },
+  {
+   "batch": 8,
+   "d_inner": 1024,
+   "d_state": 16,
+   "dtype": "float32",
+   "analytic_min_bytes": 1217536,
+   "err_y_vs_ref": {
+    "ours_triton_ssm_step": 1.9073486328125e-06,
+    "vllm_triton_ssu": 2.384185791015625e-06
+   },
+   "err_state_vs_ref": {
+    "ours_triton_ssm_step": 4.76837158203125e-07,
+    "vllm_triton_ssu": 4.76837158203125e-07
+   },
+   "eager_ms": {
+    "ours_triton_ssm_step": 0.028672000393271446,
+    "vllm_triton_ssu": 0.08163200318813324
+   },
+   "graph_ms": {
+    "ours_triton_ssm_step": 0.0019832000136375426,
+    "vllm_triton_ssu": 0.001945599913597107
+   },
+   "eager_bw_GBps": {
+    "ours_triton_ssm_step": 42.464285131836256,
+    "vllm_triton_ssu": 14.914934736980607
+   },
+   "graph_bw_GBps": {
+    "ours_triton_ssm_step": 613.9249655241894,
+    "vllm_triton_ssu": 625.7895014751354
+   },
+   "smi_before": {
+    "util_pct": 9.0,
+    "temp_c": 75.0,
+    "sm_mhz": 2775.0,
+    "mem_mhz": 8751.0,
+    "power_w": 136.5
+   },
+   "smi_after": {
+    "util_pct": 9.0,
+    "temp_c": 75.0,
+    "sm_mhz": 2775.0,
+    "mem_mhz": 8751.0,
+    "power_w": 126.65
+   }
+  },
+  {
+   "batch": 64,
+   "d_inner": 1024,
+   "d_state": 16,
+   "dtype": "float32",
+   "analytic_min_bytes": 9252864,
+   "err_y_vs_ref": {
+    "ours_triton_ssm_step": 1.9073486328125e-06,
+    "vllm_triton_ssu": 2.384185791015625e-06
+   },
+   "err_state_vs_ref": {
+    "ours_triton_ssm_step": 9.5367431640625e-07,
+    "vllm_triton_ssu": 4.76837158203125e-07
+   },
+   "eager_ms": {
+    "ours_triton_ssm_step": 0.028672000393271446,
+    "vllm_triton_ssu": 0.07494399696588516
+   },
+   "graph_ms": {
+    "ours_triton_ssm_step": 0.007680000364780426,
+    "vllm_triton_ssu": 0.006860800087451935
+   },
+   "eager_bw_GBps": {
+    "ours_triton_ssm_step": 322.7142812878658,
+    "vllm_triton_ssu": 123.46371123242791
+   },
+   "graph_bw_GBps": {
+    "ours_triton_ssm_step": 1204.7999427750735,
+    "vllm_triton_ssu": 1348.656699227111
+   },
+   "smi_before": {
+    "util_pct": 9.0,
+    "temp_c": 75.0,
+    "sm_mhz": 2775.0,
+    "mem_mhz": 8751.0,
+    "power_w": 126.65
+   },
+   "smi_after": {
+    "util_pct": 15.0,
+    "temp_c": 74.0,
+    "sm_mhz": 2775.0,
+    "mem_mhz": 8751.0,
+    "power_w": 113.77
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 2048,
+   "d_state": 16,
+   "dtype": "float32",
+   "analytic_min_bytes": 426112,
+   "err_y_vs_ref": {
+    "ours_triton_ssm_step": 1.9073486328125e-06,
+    "vllm_triton_ssu": 1.9073486328125e-06
+   },
+   "err_state_vs_ref": {
+    "ours_triton_ssm_step": 4.76837158203125e-07,
+    "vllm_triton_ssu": 4.76837158203125e-07
+   },
+   "eager_ms": {
+    "ours_triton_ssm_step": 0.03455999866127968,
+    "vllm_triton_ssu": 0.0727040022611618
+   },
+   "graph_ms": {
+    "ours_triton_ssm_step": 0.0012799999676644802,
+    "vllm_triton_ssu": 0.0013183999806642532
+   },
+   "eager_bw_GBps": {
+    "ours_triton_ssm_step": 12.329630107231665,
+    "vllm_triton_ssu": 5.8609153106778455
+   },
+   "graph_bw_GBps": {
+    "ours_triton_ssm_step": 332.9000084097616,
+    "vllm_triton_ssu": 323.2038882352765
+   },
+   "smi_before": {
+    "util_pct": 15.0,
+    "temp_c": 74.0,
+    "sm_mhz": 2730.0,
+    "mem_mhz": 8751.0,
+    "power_w": 113.77
+   },
+   "smi_after": {
+    "util_pct": 38.0,
+    "temp_c": 74.0,
+    "sm_mhz": 2730.0,
+    "mem_mhz": 8751.0,
+    "power_w": 104.16
+   }
+  },
+  {
+   "batch": 8,
+   "d_inner": 2048,
+   "d_state": 16,
+   "dtype": "float32",
+   "analytic_min_bytes": 2434048,
+   "err_y_vs_ref": {
+    "ours_triton_ssm_step": 1.9073486328125e-06,
+    "vllm_triton_ssu": 1.9073486328125e-06
+   },
+   "err_state_vs_ref": {
+    "ours_triton_ssm_step": 4.76837158203125e-07,
+    "vllm_triton_ssu": 4.76837158203125e-07
+   },
+   "eager_ms": {
+    "ours_triton_ssm_step": 0.02953599952161312,
+    "vllm_triton_ssu": 0.07207999750971794
+   },
+   "graph_ms": {
+    "ours_triton_ssm_step": 0.0029184000566601755,
+    "vllm_triton_ssu": 0.002764800004661083
+   },
+   "eager_bw_GBps": {
+    "ours_triton_ssm_step": 82.40953546260971,
+    "vllm_triton_ssu": 33.76870260951157
+   },
+   "graph_bw_GBps": {
+    "ours_triton_ssm_step": 834.0350715266675,
+    "vllm_triton_ssu": 880.3703688861835
+   },
+   "smi_before": {
+    "util_pct": 38.0,
+    "temp_c": 74.0,
+    "sm_mhz": 2730.0,
+    "mem_mhz": 8751.0,
+    "power_w": 104.16
+   },
+   "smi_after": {
+    "util_pct": 38.0,
+    "temp_c": 74.0,
+    "sm_mhz": 2730.0,
+    "mem_mhz": 8751.0,
+    "power_w": 85.11
+   }
+  },
+  {
+   "batch": 64,
+   "d_inner": 2048,
+   "d_state": 16,
+   "dtype": "float32",
+   "analytic_min_bytes": 18497536,
+   "err_y_vs_ref": {
+    "ours_triton_ssm_step": 1.9073486328125e-06,
+    "vllm_triton_ssu": 2.384185791015625e-06
+   },
+   "err_state_vs_ref": {
+    "ours_triton_ssm_step": 9.5367431640625e-07,
+    "vllm_triton_ssu": 9.5367431640625e-07
+   },
+   "eager_ms": {
+    "ours_triton_ssm_step": 0.033424001187086105,
+    "vllm_triton_ssu": 0.06963200122117996
+   },
+   "graph_ms": {
+    "ours_triton_ssm_step": 0.013670399785041809,
+    "vllm_triton_ssu": 0.013089600205421447
+   },
+   "eager_bw_GBps": {
+    "ours_triton_ssm_step": 553.420755835385,
+    "vllm_triton_ssu": 265.64705416471077
+   },
+   "graph_bw_GBps": {
+    "ours_triton_ssm_step": 1353.1086355089674,
+    "vllm_triton_ssu": 1413.14751479871
+   },
+   "smi_before": {
+    "util_pct": 19.0,
+    "temp_c": 74.0,
+    "sm_mhz": 2730.0,
+    "mem_mhz": 8751.0,
+    "power_w": 85.11
+   },
+   "smi_after": {
+    "util_pct": 62.0,
+    "temp_c": 67.0,
+    "sm_mhz": 2730.0,
+    "mem_mhz": 8751.0,
+    "power_w": 77.92
+   }
+  }
+ ],
+ "step_fused": [
+  {
+   "batch": 1,
+   "d_inner": 1024,
+   "d_model": 512,
+   "d_state": 16,
+   "dtype": "float32",
+   "analytic_min_bytes": 10874880,
+   "weight_bytes": 10616832,
+   "max_abs_diff_vs_composed_official": {
+    "ours_fused_layer": 1.6689300537109375e-06,
+    "composed_torch_plus_official_triton_ssu": 0.0,
+    "composed_torch_plus_vllm_triton_ssu": 0.0
+   },
+   "eager_ms": {
+    "ours_fused_layer": 0.04508800059556961,
+    "composed_torch_plus_official_triton_ssu": 0.3022240102291107,
+    "composed_torch_plus_vllm_triton_ssu": 0.2964479923248291
+   },
+   "graph_ms": {
+    "ours_fused_layer": 0.018607999384403228,
+    "composed_torch_plus_official_triton_ssu": 0.024371199309825897,
+    "composed_torch_plus_vllm_triton_ssu": 0.02470880001783371
+   },
+   "eager_bw_GBps": {
+    "ours_fused_layer": 241.19233180343278,
+    "composed_torch_plus_official_triton_ssu": 35.98284594184276,
+    "composed_torch_plus_vllm_triton_ssu": 36.683938773597724
+   },
+   "graph_bw_GBps": {
+    "ours_fused_layer": 584.4196238051824,
+    "composed_torch_plus_official_triton_ssu": 446.21850003153116,
+    "composed_torch_plus_vllm_triton_ssu": 440.1217376866135
+   },
+   "ref_absmax": 3.6207332611083984,
+   "smi_before": {
+    "util_pct": 62.0,
+    "temp_c": 67.0,
+    "sm_mhz": 2610.0,
+    "mem_mhz": 8751.0,
+    "power_w": 69.11
+   },
+   "smi_after": {
+    "util_pct": 51.0,
+    "temp_c": 62.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 73.1
+   }
+  },
+  {
+   "batch": 8,
+   "d_inner": 1024,
+   "d_model": 512,
+   "d_state": 16,
+   "dtype": "float32",
+   "analytic_min_bytes": 11993088,
+   "weight_bytes": 10616832,
+   "max_abs_diff_vs_composed_official": {
+    "ours_fused_layer": 9.5367431640625e-07,
+    "composed_torch_plus_official_triton_ssu": 0.0,
+    "composed_torch_plus_vllm_triton_ssu": 0.0
+   },
+   "eager_ms": {
+    "ours_fused_layer": 0.09523200243711472,
+    "composed_torch_plus_official_triton_ssu": 0.28355200588703156,
+    "composed_torch_plus_vllm_triton_ssu": 0.30830399692058563
+   },
+   "graph_ms": {
+    "ours_fused_layer": 0.06481280028820038,
+    "composed_torch_plus_official_triton_ssu": 0.04925439953804016,
+    "composed_torch_plus_vllm_triton_ssu": 0.04925439953804016
+   },
+   "eager_bw_GBps": {
+    "ours_fused_layer": 125.93548064810975,
+    "composed_torch_plus_official_triton_ssu": 42.29590251877147,
+    "composed_torch_plus_vllm_triton_ssu": 38.90020278617807
+   },
+   "graph_bw_GBps": {
+    "ours_fused_layer": 185.041966196042,
+    "composed_torch_plus_official_triton_ssu": 243.49272577645573,
+    "composed_torch_plus_vllm_triton_ssu": 243.49272577645573
+   },
+   "ref_absmax": 3.6207332611083984,
+   "smi_before": {
+    "util_pct": 39.0,
+    "temp_c": 62.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 68.82
+   },
+   "smi_after": {
+    "util_pct": 62.0,
+    "temp_c": 66.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 79.02
+   }
+  },
+  {
+   "batch": 64,
+   "d_inner": 1024,
+   "d_model": 512,
+   "d_state": 16,
+   "dtype": "float32",
+   "analytic_min_bytes": 20938752,
+   "weight_bytes": 10616832,
+   "max_abs_diff_vs_composed_official": {
+    "ours_fused_layer": 1.1920928955078125e-06,
+    "composed_torch_plus_official_triton_ssu": 0.0,
+    "composed_torch_plus_vllm_triton_ssu": 0.0
+   },
+   "eager_ms": {
+    "ours_fused_layer": 0.5007359981536865,
+    "composed_torch_plus_official_triton_ssu": 0.3111039996147156,
+    "composed_torch_plus_vllm_triton_ssu": 0.31147199869155884
+   },
+   "graph_ms": {
+    "ours_fused_layer": 0.47267842292785645,
+    "composed_torch_plus_official_triton_ssu": 0.07484640181064606,
+    "composed_torch_plus_vllm_triton_ssu": 0.07454720139503479
+   },
+   "eager_bw_GBps": {
+    "ours_fused_layer": 41.815951074429144,
+    "composed_torch_plus_official_triton_ssu": 67.30466990437745,
+    "composed_torch_plus_vllm_triton_ssu": 67.22515053667794
+   },
+   "graph_bw_GBps": {
+    "ours_fused_layer": 44.29809143878738,
+    "composed_torch_plus_official_triton_ssu": 279.75629413652985,
+    "composed_torch_plus_vllm_triton_ssu": 280.87911562290554
+   },
+   "ref_absmax": 4.434825420379639,
+   "smi_before": {
+    "util_pct": 11.0,
+    "temp_c": 66.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 76.84
+   },
+   "smi_after": {
+    "util_pct": 65.0,
+    "temp_c": 72.0,
+    "sm_mhz": 2730.0,
+    "mem_mhz": 8751.0,
+    "power_w": 140.35
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 2048,
+   "d_model": 1024,
+   "d_state": 16,
+   "dtype": "float32",
+   "analytic_min_bytes": 42721280,
+   "weight_bytes": 42205184,
+   "max_abs_diff_vs_composed_official": {
+    "ours_fused_layer": 2.384185791015625e-06,
+    "composed_torch_plus_official_triton_ssu": 0.0,
+    "composed_torch_plus_vllm_triton_ssu": 0.0
+   },
+   "eager_ms": {
+    "ours_fused_layer": 0.4343840107321739,
+    "composed_torch_plus_official_triton_ssu": 0.29175999760627747,
+    "composed_torch_plus_vllm_triton_ssu": 0.28012800216674805
+   },
+   "graph_ms": {
+    "ours_fused_layer": 0.16558079719543456,
+    "composed_torch_plus_official_triton_ssu": 0.0984063982963562,
+    "composed_torch_plus_vllm_triton_ssu": 0.09902080297470092
+   },
+   "eager_bw_GBps": {
+    "ours_fused_layer": 98.34910803459672,
+    "composed_torch_plus_official_triton_ssu": 146.42610484817473,
+    "composed_torch_plus_vllm_triton_ssu": 152.5062816625161
+   },
+   "graph_bw_GBps": {
+    "ours_fused_layer": 258.00866237874305,
+    "composed_torch_plus_official_triton_ssu": 434.1311209393372,
+    "composed_torch_plus_vllm_triton_ssu": 431.43742240622873
+   },
+   "ref_absmax": 3.6466681957244873,
+   "smi_before": {
+    "util_pct": 4.0,
+    "temp_c": 57.0,
+    "sm_mhz": 795.0,
+    "mem_mhz": 5001.0,
+    "power_w": 31.9
+   },
+   "smi_after": {
+    "util_pct": 95.0,
+    "temp_c": 63.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 84.0
+   }
+  },
+  {
+   "batch": 8,
+   "d_inner": 2048,
+   "d_model": 1024,
+   "d_state": 16,
+   "dtype": "float32",
+   "analytic_min_bytes": 44957696,
+   "weight_bytes": 42205184,
+   "max_abs_diff_vs_composed_official": {
+    "ours_fused_layer": 1.430511474609375e-06,
+    "composed_torch_plus_official_triton_ssu": 0.0,
+    "composed_torch_plus_vllm_triton_ssu": 0.0
+   },
+   "eager_ms": {
+    "ours_fused_layer": 0.3614720106124878,
+    "composed_torch_plus_official_triton_ssu": 0.2808320075273514,
+    "composed_torch_plus_vllm_triton_ssu": 0.3075200021266937
+   },
+   "graph_ms": {
+    "ours_fused_layer": 0.3083264112472534,
+    "composed_torch_plus_official_triton_ssu": 0.21678080558776855,
+    "composed_torch_plus_vllm_triton_ssu": 0.21780478954315186
+   },
+   "eager_bw_GBps": {
+    "ours_fused_layer": 124.37393402554872,
+    "composed_torch_plus_official_triton_ssu": 160.08750710376697,
+    "composed_torch_plus_vllm_triton_ssu": 146.19437984225198
+   },
+   "graph_bw_GBps": {
+    "ours_fused_layer": 145.81201726487024,
+    "composed_torch_plus_official_triton_ssu": 207.38780759719003,
+    "composed_torch_plus_vllm_triton_ssu": 206.41279787418497
+   },
+   "ref_absmax": 3.651052713394165,
+   "smi_before": {
+    "util_pct": 20.0,
+    "temp_c": 54.0,
+    "sm_mhz": 210.0,
+    "mem_mhz": 405.0,
+    "power_w": 14.12
+   },
+   "smi_after": {
+    "util_pct": 97.0,
+    "temp_c": 64.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 111.72
+   }
+  },
+  {
+   "batch": 64,
+   "d_inner": 2048,
+   "d_model": 1024,
+   "d_state": 16,
+   "dtype": "float32",
+   "analytic_min_bytes": 62849024,
+   "weight_bytes": 42205184,
+   "max_abs_diff_vs_composed_official": {
+    "ours_fused_layer": 1.9073486328125e-06,
+    "composed_torch_plus_official_triton_ssu": 0.0,
+    "composed_torch_plus_vllm_triton_ssu": 0.0
+   },
+   "eager_ms": {
+    "ours_fused_layer": 2.2618720531463623,
+    "composed_torch_plus_official_triton_ssu": 0.3574559986591339,
+    "composed_torch_plus_vllm_triton_ssu": 0.37376001477241516
+   },
+   "graph_ms": {
+    "ours_fused_layer": 2.2714608192443846,
+    "composed_torch_plus_official_triton_ssu": 0.30812160968780516,
+    "composed_torch_plus_vllm_triton_ssu": 0.30626559257507324
+   },
+   "eager_bw_GBps": {
+    "ours_fused_layer": 27.786286104279984,
+    "composed_torch_plus_official_triton_ssu": 175.82310616063302,
+    "composed_torch_plus_vllm_triton_ssu": 168.15341801147233
+   },
+   "graph_bw_GBps": {
+    "ours_fused_layer": 27.66898881439087,
+    "composed_torch_plus_official_triton_ssu": 203.97473602607704,
+    "composed_torch_plus_vllm_triton_ssu": 205.21085464275308
+   },
+   "ref_absmax": 4.539694786071777,
+   "smi_before": {
+    "util_pct": 97.0,
+    "temp_c": 64.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 111.72
+   },
+   "smi_after": {
+    "util_pct": 98.0,
+    "temp_c": 72.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 151.89
+   }
+  }
+ ],
+ "errors": [
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 16,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 32,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 64,16: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 128,8: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,1: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,2: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "tune cuda 256,4: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_tuned: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run ours_cuda_default: AttributeError: module 'selective_scan_cuda' has no attribute 'scan'",
+  "run official_triton_ssu: TypeError: Value after * must be an iterable, not int",
+  "run official_triton_ssu: TypeError: Value after * must be an iterable, not int",
+  "run official_triton_ssu: TypeError: Value after * must be an iterable, not int",
+  "run official_triton_ssu: TypeError: Value after * must be an iterable, not int",
+  "run official_triton_ssu: TypeError: Value after * must be an iterable, not int",
+  "run official_triton_ssu: TypeError: Value after * must be an iterable, not int"
+ ],
+ "scan_fixed": [
+  {
+   "batch": 1,
+   "d_inner": 1024,
+   "T": 30,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 4.458230018615723,
+   "analytic_min_bytes": 442112,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 5.960464477539062e-07,
+    "vllm_scan": 9.5367431640625e-07,
+    "vllm_scan_with_delta_restore": 9.5367431640625e-07,
+    "official_scan": 9.5367431640625e-07,
+    "official_scan_with_layout_transposes": 9.5367431640625e-07
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 9.5367431640625e-07,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.023552000522613525,
+    "vllm_scan": 0.04668800160288811,
+    "vllm_scan_with_delta_restore": 0.05734400078654289,
+    "official_scan": 0.02457600086927414,
+    "official_scan_with_layout_transposes": 0.12185599654912949
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.005324799939990044,
+    "vllm_scan": 0.019251200556755065,
+    "official_scan": 0.019046400487422944
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 83.02884708957284,
+    "vllm_scan": 22.965424867742446,
+    "official_scan": 23.212364997362265
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 18.77173871389417,
+    "vllm_scan": 9.469499332193543,
+    "vllm_scan_with_delta_restore": 7.709821322821827,
+    "official_scan": 17.98958269702641,
+    "official_scan_with_layout_transposes": 3.6281513632507267
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 9.5367431640625e-07,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 54.0,
+    "sm_mhz": 2340.0,
+    "mem_mhz": 8751.0,
+    "power_w": 123.74
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.013535999692976475,
+    "vllm_scan": 0.030719999223947525,
+    "official_scan": 0.025599999353289604
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.0071680000983178616,
+    "vllm_scan": 0.021503999829292297,
+    "official_scan": 0.020479999482631683
+   },
+   "smi_after": {
+    "util_pct": 84.0,
+    "temp_c": 44.0,
+    "sm_mhz": 2820.0,
+    "mem_mhz": 8751.0,
+    "power_w": 108.39
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 1024,
+   "T": 300,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 9.068425178527832,
+   "analytic_min_bytes": 3794432,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 1.0728836059570312e-06,
+    "vllm_scan": 1.430511474609375e-06,
+    "vllm_scan_with_delta_restore": 1.430511474609375e-06,
+    "official_scan": 1.430511474609375e-06,
+    "official_scan_with_layout_transposes": 1.430511474609375e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 1.430511474609375e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.03891199827194214,
+    "vllm_scan": 0.11264000087976456,
+    "vllm_scan_with_delta_restore": 0.12484799697995186,
+    "official_scan": 0.05875199846923351,
+    "official_scan_with_layout_transposes": 0.1348000019788742
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.032051199674606325,
+    "vllm_scan": 0.07735999822616577,
+    "official_scan": 0.053452801704406736
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 118.38658267154568,
+    "vllm_scan": 49.049018704819396,
+    "official_scan": 70.98658777482156
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 97.51316222523609,
+    "vllm_scan": 33.68636337325933,
+    "vllm_scan_with_delta_restore": 30.392413909606507,
+    "official_scan": 64.58387967835714,
+    "official_scan_with_layout_transposes": 28.14860492802264
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.430511474609375e-06,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 55.0,
+    "sm_mhz": 2280.0,
+    "mem_mhz": 8751.0,
+    "power_w": 161.62
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.06860800087451935,
+    "vllm_scan": 0.10035199671983719,
+    "official_scan": 0.07065600156784058
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.03276799991726875,
+    "vllm_scan": 0.0798719972372055,
+    "official_scan": 0.05531200021505356
+   },
+   "smi_after": {
+    "util_pct": 61.0,
+    "temp_c": 43.0,
+    "sm_mhz": 2820.0,
+    "mem_mhz": 8751.0,
+    "power_w": 88.11
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 1024,
+   "T": 3000,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 8.16541862487793,
+   "analytic_min_bytes": 37317632,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 1.9073486328125e-06,
+    "vllm_scan": 1.9073486328125e-06,
+    "vllm_scan_with_delta_restore": 1.9073486328125e-06,
+    "official_scan": 1.9073486328125e-06,
+    "official_scan_with_layout_transposes": 1.9073486328125e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 1.9073486328125e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.4782080054283142,
+    "vllm_scan": 0.507968008518219,
+    "vllm_scan_with_delta_restore": 0.530351996421814,
+    "official_scan": 0.4259839951992035,
+    "official_scan_with_layout_transposes": 0.7690240144729614
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.4558847904205322,
+    "vllm_scan": 0.4730879783630371,
+    "official_scan": 0.42795839309692385
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 81.85759381350768,
+    "vllm_scan": 78.88095598862012,
+    "official_scan": 87.19920581519783
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 78.03640168377336,
+    "vllm_scan": 73.46453196699994,
+    "vllm_scan_with_delta_restore": 70.36389464313343,
+    "official_scan": 87.60336637189646,
+    "official_scan_with_layout_transposes": 48.52596446623979
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.9073486328125e-06,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 56.0,
+    "sm_mhz": 2295.0,
+    "mem_mhz": 8751.0,
+    "power_w": 160.69
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.4905279874801636,
+    "vllm_scan": 0.52019202709198,
+    "official_scan": 0.44441598653793335
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.45977601408958435,
+    "vllm_scan": 0.47411200404167175,
+    "official_scan": 0.42188799381256104
+   },
+   "smi_after": {
+    "util_pct": 84.0,
+    "temp_c": 52.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 115.15
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 2048,
+   "T": 30,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 5.103926658630371,
+   "analytic_min_bytes": 880384,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 7.152557373046875e-07,
+    "vllm_scan": 9.5367431640625e-07,
+    "vllm_scan_with_delta_restore": 9.5367431640625e-07,
+    "official_scan": 9.5367431640625e-07,
+    "official_scan_with_layout_transposes": 9.5367431640625e-07
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 1.430511474609375e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.03174399957060814,
+    "vllm_scan": 0.05931200087070465,
+    "vllm_scan_with_delta_restore": 0.060416001826524734,
+    "official_scan": 0.036768000572919846,
+    "official_scan_with_layout_transposes": 0.09110400080680847
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.005939200147986412,
+    "vllm_scan": 0.03604480028152466,
+    "official_scan": 0.034201601147651674
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 148.23275492718994,
+    "vllm_scan": 24.42471571832387,
+    "official_scan": 25.74101710031924
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 27.733871342889948,
+    "vllm_scan": 14.843269272253446,
+    "vllm_scan_with_delta_restore": 14.572033457756561,
+    "official_scan": 23.94429901767395,
+    "official_scan_with_layout_transposes": 9.663505358748264
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.430511474609375e-06,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 57.0,
+    "sm_mhz": 2280.0,
+    "mem_mhz": 8751.0,
+    "power_w": 161.74
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.016383999958634377,
+    "vllm_scan": 0.04915200173854828,
+    "official_scan": 0.04198399931192398
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.0071680000983178616,
+    "vllm_scan": 0.03891199827194214,
+    "official_scan": 0.03686400130391121
+   },
+   "smi_after": {
+    "util_pct": 90.0,
+    "temp_c": 50.0,
+    "sm_mhz": 2820.0,
+    "mem_mhz": 8751.0,
+    "power_w": 113.86
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 2048,
+   "T": 300,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 6.8896379470825195,
+   "analytic_min_bytes": 7550464,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 1.9073486328125e-06,
+    "vllm_scan": 1.9073486328125e-06,
+    "vllm_scan_with_delta_restore": 1.9073486328125e-06,
+    "official_scan": 1.9073486328125e-06,
+    "official_scan_with_layout_transposes": 1.9073486328125e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 1.430511474609375e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.04505600035190582,
+    "vllm_scan": 0.17403200268745422,
+    "vllm_scan_with_delta_restore": 0.17919999361038208,
+    "official_scan": 0.10438399761915207,
+    "official_scan_with_layout_transposes": 0.17100800573825836
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.033980800211429595,
+    "vllm_scan": 0.15255680084228515,
+    "official_scan": 0.1013759970664978
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 222.19794569347332,
+    "vllm_scan": 49.492805029424744,
+    "official_scan": 74.47980013500884
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 167.57954414568053,
+    "vllm_scan": 43.38549165327915,
+    "vllm_scan_with_delta_restore": 42.13428721664061,
+    "official_scan": 72.33353935675159,
+    "official_scan_with_layout_transposes": 44.1526931292129
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.430511474609375e-06,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 56.0,
+    "sm_mhz": 2280.0,
+    "mem_mhz": 8751.0,
+    "power_w": 161.8
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.08089599758386612,
+    "vllm_scan": 0.17919999361038208,
+    "official_scan": 0.12185599654912949
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.03379200026392937,
+    "vllm_scan": 0.15564799308776855,
+    "official_scan": 0.10444799810647964
+   },
+   "smi_after": {
+    "util_pct": 92.0,
+    "temp_c": 46.0,
+    "sm_mhz": 2820.0,
+    "mem_mhz": 8751.0,
+    "power_w": 95.63
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 2048,
+   "T": 3000,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 9.737300872802734,
+   "analytic_min_bytes": 74251264,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 1.6689300537109375e-06,
+    "vllm_scan": 2.384185791015625e-06,
+    "vllm_scan_with_delta_restore": 2.384185791015625e-06,
+    "official_scan": 2.384185791015625e-06,
+    "official_scan_with_layout_transposes": 2.384185791015625e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 1.9073486328125e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.5478399991989136,
+    "vllm_scan": 0.9625599980354309,
+    "vllm_scan_with_delta_restore": 1.1397119760513306,
+    "official_scan": 0.8396160006523132,
+    "official_scan_with_layout_transposes": 1.9281759858131409
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.5222303867340088,
+    "vllm_scan": 0.9374527931213379,
+    "official_scan": 0.8527423858642578
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 142.18104860646287,
+    "vllm_scan": 79.20533657249383,
+    "official_scan": 87.07349984104056
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 135.5345796374396,
+    "vllm_scan": 77.13936185956783,
+    "vllm_scan_with_delta_restore": 65.14914782000663,
+    "official_scan": 88.43478916827789,
+    "official_scan_with_layout_transposes": 38.50855136995554
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.9073486328125e-06,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 57.0,
+    "sm_mhz": 2280.0,
+    "mem_mhz": 8751.0,
+    "power_w": 162.01
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.562175989151001,
+    "vllm_scan": 0.9687039852142334,
+    "official_scan": 0.8376320004463196
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.5253120064735413,
+    "vllm_scan": 0.9400320053100586,
+    "official_scan": 0.8191999793052673
+   },
+   "smi_after": {
+    "util_pct": 96.0,
+    "temp_c": 58.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 139.11
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 1024,
+   "T": 30,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 7.904454231262207,
+   "analytic_min_bytes": 1559552,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 9.5367431640625e-07,
+    "vllm_scan": 1.430511474609375e-06,
+    "vllm_scan_with_delta_restore": 1.430511474609375e-06,
+    "official_scan": 1.430511474609375e-06,
+    "official_scan_with_layout_transposes": 1.430511474609375e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 1.430511474609375e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.05344000086188316,
+    "vllm_scan": 0.11132799834012985,
+    "vllm_scan_with_delta_restore": 0.0942080020904541,
+    "official_scan": 0.07064000144600868,
+    "official_scan_with_layout_transposes": 0.13308800011873245
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.006310400366783142,
+    "vllm_scan": 0.0673792004585266,
+    "official_scan": 0.06512640118598938
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 247.1399450673863,
+    "vllm_scan": 23.1458964990233,
+    "official_scan": 23.946540444422805
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 29.183233062265398,
+    "vllm_scan": 14.008623376441646,
+    "vllm_scan_with_delta_restore": 16.55434745874975,
+    "official_scan": 22.077462741729857,
+    "official_scan_with_layout_transposes": 11.71820148028875
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.430511474609375e-06,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 60.0,
+    "sm_mhz": 2325.0,
+    "mem_mhz": 8751.0,
+    "power_w": 161.65
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.02252800017595291,
+    "vllm_scan": 0.07884799689054489,
+    "official_scan": 0.07168000191450119
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.008191999979317188,
+    "vllm_scan": 0.07065600156784058,
+    "official_scan": 0.06777600198984146
+   },
+   "smi_after": {
+    "util_pct": 87.0,
+    "temp_c": 47.0,
+    "sm_mhz": 2820.0,
+    "mem_mhz": 8751.0,
+    "power_w": 112.38
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 1024,
+   "T": 300,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 9.221839904785156,
+   "analytic_min_bytes": 14968832,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 1.6689300537109375e-06,
+    "vllm_scan": 1.9073486328125e-06,
+    "vllm_scan_with_delta_restore": 1.9073486328125e-06,
+    "official_scan": 1.9073486328125e-06,
+    "official_scan_with_layout_transposes": 1.9073486328125e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 1.9073486328125e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.04403200000524521,
+    "vllm_scan": 0.32153600454330444,
+    "vllm_scan_with_delta_restore": 0.33084799349308014,
+    "official_scan": 0.20070399343967438,
+    "official_scan_with_layout_transposes": 0.317440003156662
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.04136959910392761,
+    "vllm_scan": 0.30351359844207765,
+    "official_scan": 0.19824639558792115
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 361.8316910056512,
+    "vllm_scan": 49.318488782164536,
+    "official_scan": 75.506200027538
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 339.9534883315969,
+    "vllm_scan": 46.55413946957843,
+    "vllm_scan_with_delta_restore": 45.24383491633019,
+    "official_scan": 74.58163509087916,
+    "official_scan_with_layout_transposes": 47.15483824076397
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.9073486328125e-06,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 59.0,
+    "sm_mhz": 2250.0,
+    "mem_mhz": 8751.0,
+    "power_w": 161.23
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.10035199671983719,
+    "vllm_scan": 0.319487988948822,
+    "official_scan": 0.21913599967956543
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.04182400181889534,
+    "vllm_scan": 0.3051519989967346,
+    "official_scan": 0.2008640021085739
+   },
+   "smi_after": {
+    "util_pct": 94.0,
+    "temp_c": 51.0,
+    "sm_mhz": 2820.0,
+    "mem_mhz": 8751.0,
+    "power_w": 112.08
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 1024,
+   "T": 3000,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 9.250447273254395,
+   "analytic_min_bytes": 149061632,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 1.9073486328125e-06,
+    "vllm_scan": 1.9073486328125e-06,
+    "vllm_scan_with_delta_restore": 1.9073486328125e-06,
+    "official_scan": 1.9073486328125e-06,
+    "official_scan_with_layout_transposes": 1.9073486328125e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 1.9073486328125e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.673552006483078,
+    "vllm_scan": 1.8452479839324951,
+    "vllm_scan_with_delta_restore": 2.215775966644287,
+    "official_scan": 1.652735948562622,
+    "official_scan_with_layout_transposes": 3.0996479988098145
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.6637567996978759,
+    "vllm_scan": 1.8939807891845701,
+    "official_scan": 1.7133567810058594
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 224.57266286062725,
+    "vllm_scan": 78.70282151287113,
+    "official_scan": 86.99976190159907
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 221.30678932769976,
+    "vllm_scan": 80.78135475445838,
+    "vllm_scan_with_delta_restore": 67.27288058176227,
+    "official_scan": 90.19083304240965,
+    "official_scan_with_layout_transposes": 48.089857963625505
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.9073486328125e-06,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 60.0,
+    "sm_mhz": 2280.0,
+    "mem_mhz": 8751.0,
+    "power_w": 161.75
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.7074719965457916,
+    "vllm_scan": 1.86489599943161,
+    "official_scan": 1.6558240056037903
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.6656000018119812,
+    "vllm_scan": 1.844223976135254,
+    "official_scan": 1.643567979335785
+   },
+   "smi_after": {
+    "util_pct": 91.0,
+    "temp_c": 62.0,
+    "sm_mhz": 2730.0,
+    "mem_mhz": 8751.0,
+    "power_w": 159.44
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 2048,
+   "T": 30,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 6.192359924316406,
+   "analytic_min_bytes": 3103744,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 9.5367431640625e-07,
+    "vllm_scan": 1.9073486328125e-06,
+    "vllm_scan_with_delta_restore": 1.9073486328125e-06,
+    "official_scan": 1.9073486328125e-06,
+    "official_scan_with_layout_transposes": 1.9073486328125e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 1.430511474609375e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.0359519999474287,
+    "vllm_scan": 0.16795200109481812,
+    "vllm_scan_with_delta_restore": 0.18227200210094452,
+    "official_scan": 0.12902399897575378,
+    "official_scan_with_layout_transposes": 0.19281600415706635
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.011059200018644333,
+    "vllm_scan": 0.12878719568252564,
+    "official_scan": 0.12677119970321654
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 280.64814767501286,
+    "vllm_scan": 24.099787122091424,
+    "official_scan": 24.483037214021483
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 86.33021819477337,
+    "vllm_scan": 18.479946530960152,
+    "vllm_scan_with_delta_restore": 17.02808969136745,
+    "official_scan": 24.05555574651857,
+    "official_scan_with_layout_transposes": 16.09692107026404
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.430511474609375e-06,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 63.0,
+    "sm_mhz": 2310.0,
+    "mem_mhz": 8751.0,
+    "power_w": 161.65
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.02969600073993206,
+    "vllm_scan": 0.14233599603176117,
+    "official_scan": 0.133215993642807
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.011264000087976456,
+    "vllm_scan": 0.13203200697898865,
+    "official_scan": 0.130048006772995
+   },
+   "smi_after": {
+    "util_pct": 93.0,
+    "temp_c": 59.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 105.07
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 2048,
+   "T": 300,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 10.44076156616211,
+   "analytic_min_bytes": 29784064,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 1.5497207641601562e-06,
+    "vllm_scan": 1.9073486328125e-06,
+    "vllm_scan_with_delta_restore": 1.9073486328125e-06,
+    "official_scan": 1.9073486328125e-06,
+    "official_scan_with_layout_transposes": 1.9073486328125e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 1.430511474609375e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.08294399827718735,
+    "vllm_scan": 0.609279990196228,
+    "vllm_scan_with_delta_restore": 0.6164479851722717,
+    "official_scan": 0.39190399646759033,
+    "official_scan_with_layout_transposes": 0.634880006313324
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.0673792004585266,
+    "vllm_scan": 0.5877279996871948,
+    "official_scan": 0.3886623978614807
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 442.03647115600245,
+    "vllm_scan": 50.67661233742804,
+    "official_scan": 76.6322241716191
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 359.08642721159623,
+    "vllm_scan": 48.88403440002614,
+    "vllm_scan_with_delta_restore": 48.31561578009957,
+    "official_scan": 75.99836763201542,
+    "official_scan_with_layout_transposes": 46.91290275929884
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.430511474609375e-06,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 62.0,
+    "sm_mhz": 2265.0,
+    "mem_mhz": 8751.0,
+    "power_w": 158.74
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.158720001578331,
+    "vllm_scan": 0.6082559823989868,
+    "official_scan": 0.4136959910392761
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.06860800087451935,
+    "vllm_scan": 0.5898240208625793,
+    "official_scan": 0.3911679983139038
+   },
+   "smi_after": {
+    "util_pct": 94.0,
+    "temp_c": 58.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 125.4
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 2048,
+   "T": 3000,
+   "dtype": "float32",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 8.434913635253906,
+   "analytic_min_bytes": 296587264,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 1.9073486328125e-06,
+    "vllm_scan": 2.384185791015625e-06,
+    "vllm_scan_with_delta_restore": 2.384185791015625e-06,
+    "official_scan": 2.384185791015625e-06,
+    "official_scan_with_layout_transposes": 2.384185791015625e-06
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 1.9073486328125e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 1.1601920127868652,
+    "vllm_scan": 3.6976640224456787,
+    "vllm_scan_with_delta_restore": 4.465712070465088,
+    "official_scan": 3.3984639644622803,
+    "official_scan_with_layout_transposes": 7.965792179107666
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 1.1554816246032715,
+    "vllm_scan": 3.770569610595703,
+    "official_scan": 3.4420671463012695
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 256.6784773421487,
+    "vllm_scan": 78.65847726734924,
+    "official_scan": 86.16544982822394
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 255.6363608189095,
+    "vllm_scan": 80.20935980111943,
+    "vllm_scan_with_delta_restore": 66.41432750703775,
+    "official_scan": 87.2709750938693,
+    "official_scan_with_layout_transposes": 37.23261382312687
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.9073486328125e-06,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 62.0,
+    "sm_mhz": 2265.0,
+    "mem_mhz": 8751.0,
+    "power_w": 160.76
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 1.193455994129181,
+    "vllm_scan": 3.7253119945526123,
+    "official_scan": 3.4017279148101807
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 1.1560959815979004,
+    "vllm_scan": 3.7130239009857178,
+    "official_scan": 3.3423359394073486
+   },
+   "smi_after": {
+    "util_pct": 96.0,
+    "temp_c": 68.0,
+    "sm_mhz": 2670.0,
+    "mem_mhz": 8751.0,
+    "power_w": 159.65
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 1024,
+   "T": 30,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 4.445616245269775,
+   "analytic_min_bytes": 255872,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 0.013617515563964844,
+    "vllm_scan": 0.013617515563964844,
+    "vllm_scan_with_delta_restore": 0.013617515563964844,
+    "official_scan": 0.013617515563964844,
+    "official_scan_with_layout_transposes": 0.013617515563964844
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 1.9073486328125e-06,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.013488000258803368,
+    "vllm_scan": 0.037728000432252884,
+    "vllm_scan_with_delta_restore": 0.04403200000524521,
+    "official_scan": 0.020479999482631683,
+    "official_scan_with_layout_transposes": 0.07288000360131264
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.005119999870657921,
+    "vllm_scan": 0.020275199413299562,
+    "official_scan": 0.018432000279426576
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 49.97500126247473,
+    "vllm_scan": 12.619949860131102,
+    "official_scan": 13.881944233996085
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 18.97034364549312,
+    "vllm_scan": 6.782018582179095,
+    "vllm_scan_with_delta_restore": 5.81104651093568,
+    "official_scan": 12.493750315618682,
+    "official_scan_with_layout_transposes": 3.510867005437298
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 1.9073486328125e-06,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 67.0,
+    "sm_mhz": 2265.0,
+    "mem_mhz": 8751.0,
+    "power_w": 157.8
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.013311999849975109,
+    "vllm_scan": 0.02969600073993206,
+    "official_scan": 0.02457600086927414
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.0071680000983178616,
+    "vllm_scan": 0.021503999829292297,
+    "official_scan": 0.021503999829292297
+   },
+   "smi_after": {
+    "util_pct": 84.0,
+    "temp_c": 57.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 122.68
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 1024,
+   "T": 300,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 9.062033653259277,
+   "analytic_min_bytes": 1932032,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 0.015619754791259766,
+    "vllm_scan": 0.015619754791259766,
+    "vllm_scan_with_delta_restore": 0.015619754791259766,
+    "official_scan": 0.015619754791259766,
+    "official_scan_with_layout_transposes": 0.015619754791259766
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 0.0078125,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.03993599861860275,
+    "vllm_scan": 0.11960000172257423,
+    "vllm_scan_with_delta_restore": 0.13017600029706955,
+    "official_scan": 0.05427199974656105,
+    "official_scan_with_layout_transposes": 0.18432000279426575
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.032713599503040314,
+    "vllm_scan": 0.07823359966278076,
+    "official_scan": 0.051609599590301515
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 59.058985539651246,
+    "vllm_scan": 24.69568073472087,
+    "official_scan": 37.43551617019458
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 48.378206801620635,
+    "vllm_scan": 16.154113479710205,
+    "vllm_scan_with_delta_restore": 14.841691214901253,
+    "official_scan": 35.599056770013775,
+    "official_scan_with_layout_transposes": 10.481944285539617
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.0078125,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 65.0,
+    "sm_mhz": 2265.0,
+    "mem_mhz": 8751.0,
+    "power_w": 158.26
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.06758400052785873,
+    "vllm_scan": 0.09728000313043594,
+    "official_scan": 0.060416001826524734
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.03379200026392937,
+    "vllm_scan": 0.08089599758386612,
+    "official_scan": 0.05427199974656105
+   },
+   "smi_after": {
+    "util_pct": 88.0,
+    "temp_c": 54.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 103.13
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 1024,
+   "T": 3000,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 8.159879684448242,
+   "analytic_min_bytes": 18693632,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 0.027620315551757812,
+    "vllm_scan": 0.027620315551757812,
+    "vllm_scan_with_delta_restore": 0.027620315551757812,
+    "official_scan": 0.027620315551757812,
+    "official_scan_with_layout_transposes": 0.027620315551757812
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 0.015625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.3164159953594208,
+    "vllm_scan": 0.5263200104236603,
+    "vllm_scan_with_delta_restore": 0.5366399884223938,
+    "official_scan": 0.3993600010871887,
+    "official_scan_with_layout_transposes": 0.6639840006828308
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.2991520047187805,
+    "vllm_scan": 0.5050367832183837,
+    "official_scan": 0.39726719856262205
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 62.488740523644665,
+    "vllm_scan": 37.01439701257692,
+    "official_scan": 47.05556378084229
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 59.07928889235096,
+    "vllm_scan": 35.51761595564759,
+    "vllm_scan_with_delta_restore": 34.834586320999406,
+    "official_scan": 46.808974231545,
+    "official_scan_with_layout_transposes": 28.153738615351813
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.015625,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 63.0,
+    "sm_mhz": 2250.0,
+    "mem_mhz": 8751.0,
+    "power_w": 157.97
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.48127999901771545,
+    "vllm_scan": 0.5478399991989136,
+    "official_scan": 0.41780799627304077
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.3020800054073334,
+    "vllm_scan": 0.5079199969768524,
+    "official_scan": 0.3993600010871887
+   },
+   "smi_after": {
+    "util_pct": 95.0,
+    "temp_c": 57.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 112.96
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 2048,
+   "T": 30,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 5.11130952835083,
+   "analytic_min_bytes": 509824,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 0.015098094940185547,
+    "vllm_scan": 0.015098094940185547,
+    "vllm_scan_with_delta_restore": 0.015098094940185547,
+    "official_scan": 0.015098094940185547,
+    "official_scan_with_layout_transposes": 0.015098094940185547
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 0.0009765625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.013008000329136848,
+    "vllm_scan": 0.05214399844408035,
+    "vllm_scan_with_delta_restore": 0.06143999844789505,
+    "official_scan": 0.03686400130391121,
+    "official_scan_with_layout_transposes": 0.09216000139713287
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.005263999849557876,
+    "vllm_scan": 0.037049600481987,
+    "official_scan": 0.03436160087585449
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 96.85106659773558,
+    "vllm_scan": 13.760580232109907,
+    "official_scan": 14.83702700121424
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 39.19311093942981,
+    "vllm_scan": 9.777232571582315,
+    "vllm_scan_with_delta_restore": 8.29791687628968,
+    "official_scan": 13.829860621937113,
+    "official_scan_with_layout_transposes": 5.5319443605809315
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.0009765625,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 64.0,
+    "sm_mhz": 2265.0,
+    "mem_mhz": 8751.0,
+    "power_w": 161.12
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.015359999611973763,
+    "vllm_scan": 0.047231998294591904,
+    "official_scan": 0.03993599861860275
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.0071680000983178616,
+    "vllm_scan": 0.03891199827194214,
+    "official_scan": 0.03686400130391121
+   },
+   "smi_after": {
+    "util_pct": 88.0,
+    "temp_c": 52.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 116.1
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 2048,
+   "T": 300,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 6.884157657623291,
+   "analytic_min_bytes": 3844864,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 0.01561737060546875,
+    "vllm_scan": 0.01561737060546875,
+    "vllm_scan_with_delta_restore": 0.01561737060546875,
+    "official_scan": 0.01561737060546875,
+    "official_scan_with_layout_transposes": 0.01561737060546875
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 0.0078125,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.03788800165057182,
+    "vllm_scan": 0.1945600062608719,
+    "vllm_scan_with_delta_restore": 0.20582400262355804,
+    "official_scan": 0.10123200342059135,
+    "official_scan_with_layout_transposes": 0.24030400067567825
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.03522560000419617,
+    "vllm_scan": 0.15278079509735107,
+    "official_scan": 0.09830399751663207
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 109.14970928932337,
+    "vllm_scan": 25.165885526057604,
+    "official_scan": 39.11198015471839
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 101.4797253088161,
+    "vllm_scan": 19.761841469334097,
+    "vllm_scan_with_delta_restore": 18.680348020595375,
+    "official_scan": 37.98071627631075,
+    "official_scan_with_layout_transposes": 15.999999955011768
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.0078125,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 63.0,
+    "sm_mhz": 2250.0,
+    "mem_mhz": 8751.0,
+    "power_w": 161.63
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.07372800260782242,
+    "vllm_scan": 0.1730560064315796,
+    "official_scan": 0.10956799983978271
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.03481600061058998,
+    "vllm_scan": 0.15564799308776855,
+    "official_scan": 0.1013759970664978
+   },
+   "smi_after": {
+    "util_pct": 88.0,
+    "temp_c": 52.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 97.55
+   }
+  },
+  {
+   "batch": 1,
+   "d_inner": 2048,
+   "T": 3000,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 9.712861061096191,
+   "analytic_min_bytes": 37195264,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 0.025361061096191406,
+    "vllm_scan": 0.025361061096191406,
+    "vllm_scan_with_delta_restore": 0.025361061096191406,
+    "official_scan": 0.025361061096191406,
+    "official_scan_with_layout_transposes": 0.025361061096191406
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 0.015625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.4925439953804016,
+    "vllm_scan": 0.9830399751663208,
+    "vllm_scan_with_delta_restore": 1.0449119806289673,
+    "official_scan": 0.7939200103282928,
+    "official_scan_with_layout_transposes": 1.3066240549087524
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.4868095874786377,
+    "vllm_scan": 0.9806496143341064,
+    "official_scan": 0.7894720077514648
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 76.4061862311457,
+    "vllm_scan": 37.929208818642955,
+    "official_scan": 47.1141011141582
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 75.51663272490684,
+    "vllm_scan": 37.83698012250919,
+    "vllm_scan_with_delta_restore": 35.59655233124127,
+    "official_scan": 46.85014046266378,
+    "official_scan_with_layout_transposes": 28.46669159370215
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.015625,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 63.0,
+    "sm_mhz": 2295.0,
+    "mem_mhz": 8751.0,
+    "power_w": 161.31
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.5100160241127014,
+    "vllm_scan": 1.0332639813423157,
+    "official_scan": 0.8007680177688599
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.4843519926071167,
+    "vllm_scan": 0.9830399751663208,
+    "official_scan": 0.7874559760093689
+   },
+   "smi_after": {
+    "util_pct": 94.0,
+    "temp_c": 62.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 122.87
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 1024,
+   "T": 30,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 7.8981242179870605,
+   "analytic_min_bytes": 814592,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 0.015505790710449219,
+    "vllm_scan": 0.015505790710449219,
+    "vllm_scan_with_delta_restore": 0.015505790710449219,
+    "official_scan": 0.015505790710449219,
+    "official_scan_with_layout_transposes": 0.015505790710449219
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 0.00390625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.028111999854445457,
+    "vllm_scan": 0.11036799848079681,
+    "vllm_scan_with_delta_restore": 0.09385599941015244,
+    "official_scan": 0.06758400052785873,
+    "official_scan_with_layout_transposes": 0.12185599654912949
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.006278400123119354,
+    "vllm_scan": 0.06676480174064636,
+    "official_scan": 0.06492159962654113
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 129.7451554577377,
+    "vllm_scan": 12.200919927304703,
+    "official_scan": 12.54731868416532
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 28.976664919524943,
+    "vllm_scan": 7.380690156682806,
+    "vllm_scan_with_delta_restore": 8.679168141827759,
+    "official_scan": 12.0530302088912,
+    "official_scan_with_layout_transposes": 6.684874138890454
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.00390625,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 63.0,
+    "sm_mhz": 2295.0,
+    "mem_mhz": 8751.0,
+    "power_w": 160.5
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.021503999829292297,
+    "vllm_scan": 0.07577600330114365,
+    "official_scan": 0.07065600156784058
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.008191999979317188,
+    "vllm_scan": 0.06963200122117996,
+    "official_scan": 0.0676800012588501
+   },
+   "smi_after": {
+    "util_pct": 91.0,
+    "temp_c": 52.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 113.74
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 1024,
+   "T": 300,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 9.241554260253906,
+   "analytic_min_bytes": 7519232,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 0.01562356948852539,
+    "vllm_scan": 0.01562356948852539,
+    "vllm_scan_with_delta_restore": 0.01562356948852539,
+    "official_scan": 0.01562356948852539,
+    "official_scan_with_layout_transposes": 0.01562356948852539
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 0.015625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.05427199974656105,
+    "vllm_scan": 0.3486720025539398,
+    "vllm_scan_with_delta_restore": 0.34508800506591797,
+    "official_scan": 0.1929280012845993,
+    "official_scan_with_layout_transposes": 0.2959359884262085
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.04044799953699112,
+    "vllm_scan": 0.315391993522644,
+    "official_scan": 0.19044800400733947
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 185.89873630520088,
+    "vllm_scan": 23.840909580541226,
+    "official_scan": 39.48181047731129
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 138.54717045830722,
+    "vllm_scan": 21.56534492280254,
+    "vllm_scan_with_delta_restore": 21.78931718754957,
+    "official_scan": 38.97429066767734,
+    "official_scan_with_layout_transposes": 25.40830549196593
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.015625,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 63.0,
+    "sm_mhz": 2235.0,
+    "mem_mhz": 8751.0,
+    "power_w": 160.61
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.08601599931716919,
+    "vllm_scan": 0.32767999172210693,
+    "official_scan": 0.19968000054359436
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.043007999658584595,
+    "vllm_scan": 0.317440003156662,
+    "official_scan": 0.19353599846363068
+   },
+   "smi_after": {
+    "util_pct": 93.0,
+    "temp_c": 54.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 107.18
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 1024,
+   "T": 3000,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 9.2735595703125,
+   "analytic_min_bytes": 74565632,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 0.028200149536132812,
+    "vllm_scan": 0.028200149536132812,
+    "vllm_scan_with_delta_restore": 0.028200149536132812,
+    "official_scan": 0.028200149536132812,
+    "official_scan_with_layout_transposes": 0.028200149536132812
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 0.015625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.5744640231132507,
+    "vllm_scan": 1.9763200283050537,
+    "vllm_scan_with_delta_restore": 2.122559905052185,
+    "official_scan": 1.5697920322418213,
+    "official_scan_with_layout_transposes": 2.612048029899597
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.5658208131790161,
+    "vllm_scan": 1.9505151748657226,
+    "official_scan": 1.5800992012023927
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 131.78311978497103,
+    "vllm_scan": 38.228685918905114,
+    "official_scan": 47.19047509375267
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 129.80035128379137,
+    "vllm_scan": 37.72953313839031,
+    "vllm_scan_with_delta_restore": 35.13004830747838,
+    "official_scan": 47.50032518225536,
+    "official_scan_with_layout_transposes": 28.546807388861904
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.015625,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 63.0,
+    "sm_mhz": 2310.0,
+    "mem_mhz": 8751.0,
+    "power_w": 161.59
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.6000639796257019,
+    "vllm_scan": 1.9814399480819702,
+    "official_scan": 1.563647985458374
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.5693439841270447,
+    "vllm_scan": 1.960960030555725,
+    "official_scan": 1.5504640340805054
+   },
+   "smi_after": {
+    "util_pct": 97.0,
+    "temp_c": 66.0,
+    "sm_mhz": 2790.0,
+    "mem_mhz": 8751.0,
+    "power_w": 151.73
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 2048,
+   "T": 30,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 6.188297271728516,
+   "analytic_min_bytes": 1621504,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 0.015597343444824219,
+    "vllm_scan": 0.015597343444824219,
+    "vllm_scan_with_delta_restore": 0.015597343444824219,
+    "official_scan": 0.015597343444824219,
+    "official_scan_with_layout_transposes": 0.015597343444824219
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 0.00390625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.03665599972009659,
+    "vllm_scan": 0.1708960011601448,
+    "vllm_scan_with_delta_restore": 0.17715200036764145,
+    "official_scan": 0.13209599256515503,
+    "official_scan_with_layout_transposes": 0.1931999996304512
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.011036799848079681,
+    "vllm_scan": 0.1282047986984253,
+    "official_scan": 0.1265663981437683
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 146.91794925339062,
+    "vllm_scan": 12.647763706678761,
+    "official_scan": 12.811488861033352
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 44.23570527012562,
+    "vllm_scan": 9.48825009943039,
+    "vllm_scan_with_delta_restore": 9.15317917175596,
+    "official_scan": 12.275194489342358,
+    "official_scan_with_layout_transposes": 8.392877862844605
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.00390625,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 99.0,
+    "temp_c": 65.0,
+    "sm_mhz": 2250.0,
+    "mem_mhz": 8751.0,
+    "power_w": 156.98
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.026623999699950218,
+    "vllm_scan": 0.1382399946451187,
+    "official_scan": 0.13209599256515503
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.011264000087976456,
+    "vllm_scan": 0.131071999669075,
+    "official_scan": 0.130048006772995
+   },
+   "smi_after": {
+    "util_pct": 89.0,
+    "temp_c": 55.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 106.6
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 2048,
+   "T": 300,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 10.45022964477539,
+   "analytic_min_bytes": 14961664,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 0.015623092651367188,
+    "vllm_scan": 0.015623092651367188,
+    "vllm_scan_with_delta_restore": 0.015623092651367188,
+    "official_scan": 0.015623092651367188,
+    "official_scan_with_layout_transposes": 0.015623092651367188
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 0.015625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.08089599758386612,
+    "vllm_scan": 0.6430720090866089,
+    "vllm_scan_with_delta_restore": 0.6676480174064636,
+    "official_scan": 0.3840000033378601,
+    "official_scan_with_layout_transposes": 0.5877760052680969
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.06758400201797485,
+    "vllm_scan": 0.6105088233947754,
+    "official_scan": 0.3739040017127991
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 221.3787812686906,
+    "vllm_scan": 24.506875947844062,
+    "official_scan": 40.014720172725674
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 184.94937261252036,
+    "vllm_scan": 23.26592323813143,
+    "vllm_scan_with_delta_restore": 22.40950861820855,
+    "official_scan": 38.962666327989766,
+    "official_scan_with_layout_transposes": 25.454703604608138
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.015625,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 62.0,
+    "sm_mhz": 2235.0,
+    "mem_mhz": 8751.0,
+    "power_w": 160.87
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.10956799983978271,
+    "vllm_scan": 0.6307839751243591,
+    "official_scan": 0.3840000033378601
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.07065600156784058,
+    "vllm_scan": 0.6133760213851929,
+    "official_scan": 0.37785598635673523
+   },
+   "smi_after": {
+    "util_pct": 93.0,
+    "temp_c": 57.0,
+    "sm_mhz": 2805.0,
+    "mem_mhz": 8751.0,
+    "power_w": 118.28
+   }
+  },
+  {
+   "batch": 4,
+   "d_inner": 2048,
+   "T": 3000,
+   "dtype": "bfloat16",
+   "d_state": 16,
+   "cuda_best_cfg": [
+    16,
+    2
+   ],
+   "triton_best_block_e": null,
+   "ref_absmax": 8.414464950561523,
+   "analytic_min_bytes": 148363264,
+   "err_vs_fp32_ref": {
+    "ours_cuda_fixed": 0.030531883239746094,
+    "vllm_scan": 0.030531883239746094,
+    "vllm_scan_with_delta_restore": 0.030531883239746094,
+    "official_scan": 0.030531883239746094,
+    "official_scan_with_layout_transposes": 0.030531883239746094
+   },
+   "max_abs_diff_vs_official": {
+    "ours_cuda_fixed": 0.015625,
+    "vllm_scan": 0.0
+   },
+   "eager_ms": {
+    "ours_cuda_fixed": 0.8079360127449036,
+    "vllm_scan": 3.878864049911499,
+    "vllm_scan_with_delta_restore": 4.268032073974609,
+    "official_scan": 3.11296010017395,
+    "official_scan_with_layout_transposes": 5.378015995025635
+   },
+   "graph_ms": {
+    "ours_cuda_fixed": 0.8028096199035644,
+    "vllm_scan": 3.8754302978515627,
+    "official_scan": 3.1578975677490235
+   },
+   "graph_bw_GBps": {
+    "ours_cuda_fixed": 184.8050401013154,
+    "vllm_scan": 38.28304281004582,
+    "official_scan": 46.981658149777985
+   },
+   "eager_bw_GBps": {
+    "ours_cuda_fixed": 183.6324432376107,
+    "vllm_scan": 38.24915286819219,
+    "vllm_scan_with_delta_restore": 34.761515712283895,
+    "official_scan": 47.659866887374996,
+    "official_scan_with_layout_transposes": 27.586988238269978
+   },
+   "max_abs_diff_ours_cuda_vs_vllm": 0.015625,
+   "idle_gate_met": true,
+   "smi_before": {
+    "util_pct": 100.0,
+    "temp_c": 63.0,
+    "sm_mhz": 2235.0,
+    "mem_mhz": 8751.0,
+    "power_w": 161.04
+   },
+   "cold_l2_ms": {
+    "ours_cuda_fixed": 0.8273919820785522,
+    "vllm_scan": 3.916800022125244,
+    "official_scan": 3.126271963119507
+   },
+   "warm_event_ms": {
+    "ours_cuda_fixed": 0.7946239709854126,
+    "vllm_scan": 3.8932480812072754,
+    "official_scan": 3.126271963119507
+   },
+   "smi_after": {
+    "util_pct": 96.0,
+    "temp_c": 70.0,
+    "sm_mhz": 2760.0,
+    "mem_mhz": 8751.0,
+    "power_w": 159.82
+   }
+  }
+ ]
+}

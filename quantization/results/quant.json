@@ -1,0 +1,42 @@
+[
+ {
+  "variant": "BF16 (fused kernels)",
+  "linears_swapped": 0,
+  "mamba_out_rel_err_vs_fp32": 0.009993989951908588,
+  "logit_rel_err_vs_fp32": 0.007915125228464603,
+  "max_abs_dprob_vs_fp32": 0.00117531418800354,
+  "full_ms_4clips": 38.86284637451172,
+  "mamba_and_head_ms_4clips": 2.0801920890808105,
+  "linear_weight_MB": 22.807552
+ },
+ {
+  "variant": "FP8 Mamba + projection linears",
+  "linears_swapped": 17,
+  "mamba_out_rel_err_vs_fp32": 0.0842798575758934,
+  "logit_rel_err_vs_fp32": 0.06623655557632446,
+  "max_abs_dprob_vs_fp32": 0.005121946334838867,
+  "full_ms_4clips": 40.03839874267578,
+  "mamba_and_head_ms_4clips": 5.2008957862854,
+  "linear_weight_MB": 11.53536
+ },
+ {
+  "variant": "FP8 all linears",
+  "linears_swapped": 18,
+  "mamba_out_rel_err_vs_fp32": 0.0842798575758934,
+  "logit_rel_err_vs_fp32": 0.06995599716901779,
+  "max_abs_dprob_vs_fp32": 0.007677227258682251,
+  "full_ms_4clips": 40.3834228515625,
+  "mamba_and_head_ms_4clips": 7.241856098175049,
+  "linear_weight_MB": 11.404288
+ },
+ {
+  "variant": "INT8 weight-only Mamba + projection",
+  "linears_swapped": 17,
+  "mamba_out_rel_err_vs_fp32": 0.015635592862963676,
+  "logit_rel_err_vs_fp32": 0.010443322360515594,
+  "max_abs_dprob_vs_fp32": 0.0011610686779022217,
+  "full_ms_4clips": 39.18950271606445,
+  "mamba_and_head_ms_4clips": 2.8528640270233154,
+  "linear_weight_MB": 11.53536
+ }
+]

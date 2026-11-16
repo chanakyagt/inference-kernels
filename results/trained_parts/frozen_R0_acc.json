@@ -1,0 +1,17 @@
+{
+ "rung": "R0",
+ "model": "frozen",
+ "name": "fp32 eager NCHW",
+ "meta": {},
+ "eval_s": 9.291823148727417,
+ "accuracy": 0.7142595139844108,
+ "auc": 0.7817194322857667,
+ "tp": 4738,
+ "tn": 3051,
+ "fp": 2362,
+ "fn": 754,
+ "n": 10905,
+ "pred_flips_vs_R0s": 4,
+ "max_abs_dprob_vs_R0s": 0.04878935217857361,
+ "mean_abs_dprob_vs_R0s": 0.0003820290353945241
+}

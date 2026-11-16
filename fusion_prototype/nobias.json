@@ -1,0 +1,1 @@
+{"1": {"expand_gemm_only": 0.054584321975708006, "project_gemm_only": 0.05970943927764893}, "64": {"expand_gemm_only": 2.514007110595703, "project_gemm_only": 1.8604339599609374}}

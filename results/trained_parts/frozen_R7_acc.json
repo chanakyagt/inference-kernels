@@ -1,0 +1,17 @@
+{
+ "rung": "R7",
+ "model": "frozen",
+ "name": "torch.compile max-autotune on R2",
+ "meta": {},
+ "eval_s": 4.236462116241455,
+ "accuracy": 0.7148097203117836,
+ "auc": 0.7816493473065099,
+ "tp": 4742,
+ "tn": 3053,
+ "fp": 2360,
+ "fn": 750,
+ "n": 10905,
+ "pred_flips_vs_R0s": 118,
+ "max_abs_dprob_vs_R0s": 0.7612098678946495,
+ "mean_abs_dprob_vs_R0s": 0.010689216992983728
+}

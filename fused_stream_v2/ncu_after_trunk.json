@@ -1,0 +1,22 @@
+{
+ "B1": {
+  "trunk_prefix_identical": true,
+  "trunk_kernels": 64,
+  "trunk_MB_fusedAB": 28.261504,
+  "trunk_MB_torchhead": 27.804032,
+  "after_trunk_MB_fusedAB": 25.09824,
+  "after_trunk_kernels_fusedAB": 11,
+  "after_trunk_MB_torch": 30.049536,
+  "after_trunk_kernels_torch": 137
+ },
+ "B8": {
+  "trunk_prefix_identical": true,
+  "trunk_kernels": 64,
+  "trunk_MB_fusedAB": 168.461952,
+  "trunk_MB_torchhead": 169.061504,
+  "after_trunk_MB_fusedAB": 28.28096,
+  "after_trunk_kernels_fusedAB": 11,
+  "after_trunk_MB_torch": 48.766592,
+  "after_trunk_kernels_torch": 141
+ }
+}

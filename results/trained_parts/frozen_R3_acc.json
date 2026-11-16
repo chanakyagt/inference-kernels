@@ -1,0 +1,19 @@
+{
+ "rung": "R3",
+ "model": "frozen",
+ "name": "+ BN folded into conv",
+ "meta": {
+  "conv_bn_folded": 49
+ },
+ "eval_s": 4.7957563400268555,
+ "accuracy": 0.7151765245300321,
+ "auc": 0.7785024358693007,
+ "tp": 4742,
+ "tn": 3057,
+ "fp": 2356,
+ "fn": 750,
+ "n": 10905,
+ "pred_flips_vs_R0s": 190,
+ "max_abs_dprob_vs_R0s": 0.7879195064306259,
+ "mean_abs_dprob_vs_R0s": 0.015629247180528494
+}

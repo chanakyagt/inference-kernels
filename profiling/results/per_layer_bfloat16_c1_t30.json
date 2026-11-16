@@ -1,0 +1,4641 @@
+{
+ "summary": {
+  "dtype": "bfloat16",
+  "clips": 1,
+  "frames": 30,
+  "end_to_end_ms": 24.571807861328125,
+  "backbone_ms": 10.905599594116211,
+  "sum_of_isolated_ops_ms": 35.88332824781537,
+  "sum_leaf_ms_excl_scan": 15.789408016949892,
+  "peak": {
+   "bw": 288000000000.0,
+   "bw_measured": 272399999999.99997,
+   "flops": 45100000000000.0,
+   "ridge": 156.59722222222223,
+   "dtype_note": "measured BF16 tensor-core matmul"
+  },
+  "gpu": "NVIDIA GeForce RTX 4060 Ti",
+  "torch": "2.14.0+cu130"
+ },
+ "rows": [
+  {
+   "name": "encoder.features.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 3x3",
+   "out_shape": [
+    30,
+    32,
+    112,
+    112
+   ],
+   "ms": 0.17068800330162048,
+   "flops": 650280960,
+   "bytes": 33117888,
+   "intensity": 19.635339065099803,
+   "gbps": 194.02586801298403,
+   "tflops": 3.809763705835244,
+   "pct_bw": 67.3700930600639,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    32,
+    112,
+    112
+   ],
+   "ms": 0.21196800470352173,
+   "flops": 48168960,
+   "bytes": 48169224,
+   "intensity": 0.9999945193221298,
+   "gbps": 227.24761724003574,
+   "tflops": 0.22724637176904888,
+   "pct_bw": 78.9054226527902,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    32,
+    112,
+    112
+   ],
+   "ms": 0.03372799977660179,
+   "flops": 48168960,
+   "bytes": 48168960,
+   "intensity": 1.0,
+   "gbps": 1428.1594022488216,
+   "tflops": 1.4281594022488215,
+   "pct_bw": 495.88868133639636,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.1.0.block.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv dw 3x3",
+   "out_shape": [
+    30,
+    32,
+    112,
+    112
+   ],
+   "ms": 0.43212801218032837,
+   "flops": 216760320,
+   "bytes": 48169536,
+   "intensity": 4.499946190056719,
+   "gbps": 111.47052410918157,
+   "tflops": 0.5016113602687373,
+   "pct_bw": 38.70504309346582,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.1.0.block.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    32,
+    112,
+    112
+   ],
+   "ms": 0.2088959962129593,
+   "flops": 48168960,
+   "bytes": 48169224,
+   "intensity": 0.9999945193221298,
+   "gbps": 230.58950326120097,
+   "tflops": 0.23058823947441334,
+   "pct_bw": 80.06579974347257,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.1.0.block.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    32,
+    112,
+    112
+   ],
+   "ms": 0.03452799841761589,
+   "flops": 48168960,
+   "bytes": 48168960,
+   "intensity": 1.0,
+   "gbps": 1395.069572739108,
+   "tflops": 1.395069572739108,
+   "pct_bw": 484.3991572010792,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.1.0.block.1.avgpool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    32,
+    1,
+    1
+   ],
+   "ms": 0.023552000522613525,
+   "flops": 12042240,
+   "bytes": 24086400,
+   "intensity": 0.4999601434834595,
+   "gbps": 1022.6901946980414,
+   "tflops": 0.51130433648036,
+   "pct_bw": 355.100762047931,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.1.0.block.1.fc1",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    8,
+    1,
+    1
+   ],
+   "ms": 0.04403200000524521,
+   "flops": 15360,
+   "bytes": 2928,
+   "intensity": 5.245901639344262,
+   "gbps": 0.0664970930153345,
+   "tflops": 0.00034883720926077115,
+   "pct_bw": 0.023089268408102256,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.1.0.block.1.activation",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    8,
+    1,
+    1
+   ],
+   "ms": 0.018432000651955605,
+   "flops": 960,
+   "bytes": 960,
+   "intensity": 1.0,
+   "gbps": 0.05208333149110135,
+   "tflops": 5.208333149110135e-05,
+   "pct_bw": 0.018084490101076857,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.1.0.block.1.fc2",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    32,
+    1,
+    1
+   ],
+   "ms": 0.04710400104522705,
+   "flops": 15360,
+   "bytes": 2976,
+   "intensity": 5.161290322580645,
+   "gbps": 0.06317934642415163,
+   "tflops": 0.00032608694928594386,
+   "pct_bw": 0.02193727306394154,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.1.0.block.1.scale_activation",
+   "section": "EfficientNet-B0",
+   "kind": "Sigmoid",
+   "out_shape": [
+    30,
+    32,
+    1,
+    1
+   ],
+   "ms": 0.0208320003002882,
+   "flops": 3840,
+   "bytes": 3840,
+   "intensity": 1.0,
+   "gbps": 0.18433179457792517,
+   "tflops": 0.00018433179457792517,
+   "pct_bw": 0.06400409533955734,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.1.0.block.2.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    16,
+    112,
+    112
+   ],
+   "ms": 0.09830400347709656,
+   "flops": 385351680,
+   "bytes": 36127744,
+   "intensity": 10.666364332076755,
+   "gbps": 367.51040366750937,
+   "tflops": 3.919999861346252,
+   "pct_bw": 127.60777905121853,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.1.0.block.2.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    16,
+    112,
+    112
+   ],
+   "ms": 0.0461760014295578,
+   "flops": 24084480,
+   "bytes": 24084616,
+   "intensity": 0.9999943532419201,
+   "gbps": 521.5829706853559,
+   "tflops": 0.5215800254325018,
+   "pct_bw": 181.1051981546375,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.0.block.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    96,
+    112,
+    112
+   ],
+   "ms": 0.3420160114765167,
+   "flops": 1156055040,
+   "bytes": 84298752,
+   "intensity": 13.7137859407456,
+   "gbps": 246.4760396335657,
+   "tflops": 3.3801196470574486,
+   "pct_bw": 85.5819582060992,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.0.block.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    96,
+    112,
+    112
+   ],
+   "ms": 0.5906559824943542,
+   "flops": 144506880,
+   "bytes": 144507656,
+   "intensity": 0.9999946300423003,
+   "gbps": 244.65621323217744,
+   "tflops": 0.24465489943866142,
+   "pct_bw": 84.95007403895049,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.0.block.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    96,
+    112,
+    112
+   ],
+   "ms": 0.5847359895706177,
+   "flops": 144506880,
+   "bytes": 144506880,
+   "intensity": 1.0,
+   "gbps": 247.13183826108266,
+   "tflops": 0.24713183826108265,
+   "pct_bw": 85.80966606287592,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.0.block.1.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv dw 3x3",
+   "out_shape": [
+    30,
+    96,
+    56,
+    56
+   ],
+   "ms": 0.419840008020401,
+   "flops": 162570240,
+   "bytes": 90318528,
+   "intensity": 1.7999655618833823,
+   "gbps": 215.12606296351635,
+   "tflops": 0.3872195047978856,
+   "pct_bw": 74.69654964010984,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.0.block.1.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    96,
+    56,
+    56
+   ],
+   "ms": 0.16383999586105347,
+   "flops": 36126720,
+   "bytes": 36127496,
+   "intensity": 0.9999785205152331,
+   "gbps": 220.50474189854333,
+   "tflops": 0.22050000557029867,
+   "pct_bw": 76.56414649254977,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.0.block.1.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    96,
+    56,
+    56
+   ],
+   "ms": 0.026399999856948853,
+   "flops": 36126720,
+   "bytes": 36126720,
+   "intensity": 1.0,
+   "gbps": 1368.4363710513785,
+   "tflops": 1.3684363710513785,
+   "pct_bw": 475.1515177261731,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.0.block.2.avgpool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    96,
+    1,
+    1
+   ],
+   "ms": 0.026623999699950218,
+   "flops": 9031680,
+   "bytes": 18069120,
+   "intensity": 0.499840612049729,
+   "gbps": 678.6778922640157,
+   "tflops": 0.3392307730538657,
+   "pct_bw": 235.65204592500544,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.0.block.2.fc1",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    4,
+    1,
+    1
+   ],
+   "ms": 0.04198399931192398,
+   "flops": 23040,
+   "bytes": 6776,
+   "intensity": 3.4002361275088546,
+   "gbps": 0.16139481971827138,
+   "tflops": 0.0005487804967988448,
+   "pct_bw": 0.056039867957733115,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.0.block.2.activation",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    4,
+    1,
+    1
+   ],
+   "ms": 0.01756799966096878,
+   "flops": 480,
+   "bytes": 480,
+   "intensity": 1.0,
+   "gbps": 0.02732240489885862,
+   "tflops": 2.7322404898858623e-05,
+   "pct_bw": 0.00948694614543702,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.0.block.2.fc2",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    96,
+    1,
+    1
+   ],
+   "ms": 0.04608000069856644,
+   "flops": 23040,
+   "bytes": 6960,
+   "intensity": 3.310344827586207,
+   "gbps": 0.1510416643768959,
+   "tflops": 0.0004999999924200692,
+   "pct_bw": 0.05244502235308885,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.0.block.2.scale_activation",
+   "section": "EfficientNet-B0",
+   "kind": "Sigmoid",
+   "out_shape": [
+    30,
+    96,
+    1,
+    1
+   ],
+   "ms": 0.020479999482631683,
+   "flops": 11520,
+   "bytes": 11520,
+   "intensity": 1.0,
+   "gbps": 0.5625000142099456,
+   "tflops": 0.0005625000142099456,
+   "pct_bw": 0.1953125049340089,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.0.block.3.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    24,
+    56,
+    56
+   ],
+   "ms": 0.05222399905323982,
+   "flops": 433520640,
+   "bytes": 22583808,
+   "intensity": 19.196082432156704,
+   "gbps": 432.4411843102423,
+   "tflops": 8.30117662107888,
+   "pct_bw": 150.15318899661193,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.0.block.3.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    24,
+    56,
+    56
+   ],
+   "ms": 0.06143999844789505,
+   "flops": 9031680,
+   "bytes": 9031880,
+   "intensity": 0.9999778562159816,
+   "gbps": 147.003258921948,
+   "tflops": 0.14700000371353245,
+   "pct_bw": 51.042798236787505,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.1.block.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    144,
+    56,
+    56
+   ],
+   "ms": 0.1157120019197464,
+   "flops": 650280960,
+   "bytes": 31617792,
+   "intensity": 20.566931428987832,
+   "gbps": 273.24557068789585,
+   "tflops": 5.6198229156126,
+   "pct_bw": 94.87693426663051,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.1.block.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    144,
+    56,
+    56
+   ],
+   "ms": 0.23756800591945648,
+   "flops": 54190080,
+   "bytes": 54191240,
+   "intensity": 0.9999785943263154,
+   "gbps": 228.1083254046113,
+   "tflops": 0.22810344259223295,
+   "pct_bw": 79.20427965437892,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.1.block.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    144,
+    56,
+    56
+   ],
+   "ms": 0.09932799637317657,
+   "flops": 54190080,
+   "bytes": 54190080,
+   "intensity": 1.0,
+   "gbps": 545.5670302298977,
+   "tflops": 0.5455670302298977,
+   "pct_bw": 189.43299660760334,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.1.block.1.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv dw 3x3",
+   "out_shape": [
+    30,
+    144,
+    56,
+    56
+   ],
+   "ms": 0.49561598896980286,
+   "flops": 243855360,
+   "bytes": 54192672,
+   "intensity": 4.499784767947962,
+   "gbps": 109.34407526408894,
+   "tflops": 0.49202480433870294,
+   "pct_bw": 37.966692800030884,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.1.block.1.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    144,
+    56,
+    56
+   ],
+   "ms": 0.2519040107727051,
+   "flops": 54190080,
+   "bytes": 54191240,
+   "intensity": 0.9999785943263154,
+   "gbps": 215.12654694846114,
+   "tflops": 0.2151219420197963,
+   "pct_bw": 74.6967176904379,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.1.block.1.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    144,
+    56,
+    56
+   ],
+   "ms": 0.10051199793815613,
+   "flops": 54190080,
+   "bytes": 54190080,
+   "intensity": 1.0,
+   "gbps": 539.1404122057402,
+   "tflops": 0.5391404122057402,
+   "pct_bw": 187.201532015882,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.1.block.2.avgpool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    144,
+    1,
+    1
+   ],
+   "ms": 0.025567999109625816,
+   "flops": 13547520,
+   "bytes": 27103680,
+   "intensity": 0.499840612049729,
+   "gbps": 1060.0626151381566,
+   "tflops": 0.5298623463616925,
+   "pct_bw": 368.0772969229711,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.1.block.2.fc1",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    6,
+    1,
+    1
+   ],
+   "ms": 0.05097600072622299,
+   "flops": 51840,
+   "bytes": 10740,
+   "intensity": 4.826815642458101,
+   "gbps": 0.21068737929602127,
+   "tflops": 0.0010169491380545386,
+   "pct_bw": 0.07315534003334072,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.1.block.2.activation",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    6,
+    1,
+    1
+   ],
+   "ms": 0.02457600086927414,
+   "flops": 720,
+   "bytes": 720,
+   "intensity": 1.0,
+   "gbps": 0.02929687396374451,
+   "tflops": 2.929687396374451e-05,
+   "pct_bw": 0.010172525681855733,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.1.block.2.fc2",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    144,
+    1,
+    1
+   ],
+   "ms": 0.053279999643564224,
+   "flops": 51840,
+   "bytes": 11016,
+   "intensity": 4.705882352941177,
+   "gbps": 0.20675675813993066,
+   "tflops": 0.0009729729794820266,
+   "pct_bw": 0.07179054102080926,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.1.block.2.scale_activation",
+   "section": "EfficientNet-B0",
+   "kind": "Sigmoid",
+   "out_shape": [
+    30,
+    144,
+    1,
+    1
+   ],
+   "ms": 0.02457600086927414,
+   "flops": 17280,
+   "bytes": 17280,
+   "intensity": 1.0,
+   "gbps": 0.7031249751298683,
+   "tflops": 0.0007031249751298683,
+   "pct_bw": 0.24414061636453754,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.1.block.3.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    24,
+    56,
+    56
+   ],
+   "ms": 0.09113600105047226,
+   "flops": 650280960,
+   "bytes": 31617792,
+   "intensity": 20.566931428987832,
+   "gbps": 346.9297712820389,
+   "tflops": 7.135280816632126,
+   "pct_bw": 120.46172613959686,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.2.1.block.3.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    24,
+    56,
+    56
+   ],
+   "ms": 0.05427199974656105,
+   "flops": 9031680,
+   "bytes": 9031880,
+   "intensity": 0.9999778562159816,
+   "gbps": 166.41878025827316,
+   "tflops": 0.16641509511674651,
+   "pct_bw": 57.784298700789286,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.0.block.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    144,
+    56,
+    56
+   ],
+   "ms": 0.12697599828243256,
+   "flops": 650280960,
+   "bytes": 31617792,
+   "intensity": 20.566931428987832,
+   "gbps": 249.00605175532925,
+   "tflops": 5.121290391854852,
+   "pct_bw": 86.4604346372671,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.0.block.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    144,
+    56,
+    56
+   ],
+   "ms": 0.246848002076149,
+   "flops": 54190080,
+   "bytes": 54191240,
+   "intensity": 0.9999785943263154,
+   "gbps": 219.53282807321565,
+   "tflops": 0.2195281288251349,
+   "pct_bw": 76.22667641431099,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.0.block.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    144,
+    56,
+    56
+   ],
+   "ms": 0.09625600278377533,
+   "flops": 54190080,
+   "bytes": 54190080,
+   "intensity": 1.0,
+   "gbps": 562.9787071226081,
+   "tflops": 0.5629787071226081,
+   "pct_bw": 195.47871775090556,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.0.block.1.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv dw 5x5",
+   "out_shape": [
+    30,
+    144,
+    28,
+    28
+   ],
+   "ms": 0.21087999641895294,
+   "flops": 169344000,
+   "bytes": 33876000,
+   "intensity": 4.998937300743889,
+   "gbps": 160.6411256414237,
+   "tflops": 0.8030349150023987,
+   "pct_bw": 55.778168625494345,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.0.block.1.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    144,
+    28,
+    28
+   ],
+   "ms": 0.05222399905323982,
+   "flops": 13547520,
+   "bytes": 13548680,
+   "intensity": 0.9999143828033432,
+   "gbps": 259.43398141892163,
+   "tflops": 0.259411769408715,
+   "pct_bw": 90.08124354823669,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.0.block.1.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    144,
+    28,
+    28
+   ],
+   "ms": 0.018432000651955605,
+   "flops": 13547520,
+   "bytes": 13547520,
+   "intensity": 1.0,
+   "gbps": 734.9999740024223,
+   "tflops": 0.7349999740024223,
+   "pct_bw": 255.2083243063966,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.0.block.2.avgpool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    144,
+    1,
+    1
+   ],
+   "ms": 0.02735999971628189,
+   "flops": 3386880,
+   "bytes": 6782400,
+   "intensity": 0.49936305732484076,
+   "gbps": 247.8947394127276,
+   "tflops": 0.12378947496788435,
+   "pct_bw": 86.07456229608597,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.0.block.2.fc1",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    6,
+    1,
+    1
+   ],
+   "ms": 0.05119999870657921,
+   "flops": 51840,
+   "bytes": 10740,
+   "intensity": 4.826815642458101,
+   "gbps": 0.20976563029912554,
+   "tflops": 0.0010125000255779022,
+   "pct_bw": 0.07283528829830749,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.0.block.2.activation",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    6,
+    1,
+    1
+   ],
+   "ms": 0.03788800165057182,
+   "flops": 720,
+   "bytes": 720,
+   "intensity": 1.0,
+   "gbps": 0.019003377550505712,
+   "tflops": 1.9003377550505712e-05,
+   "pct_bw": 0.006598394982814484,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.0.block.2.fc2",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    144,
+    1,
+    1
+   ],
+   "ms": 0.05081599950790405,
+   "flops": 51840,
+   "bytes": 11016,
+   "intensity": 4.705882352941177,
+   "gbps": 0.21678211796830923,
+   "tflops": 0.0010201511433802787,
+   "pct_bw": 0.07527156873899625,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.0.block.2.scale_activation",
+   "section": "EfficientNet-B0",
+   "kind": "Sigmoid",
+   "out_shape": [
+    30,
+    144,
+    1,
+    1
+   ],
+   "ms": 0.023423999547958374,
+   "flops": 17280,
+   "bytes": 17280,
+   "intensity": 1.0,
+   "gbps": 0.7377049322691828,
+   "tflops": 0.0007377049322691828,
+   "pct_bw": 0.25614754592679956,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.0.block.3.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    40,
+    28,
+    28
+   ],
+   "ms": 0.048128001391887665,
+   "flops": 270950400,
+   "bytes": 8666880,
+   "intensity": 31.26273814798405,
+   "gbps": 180.07978202603832,
+   "tflops": 5.6297870712260805,
+   "pct_bw": 62.52770209237442,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.0.block.3.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    40,
+    28,
+    28
+   ],
+   "ms": 0.058368001133203506,
+   "flops": 3763200,
+   "bytes": 3763528,
+   "intensity": 0.9999128477322342,
+   "gbps": 64.4793024762169,
+   "tflops": 0.06447368295878216,
+   "pct_bw": 22.388646693130866,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.1.block.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    240,
+    28,
+    28
+   ],
+   "ms": 0.07257600128650665,
+   "flops": 451584000,
+   "bytes": 13190400,
+   "intensity": 34.23580786026201,
+   "gbps": 181.74602852434037,
+   "tflops": 6.2222221119250145,
+   "pct_bw": 63.10625990428485,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.1.block.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    240,
+    28,
+    28
+   ],
+   "ms": 0.062463998794555664,
+   "flops": 22579200,
+   "bytes": 22581128,
+   "intensity": 0.9999146189685475,
+   "gbps": 361.5062825911837,
+   "tflops": 0.36147541681189954,
+   "pct_bw": 125.52301478860544,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.1.block.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    240,
+    28,
+    28
+   ],
+   "ms": 0.01740800030529499,
+   "flops": 22579200,
+   "bytes": 22579200,
+   "intensity": 1.0,
+   "gbps": 1297.05880078208,
+   "tflops": 1.29705880078208,
+   "pct_bw": 450.36763916044447,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.1.block.1.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv dw 5x5",
+   "out_shape": [
+    30,
+    240,
+    28,
+    28
+   ],
+   "ms": 0.3184640109539032,
+   "flops": 282240000,
+   "bytes": 22591200,
+   "intensity": 12.49336024646765,
+   "gbps": 70.93799997158867,
+   "tflops": 0.8862539888089692,
+   "pct_bw": 24.631249990134954,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.1.block.1.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    240,
+    28,
+    28
+   ],
+   "ms": 0.058079998940229416,
+   "flops": 22579200,
+   "bytes": 22581128,
+   "intensity": 0.9999146189685475,
+   "gbps": 388.7935332650129,
+   "tflops": 0.3887603376721207,
+   "pct_bw": 134.99775460590726,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.1.block.1.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    240,
+    28,
+    28
+   ],
+   "ms": 0.026623999699950218,
+   "flops": 22579200,
+   "bytes": 22579200,
+   "intensity": 1.0,
+   "gbps": 848.0769326346642,
+   "tflops": 0.8480769326346642,
+   "pct_bw": 294.471157164814,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.1.block.2.avgpool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    240,
+    1,
+    1
+   ],
+   "ms": 0.026623999699950218,
+   "flops": 5644800,
+   "bytes": 11304000,
+   "intensity": 0.49936305732484076,
+   "gbps": 424.57933170804296,
+   "tflops": 0.21201923315866605,
+   "pct_bw": 147.4233790652927,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.1.block.2.fc1",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    10,
+    1,
+    1
+   ],
+   "ms": 0.05119999870657921,
+   "flops": 144000,
+   "bytes": 19820,
+   "intensity": 7.265388496468214,
+   "gbps": 0.3871093847792056,
+   "tflops": 0.002812500071049728,
+   "pct_bw": 0.13441298082611303,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.1.block.2.activation",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    10,
+    1,
+    1
+   ],
+   "ms": 0.028672000393271446,
+   "flops": 1200,
+   "bytes": 1200,
+   "intensity": 1.0,
+   "gbps": 0.041852677997368054,
+   "tflops": 4.185267799736805e-05,
+   "pct_bw": 0.01453217986019724,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.1.block.2.fc2",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    240,
+    1,
+    1
+   ],
+   "ms": 0.04505600035190582,
+   "flops": 144000,
+   "bytes": 20280,
+   "intensity": 7.100591715976331,
+   "gbps": 0.4501065305753926,
+   "tflops": 0.0031960227023104804,
+   "pct_bw": 0.15628698978312247,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.1.block.2.scale_activation",
+   "section": "EfficientNet-B0",
+   "kind": "Sigmoid",
+   "out_shape": [
+    30,
+    240,
+    1,
+    1
+   ],
+   "ms": 0.023135999217629433,
+   "flops": 28800,
+   "bytes": 28800,
+   "intensity": 1.0,
+   "gbps": 1.244813320103099,
+   "tflops": 0.0012448133201030992,
+   "pct_bw": 0.4322268472580205,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.1.block.3.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    40,
+    28,
+    28
+   ],
+   "ms": 0.06435199826955795,
+   "flops": 451584000,
+   "bytes": 13190400,
+   "intensity": 34.23580786026201,
+   "gbps": 204.97265593444342,
+   "tflops": 7.017404465179198,
+   "pct_bw": 71.17106108834841,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.3.1.block.3.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    40,
+    28,
+    28
+   ],
+   "ms": 0.05427199974656105,
+   "flops": 3763200,
+   "bytes": 3763528,
+   "intensity": 0.9999128477322342,
+   "gbps": 69.34566659741475,
+   "tflops": 0.06933962296531106,
+   "pct_bw": 24.078356457435675,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.0.block.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    240,
+    28,
+    28
+   ],
+   "ms": 0.06860800087451935,
+   "flops": 451584000,
+   "bytes": 13190400,
+   "intensity": 34.23580786026201,
+   "gbps": 192.2574602359365,
+   "tflops": 6.582089468339485,
+   "pct_bw": 66.7560625819224,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.0.block.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    240,
+    28,
+    28
+   ],
+   "ms": 0.05632000043988228,
+   "flops": 22579200,
+   "bytes": 22581128,
+   "intensity": 0.9999146189685475,
+   "gbps": 400.9433207321047,
+   "tflops": 0.4009090877778267,
+   "pct_bw": 139.21643080975858,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.0.block.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    240,
+    28,
+    28
+   ],
+   "ms": 0.01820800080895424,
+   "flops": 22579200,
+   "bytes": 22579200,
+   "intensity": 1.0,
+   "gbps": 1240.0702436753031,
+   "tflops": 1.2400702436753033,
+   "pct_bw": 430.57994572059135,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.0.block.1.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv dw 3x3",
+   "out_shape": [
+    30,
+    240,
+    14,
+    14
+   ],
+   "ms": 0.062431998550891876,
+   "flops": 25401600,
+   "bytes": 14116320,
+   "intensity": 1.7994491482199326,
+   "gbps": 226.1071297996809,
+   "tflops": 0.40686828212448956,
+   "pct_bw": 78.50942006933364,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.0.block.1.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    240,
+    14,
+    14
+   ],
+   "ms": 0.052032001316547394,
+   "flops": 5644800,
+   "bytes": 5646728,
+   "intensity": 0.9996585633308351,
+   "gbps": 108.52413624544187,
+   "tflops": 0.10848708212583824,
+   "pct_bw": 37.681991751889534,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.0.block.1.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    240,
+    14,
+    14
+   ],
+   "ms": 0.020416000857949257,
+   "flops": 5644800,
+   "bytes": 5644800,
+   "intensity": 1.0,
+   "gbps": 276.48901659416407,
+   "tflops": 0.2764890165941641,
+   "pct_bw": 96.00313076186252,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.0.block.2.avgpool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    240,
+    1,
+    1
+   ],
+   "ms": 0.028863999992609024,
+   "flops": 1411200,
+   "bytes": 2836800,
+   "intensity": 0.49746192893401014,
+   "gbps": 98.28159647749435,
+   "tflops": 0.048891352562408355,
+   "pct_bw": 34.12555433246332,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.0.block.2.fc1",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    10,
+    1,
+    1
+   ],
+   "ms": 0.05260799825191498,
+   "flops": 144000,
+   "bytes": 19820,
+   "intensity": 7.265388496468214,
+   "gbps": 0.37674879597378585,
+   "tflops": 0.002737226368326194,
+   "pct_bw": 0.13081555415756455,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.0.block.2.activation",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    10,
+    1,
+    1
+   ],
+   "ms": 0.021376000717282295,
+   "flops": 1200,
+   "bytes": 1200,
+   "intensity": 1.0,
+   "gbps": 0.05613772266716904,
+   "tflops": 5.613772266716904e-05,
+   "pct_bw": 0.019492264814989252,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.0.block.2.fc2",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    240,
+    1,
+    1
+   ],
+   "ms": 0.04089599847793579,
+   "flops": 144000,
+   "bytes": 20280,
+   "intensity": 7.100591715976331,
+   "gbps": 0.49589203723541475,
+   "tflops": 0.0035211268916124122,
+   "pct_bw": 0.17218473515118568,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.0.block.2.scale_activation",
+   "section": "EfficientNet-B0",
+   "kind": "Sigmoid",
+   "out_shape": [
+    30,
+    240,
+    1,
+    1
+   ],
+   "ms": 0.03379200026392937,
+   "flops": 28800,
+   "bytes": 28800,
+   "intensity": 1.0,
+   "gbps": 0.852272720616128,
+   "tflops": 0.000852272720616128,
+   "pct_bw": 0.29592802799171114,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.0.block.3.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    80,
+    14,
+    14
+   ],
+   "ms": 0.04403200000524521,
+   "flops": 225792000,
+   "bytes": 3801600,
+   "intensity": 59.39393939393939,
+   "gbps": 86.33720929204087,
+   "tflops": 5.127906976133336,
+   "pct_bw": 29.97819767084752,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.0.block.3.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    80,
+    14,
+    14
+   ],
+   "ms": 0.06592000275850296,
+   "flops": 1881600,
+   "bytes": 1882248,
+   "intensity": 0.9996557308069924,
+   "gbps": 28.553518222618862,
+   "tflops": 0.028543688125942837,
+   "pct_bw": 9.914416049520439,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.1.block.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.053247999399900436,
+   "flops": 451584000,
+   "bytes": 6662400,
+   "intensity": 67.78097982708934,
+   "gbps": 125.1201937177842,
+   "tflops": 8.48076932634664,
+   "pct_bw": 43.44451170756396,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.1.block.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.048128001391887665,
+   "flops": 11289600,
+   "bytes": 11293448,
+   "intensity": 0.9996592714643039,
+   "gbps": 234.6544147562212,
+   "tflops": 0.2345744613010867,
+   "pct_bw": 81.47722734591014,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.1.block.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.01740800030529499,
+   "flops": 11289600,
+   "bytes": 11289600,
+   "intensity": 1.0,
+   "gbps": 648.52940039104,
+   "tflops": 0.64852940039104,
+   "pct_bw": 225.18381958022223,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.1.block.1.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv dw 3x3",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.10649599879980087,
+   "flops": 50803200,
+   "bytes": 11298240,
+   "intensity": 4.49655875605404,
+   "gbps": 106.09074638793965,
+   "tflops": 0.4770432746069986,
+   "pct_bw": 36.8370647180346,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.1.block.1.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.049247998744249344,
+   "flops": 11289600,
+   "bytes": 11293448,
+   "intensity": 0.9996592714643039,
+   "gbps": 229.317907081833,
+   "tflops": 0.22923977192714415,
+   "pct_bw": 79.62427329230313,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.1.block.1.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.01664000004529953,
+   "flops": 11289600,
+   "bytes": 11289600,
+   "intensity": 1.0,
+   "gbps": 678.4615366145439,
+   "tflops": 0.6784615366145439,
+   "pct_bw": 235.57692243560552,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.1.block.2.avgpool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    480,
+    1,
+    1
+   ],
+   "ms": 0.027744000777602196,
+   "flops": 2822400,
+   "bytes": 5673600,
+   "intensity": 0.49746192893401014,
+   "gbps": 204.4982641645653,
+   "tflops": 0.10173010095496143,
+   "pct_bw": 71.0063417238074,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.1.block.2.fc1",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    20,
+    1,
+    1
+   ],
+   "ms": 0.050144001841545105,
+   "flops": 576000,
+   "bytes": 49240,
+   "intensity": 11.697806661251015,
+   "gbps": 0.9819718848048518,
+   "tflops": 0.011486917255231408,
+   "pct_bw": 0.3409624600016847,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.1.block.2.activation",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    20,
+    1,
+    1
+   ],
+   "ms": 0.021088000386953354,
+   "flops": 2400,
+   "bytes": 2400,
+   "intensity": 1.0,
+   "gbps": 0.11380879912563086,
+   "tflops": 0.00011380879912563085,
+   "pct_bw": 0.03951694414084405,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.1.block.2.fc2",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    480,
+    1,
+    1
+   ],
+   "ms": 0.049855999648571014,
+   "flops": 576000,
+   "bytes": 50160,
+   "intensity": 11.483253588516746,
+   "gbps": 1.0060975680674713,
+   "tflops": 0.011553273508908762,
+   "pct_bw": 0.3493394333567609,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.1.block.2.scale_activation",
+   "section": "EfficientNet-B0",
+   "kind": "Sigmoid",
+   "out_shape": [
+    30,
+    480,
+    1,
+    1
+   ],
+   "ms": 0.02252800017595291,
+   "flops": 57600,
+   "bytes": 57600,
+   "intensity": 1.0,
+   "gbps": 2.5568181618483843,
+   "tflops": 0.0025568181618483843,
+   "pct_bw": 0.8877840839751334,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.1.block.3.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    80,
+    14,
+    14
+   ],
+   "ms": 0.05119999870657921,
+   "flops": 451584000,
+   "bytes": 6662400,
+   "intensity": 67.78097982708934,
+   "gbps": 130.12500328723408,
+   "tflops": 8.820000222811947,
+   "pct_bw": 45.18229280806739,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.1.block.3.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    80,
+    14,
+    14
+   ],
+   "ms": 0.05427199974656105,
+   "flops": 1881600,
+   "bytes": 1882248,
+   "intensity": 0.9996557308069924,
+   "gbps": 34.68175134120185,
+   "tflops": 0.03466981148265553,
+   "pct_bw": 12.042274771250643,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.2.block.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.06518399715423584,
+   "flops": 451584000,
+   "bytes": 6662400,
+   "intensity": 67.78097982708934,
+   "gbps": 102.20913553729588,
+   "tflops": 6.9278353539976925,
+   "pct_bw": 35.48928317267218,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.2.block.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.05446400120854378,
+   "flops": 11289600,
+   "bytes": 11293448,
+   "intensity": 0.9996592714643039,
+   "gbps": 207.35619398870745,
+   "tflops": 0.20728554181636213,
+   "pct_bw": 71.99867846830121,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.2.block.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.026623999699950218,
+   "flops": 11289600,
+   "bytes": 11289600,
+   "intensity": 1.0,
+   "gbps": 424.0384663173321,
+   "tflops": 0.4240384663173321,
+   "pct_bw": 147.235578582407,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.2.block.1.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv dw 3x3",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.11059200018644333,
+   "flops": 50803200,
+   "bytes": 11298240,
+   "intensity": 4.49655875605404,
+   "gbps": 102.16145816110277,
+   "tflops": 0.4593749992255552,
+   "pct_bw": 35.47272852816069,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.2.block.1.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.05222399905323982,
+   "flops": 11289600,
+   "bytes": 11293448,
+   "intensity": 0.9996592714643039,
+   "gbps": 216.25015710663752,
+   "tflops": 0.2161764745072625,
+   "pct_bw": 75.08686010647136,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.2.block.1.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.02768000029027462,
+   "flops": 11289600,
+   "bytes": 11289600,
+   "intensity": 1.0,
+   "gbps": 407.86126739914107,
+   "tflops": 0.4078612673991411,
+   "pct_bw": 141.61849562470178,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.2.block.2.avgpool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    480,
+    1,
+    1
+   ],
+   "ms": 0.02864000014960766,
+   "flops": 2822400,
+   "bytes": 5673600,
+   "intensity": 0.49746192893401014,
+   "gbps": 198.10055762439382,
+   "tflops": 0.09854748551873399,
+   "pct_bw": 68.7849158418034,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.2.block.2.fc1",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    20,
+    1,
+    1
+   ],
+   "ms": 0.05321599915623665,
+   "flops": 576000,
+   "bytes": 49240,
+   "intensity": 11.697806661251015,
+   "gbps": 0.9252856430532568,
+   "tflops": 0.010823812558868317,
+   "pct_bw": 0.3212797371712697,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.2.block.2.activation",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    20,
+    1,
+    1
+   ],
+   "ms": 0.020735999569296837,
+   "flops": 2400,
+   "bytes": 2400,
+   "intensity": 1.0,
+   "gbps": 0.11574074314476775,
+   "tflops": 0.00011574074314476776,
+   "pct_bw": 0.04018775803637769,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.2.block.2.fc2",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    480,
+    1,
+    1
+   ],
+   "ms": 0.0504320003092289,
+   "flops": 576000,
+   "bytes": 50160,
+   "intensity": 11.483253588516746,
+   "gbps": 0.9946065928862409,
+   "tflops": 0.01142131972692334,
+   "pct_bw": 0.34534951141883363,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.2.block.2.scale_activation",
+   "section": "EfficientNet-B0",
+   "kind": "Sigmoid",
+   "out_shape": [
+    30,
+    480,
+    1,
+    1
+   ],
+   "ms": 0.023552000522613525,
+   "flops": 57600,
+   "bytes": 57600,
+   "intensity": 1.0,
+   "gbps": 2.445652119644579,
+   "tflops": 0.002445652119644579,
+   "pct_bw": 0.8491847637654789,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.2.block.3.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    80,
+    14,
+    14
+   ],
+   "ms": 0.05116799846291542,
+   "flops": 451584000,
+   "bytes": 6662400,
+   "intensity": 67.78097982708934,
+   "gbps": 130.2063828982611,
+   "tflops": 8.825516212585304,
+   "pct_bw": 45.21054961745177,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.4.2.block.3.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    80,
+    14,
+    14
+   ],
+   "ms": 0.055296000093221664,
+   "flops": 1881600,
+   "bytes": 1882248,
+   "intensity": 0.9996557308069924,
+   "gbps": 34.03949647039173,
+   "tflops": 0.034027777720411496,
+   "pct_bw": 11.819269607774908,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.0.block.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.055135998874902725,
+   "flops": 451584000,
+   "bytes": 6662400,
+   "intensity": 67.78097982708934,
+   "gbps": 120.83575406181039,
+   "tflops": 8.190365808454699,
+   "pct_bw": 41.95685904923972,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.0.block.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.058368001133203506,
+   "flops": 11289600,
+   "bytes": 11293448,
+   "intensity": 0.9996592714643039,
+   "gbps": 193.48697541015423,
+   "tflops": 0.19342104887634645,
+   "pct_bw": 67.18297757297022,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.0.block.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.01740800030529499,
+   "flops": 11289600,
+   "bytes": 11289600,
+   "intensity": 1.0,
+   "gbps": 648.52940039104,
+   "tflops": 0.64852940039104,
+   "pct_bw": 225.18381958022223,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.0.block.1.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv dw 5x5",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.1669120043516159,
+   "flops": 141120000,
+   "bytes": 11313600,
+   "intensity": 12.47348324140857,
+   "gbps": 67.78182338621274,
+   "tflops": 0.84547543808004,
+   "pct_bw": 23.535355342434976,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.0.block.1.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.048128001391887665,
+   "flops": 11289600,
+   "bytes": 11293448,
+   "intensity": 0.9996592714643039,
+   "gbps": 234.6544147562212,
+   "tflops": 0.2345744613010867,
+   "pct_bw": 81.47722734591014,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.0.block.1.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    480,
+    14,
+    14
+   ],
+   "ms": 0.01740800030529499,
+   "flops": 11289600,
+   "bytes": 11289600,
+   "intensity": 1.0,
+   "gbps": 648.52940039104,
+   "tflops": 0.64852940039104,
+   "pct_bw": 225.18381958022223,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.0.block.2.avgpool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    480,
+    1,
+    1
+   ],
+   "ms": 0.028672000393271446,
+   "flops": 2822400,
+   "bytes": 5673600,
+   "intensity": 0.49746192893401014,
+   "gbps": 197.87946157155616,
+   "tflops": 0.09843749864980966,
+   "pct_bw": 68.70814637901256,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.0.block.2.fc1",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    20,
+    1,
+    1
+   ],
+   "ms": 0.048128001391887665,
+   "flops": 576000,
+   "bytes": 49240,
+   "intensity": 11.697806661251015,
+   "gbps": 1.0231050236027415,
+   "tflops": 0.011968084760259526,
+   "pct_bw": 0.355244799862063,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.0.block.2.activation",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    20,
+    1,
+    1
+   ],
+   "ms": 0.020479999482631683,
+   "flops": 2400,
+   "bytes": 2400,
+   "intensity": 1.0,
+   "gbps": 0.11718750296040532,
+   "tflops": 0.00011718750296040533,
+   "pct_bw": 0.040690105194585185,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.0.block.2.fc2",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    480,
+    1,
+    1
+   ],
+   "ms": 0.04729599878191948,
+   "flops": 576000,
+   "bytes": 50160,
+   "intensity": 11.483253588516746,
+   "gbps": 1.0605548311028667,
+   "tflops": 0.012178620070080765,
+   "pct_bw": 0.36824820524405094,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.0.block.2.scale_activation",
+   "section": "EfficientNet-B0",
+   "kind": "Sigmoid",
+   "out_shape": [
+    30,
+    480,
+    1,
+    1
+   ],
+   "ms": 0.0225600004196167,
+   "flops": 57600,
+   "bytes": 57600,
+   "intensity": 1.0,
+   "gbps": 2.5531914418722623,
+   "tflops": 0.0025531914418722625,
+   "pct_bw": 0.8865248062056468,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.0.block.3.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    112,
+    14,
+    14
+   ],
+   "ms": 0.05283199995756149,
+   "flops": 632217600,
+   "bytes": 7069440,
+   "intensity": 89.4296577946768,
+   "gbps": 133.80981234249487,
+   "tflops": 11.966565727359235,
+   "pct_bw": 46.461740396699604,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.0.block.3.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    112,
+    14,
+    14
+   ],
+   "ms": 0.05318399891257286,
+   "flops": 2634240,
+   "bytes": 2635144,
+   "intensity": 0.9996569447438166,
+   "gbps": 49.54768452691593,
+   "tflops": 0.04953068693330726,
+   "pct_bw": 17.204057127401363,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.1.block.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    672,
+    14,
+    14
+   ],
+   "ms": 0.07372800260782242,
+   "flops": 885104640,
+   "bytes": 9370368,
+   "intensity": 94.4578313253012,
+   "gbps": 127.09374550458551,
+   "tflops": 12.004999575372898,
+   "pct_bw": 44.129772744647745,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.1.block.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    672,
+    14,
+    14
+   ],
+   "ms": 0.050016000866889954,
+   "flops": 15805440,
+   "bytes": 15810824,
+   "intensity": 0.9996594737883364,
+   "gbps": 316.1153176176185,
+   "tflops": 0.31600767206606134,
+   "pct_bw": 109.76226306167307,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.1.block.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    672,
+    14,
+    14
+   ],
+   "ms": 0.014240000396966934,
+   "flops": 15805440,
+   "bytes": 15805440,
+   "intensity": 1.0,
+   "gbps": 1109.9325533281938,
+   "tflops": 1.1099325533281936,
+   "pct_bw": 385.3932476834006,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.1.block.1.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv dw 5x5",
+   "out_shape": [
+    30,
+    672,
+    14,
+    14
+   ],
+   "ms": 0.2252800017595291,
+   "flops": 197568000,
+   "bytes": 15839040,
+   "intensity": 12.47348324140857,
+   "gbps": 70.3082380872275,
+   "tflops": 0.8769886295139958,
+   "pct_bw": 24.412582669176214,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.1.block.1.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    672,
+    14,
+    14
+   ],
+   "ms": 0.060416001826524734,
+   "flops": 15805440,
+   "bytes": 15810824,
+   "intensity": 0.9996594737883364,
+   "gbps": 261.6992770458123,
+   "tflops": 0.2616101615824048,
+   "pct_bw": 90.86780452979595,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.1.block.1.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    672,
+    14,
+    14
+   ],
+   "ms": 0.03280000016093254,
+   "flops": 15805440,
+   "bytes": 15805440,
+   "intensity": 1.0,
+   "gbps": 481.8731683674063,
+   "tflops": 0.4818731683674063,
+   "pct_bw": 167.31707234979388,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.1.block.2.avgpool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    672,
+    1,
+    1
+   ],
+   "ms": 0.034912001341581345,
+   "flops": 3951360,
+   "bytes": 7943040,
+   "intensity": 0.49746192893401014,
+   "gbps": 227.51603158709716,
+   "tflops": 0.11318056393672854,
+   "pct_bw": 78.99862207885319,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.1.block.2.fc1",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    28,
+    1,
+    1
+   ],
+   "ms": 0.050175998359918594,
+   "flops": 1128960,
+   "bytes": 79688,
+   "intensity": 14.167252283907239,
+   "gbps": 1.588169694768965,
+   "tflops": 0.02250000073544788,
+   "pct_bw": 0.5514478106836684,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.1.block.2.activation",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    28,
+    1,
+    1
+   ],
+   "ms": 0.021503999829292297,
+   "flops": 3360,
+   "bytes": 3360,
+   "intensity": 1.0,
+   "gbps": 0.15625000124037755,
+   "tflops": 0.00015625000124037754,
+   "pct_bw": 0.05425347265290887,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.1.block.2.fc2",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    672,
+    1,
+    1
+   ],
+   "ms": 0.0562559999525547,
+   "flops": 1128960,
+   "bytes": 80976,
+   "intensity": 13.941908713692946,
+   "gbps": 1.4394197964358237,
+   "tflops": 0.020068259402590737,
+   "pct_bw": 0.49979854042910554,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.1.block.2.scale_activation",
+   "section": "EfficientNet-B0",
+   "kind": "Sigmoid",
+   "out_shape": [
+    30,
+    672,
+    1,
+    1
+   ],
+   "ms": 0.023552000522613525,
+   "flops": 80640,
+   "bytes": 80640,
+   "intensity": 1.0,
+   "gbps": 3.4239129675024107,
+   "tflops": 0.0034239129675024105,
+   "pct_bw": 1.1888586692716703,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.1.block.3.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    112,
+    14,
+    14
+   ],
+   "ms": 0.06451199948787689,
+   "flops": 885104640,
+   "bytes": 9370368,
+   "intensity": 94.4578313253012,
+   "gbps": 145.25000115305494,
+   "tflops": 13.720000108915071,
+   "pct_bw": 50.434028178144075,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.1.block.3.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    112,
+    14,
+    14
+   ],
+   "ms": 0.05427199974656105,
+   "flops": 2634240,
+   "bytes": 2635144,
+   "intensity": 0.9996569447438166,
+   "gbps": 48.55439291541816,
+   "tflops": 0.048537736075717736,
+   "pct_bw": 16.859164206742417,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.2.block.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    672,
+    14,
+    14
+   ],
+   "ms": 0.07884799689054489,
+   "flops": 885104640,
+   "bytes": 9370368,
+   "intensity": 94.4578313253012,
+   "gbps": 118.84091377752748,
+   "tflops": 11.225454988142355,
+   "pct_bw": 41.264206172752594,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.2.block.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    672,
+    14,
+    14
+   ],
+   "ms": 0.050175998359918594,
+   "flops": 15805440,
+   "bytes": 15810824,
+   "intensity": 0.9996594737883364,
+   "gbps": 315.10731259569604,
+   "tflops": 0.31500001029627034,
+   "pct_bw": 109.41226131795001,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.2.block.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    672,
+    14,
+    14
+   ],
+   "ms": 0.020255999639630318,
+   "flops": 15805440,
+   "bytes": 15805440,
+   "intensity": 1.0,
+   "gbps": 780.2843740714274,
+   "tflops": 0.7802843740714274,
+   "pct_bw": 270.9320743303567,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.2.block.1.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv dw 5x5",
+   "out_shape": [
+    30,
+    672,
+    14,
+    14
+   ],
+   "ms": 0.22732800245285034,
+   "flops": 197568000,
+   "bytes": 15839040,
+   "intensity": 12.47348324140857,
+   "gbps": 69.67483032929542,
+   "tflops": 0.869087828460452,
+   "pct_bw": 24.19264941989424,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.2.block.1.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    672,
+    14,
+    14
+   ],
+   "ms": 0.050303999334573746,
+   "flops": 15805440,
+   "bytes": 15810824,
+   "intensity": 0.9996594737883364,
+   "gbps": 314.3055067021934,
+   "tflops": 0.31419847743869106,
+   "pct_bw": 109.13385649381715,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.2.block.1.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    672,
+    14,
+    14
+   ],
+   "ms": 0.01945599913597107,
+   "flops": 15805440,
+   "bytes": 15805440,
+   "intensity": 1.0,
+   "gbps": 812.3684571294125,
+   "tflops": 0.8123684571294125,
+   "pct_bw": 282.0723809477127,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.2.block.2.avgpool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    672,
+    1,
+    1
+   ],
+   "ms": 0.026623999699950218,
+   "flops": 3951360,
+   "bytes": 7943040,
+   "intensity": 0.49746192893401014,
+   "gbps": 298.34134951612293,
+   "tflops": 0.14841346321106622,
+   "pct_bw": 103.5907463597649,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.2.block.2.fc1",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    28,
+    1,
+    1
+   ],
+   "ms": 0.04825599864125252,
+   "flops": 1128960,
+   "bytes": 79688,
+   "intensity": 14.167252283907239,
+   "gbps": 1.6513594629430643,
+   "tflops": 0.023395226122931958,
+   "pct_bw": 0.5733887024107862,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.2.block.2.activation",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    28,
+    1,
+    1
+   ],
+   "ms": 0.02022399939596653,
+   "flops": 3360,
+   "bytes": 3360,
+   "intensity": 1.0,
+   "gbps": 0.16613924546843678,
+   "tflops": 0.00016613924546843677,
+   "pct_bw": 0.05768723800987388,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.2.block.2.fc2",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    672,
+    1,
+    1
+   ],
+   "ms": 0.05350400134921074,
+   "flops": 1128960,
+   "bytes": 80976,
+   "intensity": 13.941908713692946,
+   "gbps": 1.51345689963419,
+   "tflops": 0.021100477936808623,
+   "pct_bw": 0.5255058679285383,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.2.block.2.scale_activation",
+   "section": "EfficientNet-B0",
+   "kind": "Sigmoid",
+   "out_shape": [
+    30,
+    672,
+    1,
+    1
+   ],
+   "ms": 0.02252800017595291,
+   "flops": 80640,
+   "bytes": 80640,
+   "intensity": 1.0,
+   "gbps": 3.579545426587738,
+   "tflops": 0.003579545426587738,
+   "pct_bw": 1.2428977175651867,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.2.block.3.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    112,
+    14,
+    14
+   ],
+   "ms": 0.06425599753856659,
+   "flops": 885104640,
+   "bytes": 9370368,
+   "intensity": 94.4578313253012,
+   "gbps": 145.82869084517574,
+   "tflops": 13.774661882243105,
+   "pct_bw": 50.634962099019354,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.5.2.block.3.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    112,
+    14,
+    14
+   ],
+   "ms": 0.05283199995756149,
+   "flops": 2634240,
+   "bytes": 2635144,
+   "intensity": 0.9996569447438166,
+   "gbps": 49.87780137259122,
+   "tflops": 0.049860690530663485,
+   "pct_bw": 17.31868103214973,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.0.block.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    672,
+    14,
+    14
+   ],
+   "ms": 0.07744000107049942,
+   "flops": 885104640,
+   "bytes": 9370368,
+   "intensity": 94.4578313253012,
+   "gbps": 121.00165121988381,
+   "tflops": 11.429553561010712,
+   "pct_bw": 42.01446222912632,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.0.block.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    672,
+    14,
+    14
+   ],
+   "ms": 0.0480320006608963,
+   "flops": 15805440,
+   "bytes": 15810824,
+   "intensity": 0.9996594737883364,
+   "gbps": 329.1727136586228,
+   "tflops": 0.3290606217214576,
+   "pct_bw": 114.29608113146625,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.0.block.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    672,
+    14,
+    14
+   ],
+   "ms": 0.01958400011062622,
+   "flops": 15805440,
+   "bytes": 15805440,
+   "intensity": 1.0,
+   "gbps": 807.058818970493,
+   "tflops": 0.8070588189704929,
+   "pct_bw": 280.2287565869767,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.0.block.1.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv dw 5x5",
+   "out_shape": [
+    30,
+    672,
+    7,
+    7
+   ],
+   "ms": 0.06943999975919724,
+   "flops": 49392000,
+   "bytes": 9912000,
+   "intensity": 4.983050847457627,
+   "gbps": 142.74193597886884,
+   "tflops": 0.7112903250472448,
+   "pct_bw": 49.563172214885014,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.0.block.1.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    672,
+    7,
+    7
+   ],
+   "ms": 0.05177599936723709,
+   "flops": 3951360,
+   "bytes": 3956744,
+   "intensity": 0.9986392852304824,
+   "gbps": 76.42042738635685,
+   "tflops": 0.07631644098211939,
+   "pct_bw": 26.534870620262794,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.0.block.1.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    672,
+    7,
+    7
+   ],
+   "ms": 0.025760000571608543,
+   "flops": 3951360,
+   "bytes": 3951360,
+   "intensity": 1.0,
+   "gbps": 153.39130094410797,
+   "tflops": 0.15339130094410797,
+   "pct_bw": 53.26086838337082,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.0.block.2.avgpool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    672,
+    1,
+    1
+   ],
+   "ms": 0.02735999971628189,
+   "flops": 987840,
+   "bytes": 2016000,
+   "intensity": 0.49,
+   "gbps": 73.68421129040735,
+   "tflops": 0.0361052635322996,
+   "pct_bw": 25.584795586946996,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.0.block.2.fc1",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    28,
+    1,
+    1
+   ],
+   "ms": 0.05286400020122528,
+   "flops": 1128960,
+   "bytes": 79688,
+   "intensity": 14.167252283907239,
+   "gbps": 1.5074152484993557,
+   "tflops": 0.021355932122099096,
+   "pct_bw": 0.5234080723956095,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.0.block.2.activation",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    28,
+    1,
+    1
+   ],
+   "ms": 0.020896000787615776,
+   "flops": 3360,
+   "bytes": 3360,
+   "intensity": 1.0,
+   "gbps": 0.1607963185946728,
+   "tflops": 0.0001607963185946728,
+   "pct_bw": 0.05583205506759473,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.0.block.2.fc2",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    672,
+    1,
+    1
+   ],
+   "ms": 0.061535999178886414,
+   "flops": 1128960,
+   "bytes": 80976,
+   "intensity": 13.941908713692946,
+   "gbps": 1.3159126540645112,
+   "tflops": 0.01834633409816082,
+   "pct_bw": 0.45691411599462195,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.0.block.2.scale_activation",
+   "section": "EfficientNet-B0",
+   "kind": "Sigmoid",
+   "out_shape": [
+    30,
+    672,
+    1,
+    1
+   ],
+   "ms": 0.02252800017595291,
+   "flops": 80640,
+   "bytes": 80640,
+   "intensity": 1.0,
+   "gbps": 3.579545426587738,
+   "tflops": 0.003579545426587738,
+   "pct_bw": 1.2428977175651867,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.0.block.3.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    192,
+    7,
+    7
+   ],
+   "ms": 0.04095999896526337,
+   "flops": 379330560,
+   "bytes": 2798208,
+   "intensity": 135.56195965417868,
+   "gbps": 68.3156267257979,
+   "tflops": 9.261000233952544,
+   "pct_bw": 23.72070372423538,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.0.block.3.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    192,
+    7,
+    7
+   ],
+   "ms": 0.05484800040721893,
+   "flops": 1128960,
+   "bytes": 1130504,
+   "intensity": 0.998634237472844,
+   "gbps": 20.611580943818808,
+   "tflops": 0.0205834304189403,
+   "pct_bw": 7.156798938825975,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.1.block.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.060416001826524734,
+   "flops": 650280960,
+   "bytes": 4393728,
+   "intensity": 148.0020975353959,
+   "gbps": 72.72457407254315,
+   "tflops": 10.763389505104655,
+   "pct_bw": 25.251588219633035,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.1.block.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.07065600156784058,
+   "flops": 6773760,
+   "bytes": 6782984,
+   "intensity": 0.9986401265283834,
+   "gbps": 96.00011109441704,
+   "tflops": 0.09586956309006749,
+   "pct_bw": 33.3333719077837,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.1.block.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.021344000473618507,
+   "flops": 6773760,
+   "bytes": 6773760,
+   "intensity": 1.0,
+   "gbps": 317.3613122981545,
+   "tflops": 0.31736131229815445,
+   "pct_bw": 110.19490010352587,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.1.block.1.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv dw 5x5",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.10649599879980087,
+   "flops": 84672000,
+   "bytes": 6831360,
+   "intensity": 12.39460370994941,
+   "gbps": 64.1466353383107,
+   "tflops": 0.7950721243449976,
+   "pct_bw": 22.273137270246767,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.1.block.1.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.06719999760389328,
+   "flops": 6773760,
+   "bytes": 6782984,
+   "intensity": 0.9986401265283834,
+   "gbps": 100.93726550381636,
+   "tflops": 0.10080000359416022,
+   "pct_bw": 35.04766163326957,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.1.block.1.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.035840000957250595,
+   "flops": 6773760,
+   "bytes": 6773760,
+   "intensity": 1.0,
+   "gbps": 188.99999495199896,
+   "tflops": 0.18899999495199896,
+   "pct_bw": 65.62499824722185,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.1.block.2.avgpool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    1152,
+    1,
+    1
+   ],
+   "ms": 0.047807998955249786,
+   "flops": 1693440,
+   "bytes": 3456000,
+   "intensity": 0.49,
+   "gbps": 72.28915820624401,
+   "tflops": 0.035421687521059564,
+   "pct_bw": 25.100402154945836,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.1.block.2.fc1",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    48,
+    1,
+    1
+   ],
+   "ms": 0.05331199988722801,
+   "flops": 3317760,
+   "bytes": 182688,
+   "intensity": 18.16079873883342,
+   "gbps": 3.426770715532033,
+   "tflops": 0.06223289328890544,
+   "pct_bw": 1.189850942893067,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.1.block.2.activation",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    48,
+    1,
+    1
+   ],
+   "ms": 0.021503999829292297,
+   "flops": 5760,
+   "bytes": 5760,
+   "intensity": 1.0,
+   "gbps": 0.2678571449835044,
+   "tflops": 0.00026785714498350435,
+   "pct_bw": 0.09300595311927236,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.1.block.2.fc2",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    1152,
+    1,
+    1
+   ],
+   "ms": 0.050175998359918594,
+   "flops": 3317760,
+   "bytes": 184896,
+   "intensity": 17.94392523364486,
+   "gbps": 3.6849491000401886,
+   "tflops": 0.06612245114090806,
+   "pct_bw": 1.2794962152917322,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.1.block.2.scale_activation",
+   "section": "EfficientNet-B0",
+   "kind": "Sigmoid",
+   "out_shape": [
+    30,
+    1152,
+    1,
+    1
+   ],
+   "ms": 0.024351999163627625,
+   "flops": 138240,
+   "bytes": 138240,
+   "intensity": 1.0,
+   "gbps": 5.676741325060349,
+   "tflops": 0.005676741325060349,
+   "pct_bw": 1.9710907378681768,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.1.block.3.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    192,
+    7,
+    7
+   ],
+   "ms": 0.05939200147986412,
+   "flops": 650280960,
+   "bytes": 4393728,
+   "intensity": 148.0020975353959,
+   "gbps": 73.97844643254902,
+   "tflops": 10.948965244427182,
+   "pct_bw": 25.686960566857298,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.1.block.3.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    192,
+    7,
+    7
+   ],
+   "ms": 0.06335999816656113,
+   "flops": 1128960,
+   "bytes": 1130504,
+   "intensity": 0.998634237472844,
+   "gbps": 17.842551021357746,
+   "tflops": 0.0178181823337839,
+   "pct_bw": 6.195330215749218,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.2.block.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.058368001133203506,
+   "flops": 650280960,
+   "bytes": 4393728,
+   "intensity": 148.0020975353959,
+   "gbps": 75.2763143279985,
+   "tflops": 11.141052415277555,
+   "pct_bw": 26.137609141666147,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.2.block.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.059039998799562454,
+   "flops": 6773760,
+   "bytes": 6782984,
+   "intensity": 0.9986401265283834,
+   "gbps": 114.88794271537601,
+   "tflops": 0.11473170964986877,
+   "pct_bw": 39.89164677617223,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.2.block.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.03488000109791756,
+   "flops": 6773760,
+   "bytes": 6773760,
+   "intensity": 1.0,
+   "gbps": 194.2018287494955,
+   "tflops": 0.1942018287494955,
+   "pct_bw": 67.43119053801928,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.2.block.1.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv dw 5x5",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.111455999314785,
+   "flops": 84672000,
+   "bytes": 6831360,
+   "intensity": 12.39460370994941,
+   "gbps": 61.29199004089677,
+   "tflops": 0.7596899271510814,
+   "pct_bw": 21.281940986422487,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.2.block.1.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.057312000542879105,
+   "flops": 6773760,
+   "bytes": 6782984,
+   "intensity": 0.9986401265283834,
+   "gbps": 118.3518972597227,
+   "tflops": 0.11819095365432371,
+   "pct_bw": 41.09440877073705,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.2.block.1.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.02143999934196472,
+   "flops": 6773760,
+   "bytes": 6773760,
+   "intensity": 1.0,
+   "gbps": 315.9403082042849,
+   "tflops": 0.3159403082042849,
+   "pct_bw": 109.7014959042656,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.2.block.2.avgpool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    1152,
+    1,
+    1
+   ],
+   "ms": 0.03686400130391121,
+   "flops": 1693440,
+   "bytes": 3456000,
+   "intensity": 0.49,
+   "gbps": 93.74999668398243,
+   "tflops": 0.045937498375151396,
+   "pct_bw": 32.55208218193834,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.2.block.2.fc1",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    48,
+    1,
+    1
+   ],
+   "ms": 0.050175998359918594,
+   "flops": 3317760,
+   "bytes": 182688,
+   "intensity": 18.16079873883342,
+   "gbps": 3.6409439965609964,
+   "tflops": 0.06612245114090806,
+   "pct_bw": 1.2642166654725684,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.2.block.2.activation",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    48,
+    1,
+    1
+   ],
+   "ms": 0.021215999498963356,
+   "flops": 5760,
+   "bytes": 5760,
+   "intensity": 1.0,
+   "gbps": 0.27149321908126184,
+   "tflops": 0.00027149321908126185,
+   "pct_bw": 0.09426847884766036,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.2.block.2.fc2",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    1152,
+    1,
+    1
+   ],
+   "ms": 0.05318399891257286,
+   "flops": 3317760,
+   "bytes": 184896,
+   "intensity": 17.94392523364486,
+   "gbps": 3.4765343671118725,
+   "tflops": 0.062382672755652284,
+   "pct_bw": 1.2071299885805113,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.2.block.2.scale_activation",
+   "section": "EfficientNet-B0",
+   "kind": "Sigmoid",
+   "out_shape": [
+    30,
+    1152,
+    1,
+    1
+   ],
+   "ms": 0.02252800017595291,
+   "flops": 138240,
+   "bytes": 138240,
+   "intensity": 1.0,
+   "gbps": 6.136363588436122,
+   "tflops": 0.0061363635884361225,
+   "pct_bw": 2.13068180154032,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.2.block.3.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    192,
+    7,
+    7
+   ],
+   "ms": 0.058368001133203506,
+   "flops": 650280960,
+   "bytes": 4393728,
+   "intensity": 148.0020975353959,
+   "gbps": 75.2763143279985,
+   "tflops": 11.141052415277555,
+   "pct_bw": 26.137609141666147,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.2.block.3.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    192,
+    7,
+    7
+   ],
+   "ms": 0.05004800111055374,
+   "flops": 1128960,
+   "bytes": 1130504,
+   "intensity": 0.998634237472844,
+   "gbps": 22.58839463943362,
+   "tflops": 0.022557544256486466,
+   "pct_bw": 7.843192583136673,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.3.block.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.058368001133203506,
+   "flops": 650280960,
+   "bytes": 4393728,
+   "intensity": 148.0020975353959,
+   "gbps": 75.2763143279985,
+   "tflops": 11.141052415277555,
+   "pct_bw": 26.137609141666147,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.3.block.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.058368001133203506,
+   "flops": 6773760,
+   "bytes": 6782984,
+   "intensity": 0.9986401265283834,
+   "gbps": 116.21066112098534,
+   "tflops": 0.11605262932580787,
+   "pct_bw": 40.35092400034213,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.3.block.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.02143999934196472,
+   "flops": 6773760,
+   "bytes": 6773760,
+   "intensity": 1.0,
+   "gbps": 315.9403082042849,
+   "tflops": 0.3159403082042849,
+   "pct_bw": 109.7014959042656,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.3.block.1.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv dw 5x5",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.10751999914646149,
+   "flops": 84672000,
+   "bytes": 6831360,
+   "intensity": 12.39460370994941,
+   "gbps": 63.53571479008724,
+   "tflops": 0.7875000062515028,
+   "pct_bw": 22.061012079891402,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.3.block.1.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.06028800085186958,
+   "flops": 6773760,
+   "bytes": 6782984,
+   "intensity": 0.9986401265283834,
+   "gbps": 112.50968524675592,
+   "tflops": 0.11235668631048892,
+   "pct_bw": 39.06586293290136,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.3.block.1.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.028543999418616295,
+   "flops": 6773760,
+   "bytes": 6773760,
+   "intensity": 1.0,
+   "gbps": 237.309421873873,
+   "tflops": 0.237309421873873,
+   "pct_bw": 82.39910481731701,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.3.block.2.avgpool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    1152,
+    1,
+    1
+   ],
+   "ms": 0.024480000138282776,
+   "flops": 1693440,
+   "bytes": 3456000,
+   "intensity": 0.49,
+   "gbps": 141.17646979075676,
+   "tflops": 0.06917647019747081,
+   "pct_bw": 49.01960756623498,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.3.block.2.fc1",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    48,
+    1,
+    1
+   ],
+   "ms": 0.05145600065588951,
+   "flops": 3317760,
+   "bytes": 182688,
+   "intensity": 18.16079873883342,
+   "gbps": 3.5503730890731404,
+   "tflops": 0.0644776111184276,
+   "pct_bw": 1.2327684337059515,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.3.block.2.activation",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    48,
+    1,
+    1
+   ],
+   "ms": 0.02054399996995926,
+   "flops": 5760,
+   "bytes": 5760,
+   "intensity": 1.0,
+   "gbps": 0.28037383218568135,
+   "tflops": 0.0002803738321856813,
+   "pct_bw": 0.09735202506447269,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.3.block.2.fc2",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    1152,
+    1,
+    1
+   ],
+   "ms": 0.05632000043988228,
+   "flops": 3317760,
+   "bytes": 184896,
+   "intensity": 17.94392523364486,
+   "gbps": 3.2829545198133254,
+   "tflops": 0.058909090448986776,
+   "pct_bw": 1.1399147638240712,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.3.block.2.scale_activation",
+   "section": "EfficientNet-B0",
+   "kind": "Sigmoid",
+   "out_shape": [
+    30,
+    1152,
+    1,
+    1
+   ],
+   "ms": 0.026815999299287796,
+   "flops": 138240,
+   "bytes": 138240,
+   "intensity": 1.0,
+   "gbps": 5.155131399621998,
+   "tflops": 0.005155131399621998,
+   "pct_bw": 1.7899761804243046,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.3.block.3.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    192,
+    7,
+    7
+   ],
+   "ms": 0.06860800087451935,
+   "flops": 650280960,
+   "bytes": 4393728,
+   "intensity": 148.0020975353959,
+   "gbps": 64.04104395981327,
+   "tflops": 9.478208834408859,
+   "pct_bw": 22.236473597157385,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.6.3.block.3.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    192,
+    7,
+    7
+   ],
+   "ms": 0.05939200147986412,
+   "flops": 1128960,
+   "bytes": 1130504,
+   "intensity": 0.998634237472844,
+   "gbps": 19.034616982613034,
+   "tflops": 0.019008620216019415,
+   "pct_bw": 6.609242007851748,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.7.0.block.0.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.058368001133203506,
+   "flops": 650280960,
+   "bytes": 4393728,
+   "intensity": 148.0020975353959,
+   "gbps": 75.2763143279985,
+   "tflops": 11.141052415277555,
+   "pct_bw": 26.137609141666147,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.7.0.block.0.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.06348799914121628,
+   "flops": 6773760,
+   "bytes": 6782984,
+   "intensity": 0.9986401265283834,
+   "gbps": 106.83883713066177,
+   "tflops": 0.1066935498303094,
+   "pct_bw": 37.09681844814645,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.7.0.block.0.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.021695999428629875,
+   "flops": 6773760,
+   "bytes": 6773760,
+   "intensity": 1.0,
+   "gbps": 312.2123976027303,
+   "tflops": 0.3122123976027303,
+   "pct_bw": 108.40708250094801,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.7.0.block.1.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv dw 3x3",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.0713919997215271,
+   "flops": 30481920,
+   "bytes": 6794496,
+   "intensity": 4.486266531027467,
+   "gbps": 95.17167226723906,
+   "tflops": 0.42696548799442957,
+   "pct_bw": 33.04571953723578,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.7.0.block.1.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.0859839990735054,
+   "flops": 6773760,
+   "bytes": 6782984,
+   "intensity": 0.9986401265283834,
+   "gbps": 78.88658440044654,
+   "tflops": 0.07877930862705392,
+   "pct_bw": 27.391175139043934,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.7.0.block.1.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    1152,
+    7,
+    7
+   ],
+   "ms": 0.021536000072956085,
+   "flops": 6773760,
+   "bytes": 6773760,
+   "intensity": 1.0,
+   "gbps": 314.53194544265324,
+   "tflops": 0.3145319454426532,
+   "pct_bw": 109.21248105647682,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.7.0.block.2.avgpool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    1152,
+    1,
+    1
+   ],
+   "ms": 0.03488000109791756,
+   "flops": 1693440,
+   "bytes": 3456000,
+   "intensity": 0.49,
+   "gbps": 99.0825656885181,
+   "tflops": 0.04855045718737387,
+   "pct_bw": 34.403668641846565,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.7.0.block.2.fc1",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    48,
+    1,
+    1
+   ],
+   "ms": 0.05142400041222572,
+   "flops": 3317760,
+   "bytes": 182688,
+   "intensity": 18.16079873883342,
+   "gbps": 3.5525824232952345,
+   "tflops": 0.06451773439258188,
+   "pct_bw": 1.2335355636441787,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.7.0.block.2.activation",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    48,
+    1,
+    1
+   ],
+   "ms": 0.02271999977529049,
+   "flops": 5760,
+   "bytes": 5760,
+   "intensity": 1.0,
+   "gbps": 0.25352112926798454,
+   "tflops": 0.00025352112926798454,
+   "pct_bw": 0.08802816988471686,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.7.0.block.2.fc2",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1 (SE)",
+   "out_shape": [
+    30,
+    1152,
+    1,
+    1
+   ],
+   "ms": 0.05510399863123894,
+   "flops": 3317760,
+   "bytes": 184896,
+   "intensity": 17.94392523364486,
+   "gbps": 3.355400780210909,
+   "tflops": 0.06020906072901818,
+   "pct_bw": 1.1650697153510101,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.7.0.block.2.scale_activation",
+   "section": "EfficientNet-B0",
+   "kind": "Sigmoid",
+   "out_shape": [
+    30,
+    1152,
+    1,
+    1
+   ],
+   "ms": 0.02319999970495701,
+   "flops": 138240,
+   "bytes": 138240,
+   "intensity": 1.0,
+   "gbps": 5.958620765433159,
+   "tflops": 0.00595862076543316,
+   "pct_bw": 2.06896554355318,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.7.0.block.3.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    320,
+    7,
+    7
+   ],
+   "ms": 0.06963200122117996,
+   "flops": 1083801600,
+   "bytes": 5064960,
+   "intensity": 213.98028809704323,
+   "gbps": 72.73896931256647,
+   "tflops": 15.564705609384959,
+   "pct_bw": 25.256586566863355,
+   "bound": "compute"
+  },
+  {
+   "name": "encoder.features.7.0.block.3.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    320,
+    7,
+    7
+   ],
+   "ms": 0.053247999399900436,
+   "flops": 1881600,
+   "bytes": 1884168,
+   "intensity": 0.9986370642108348,
+   "gbps": 35.38476602378273,
+   "tflops": 0.03533653885977767,
+   "pct_bw": 12.286377091591225,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.8.0",
+   "section": "EfficientNet-B0",
+   "kind": "conv 1x1",
+   "out_shape": [
+    30,
+    1280,
+    7,
+    7
+   ],
+   "ms": 0.07372800260782242,
+   "flops": 1204224000,
+   "bytes": 5523200,
+   "intensity": 218.03012746234066,
+   "gbps": 74.91319179470077,
+   "tflops": 16.333332755609383,
+   "pct_bw": 26.01152492871554,
+   "bound": "compute"
+  },
+  {
+   "name": "encoder.features.8.1",
+   "section": "EfficientNet-B0",
+   "kind": "BatchNorm2d",
+   "out_shape": [
+    30,
+    1280,
+    7,
+    7
+   ],
+   "ms": 0.060127999633550644,
+   "flops": 7526400,
+   "bytes": 7536648,
+   "intensity": 0.9986402443102026,
+   "gbps": 125.34340150898099,
+   "tflops": 0.1251729651056006,
+   "pct_bw": 43.522014412840626,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.features.8.2",
+   "section": "EfficientNet-B0",
+   "kind": "SiLU",
+   "out_shape": [
+    30,
+    1280,
+    7,
+    7
+   ],
+   "ms": 0.021376000717282295,
+   "flops": 7526400,
+   "bytes": 7526400,
+   "intensity": 1.0,
+   "gbps": 352.0957965684843,
+   "tflops": 0.3520957965684842,
+   "pct_bw": 122.2554849196126,
+   "bound": "memory"
+  },
+  {
+   "name": "encoder.pool",
+   "section": "EfficientNet-B0",
+   "kind": "AdaptiveAvgPool2d",
+   "out_shape": [
+    30,
+    1280,
+    1,
+    1
+   ],
+   "ms": 0.026367999613285065,
+   "flops": 1881600,
+   "bytes": 3840000,
+   "intensity": 0.49,
+   "gbps": 145.63107009700053,
+   "tflops": 0.07135922434753027,
+   "pct_bw": 50.56634378368074,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.proj",
+   "section": "Projection",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    512
+   ],
+   "ms": 0.04214400053024292,
+   "flops": 39321600,
+   "bytes": 1419264,
+   "intensity": 27.705627705627705,
+   "gbps": 33.67653716171352,
+   "tflops": 0.9330296010171711,
+   "pct_bw": 11.693242070039416,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.0.norm",
+   "section": "Mamba",
+   "kind": "LayerNorm",
+   "out_shape": [
+    1,
+    30,
+    512
+   ],
+   "ms": 0.03411199897527695,
+   "flops": 61440,
+   "bytes": 63488,
+   "intensity": 0.967741935483871,
+   "gbps": 1.8611632829261526,
+   "tflops": 0.0018011257576704702,
+   "pct_bw": 0.6462372510160252,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.0.mixer.in_proj",
+   "section": "Mamba",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    2048
+   ],
+   "ms": 0.04198399931192398,
+   "flops": 62914560,
+   "bytes": 2250752,
+   "intensity": 27.952684258416742,
+   "gbps": 53.60975697617159,
+   "tflops": 1.4985366099253787,
+   "pct_bw": 18.61449895005958,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.0.mixer.conv1d",
+   "section": "Mamba",
+   "kind": "Conv1d",
+   "out_shape": [
+    1,
+    1024,
+    33
+   ],
+   "ms": 0.050175998359918594,
+   "flops": 270336,
+   "bytes": 139264,
+   "intensity": 1.9411764705882353,
+   "gbps": 2.775510294803548,
+   "tflops": 0.005387755278148064,
+   "pct_bw": 0.963718852362343,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.0.mixer.dt_proj",
+   "section": "Mamba",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    1024
+   ],
+   "ms": 0.05407999828457832,
+   "flops": 62914560,
+   "bytes": 2222080,
+   "intensity": 28.31336405529954,
+   "gbps": 41.08875869978823,
+   "tflops": 1.1633609836474603,
+   "pct_bw": 14.266930104093136,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.0.mixer.x_proj",
+   "section": "Mamba",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    32
+   ],
+   "ms": 0.04531199857592583,
+   "flops": 1966080,
+   "bytes": 128896,
+   "intensity": 15.253227408143,
+   "gbps": 2.8446328577632456,
+   "tflops": 0.04338983187213848,
+   "pct_bw": 0.9877197422789046,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.0.mixer.out_proj",
+   "section": "Mamba",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    512
+   ],
+   "ms": 0.04156799986958504,
+   "flops": 31457280,
+   "bytes": 1140736,
+   "intensity": 27.576301615798922,
+   "gbps": 27.44264827701434,
+   "tflops": 0.756766746023232,
+   "pct_bw": 9.528697318407756,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.1.norm",
+   "section": "Mamba",
+   "kind": "LayerNorm",
+   "out_shape": [
+    1,
+    30,
+    512
+   ],
+   "ms": 0.03379200026392937,
+   "flops": 61440,
+   "bytes": 63488,
+   "intensity": 0.967741935483871,
+   "gbps": 1.8787878641137759,
+   "tflops": 0.0018181818039810732,
+   "pct_bw": 0.6523568972617276,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.1.mixer.in_proj",
+   "section": "Mamba",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    2048
+   ],
+   "ms": 0.04108799993991852,
+   "flops": 62914560,
+   "bytes": 2250752,
+   "intensity": 27.952684258416742,
+   "gbps": 54.77881627947801,
+   "tflops": 1.5312149555100678,
+   "pct_bw": 19.020422319263197,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.1.mixer.conv1d",
+   "section": "Mamba",
+   "kind": "Conv1d",
+   "out_shape": [
+    1,
+    1024,
+    33
+   ],
+   "ms": 0.04835199937224388,
+   "flops": 270336,
+   "bytes": 139264,
+   "intensity": 1.9411764705882353,
+   "gbps": 2.880211817671877,
+   "tflops": 0.00559099941077482,
+   "pct_bw": 1.000073547802735,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.1.mixer.dt_proj",
+   "section": "Mamba",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    1024
+   ],
+   "ms": 0.05023999884724617,
+   "flops": 62914560,
+   "bytes": 2222080,
+   "intensity": 28.31336405529954,
+   "gbps": 44.22930037789601,
+   "tflops": 1.252280283510567,
+   "pct_bw": 15.357395964547225,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.1.mixer.x_proj",
+   "section": "Mamba",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    32
+   ],
+   "ms": 0.04188799858093262,
+   "flops": 1966080,
+   "bytes": 128896,
+   "intensity": 15.253227408143,
+   "gbps": 3.077158240228583,
+   "tflops": 0.046936594409047704,
+   "pct_bw": 1.0684577223015914,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.1.mixer.out_proj",
+   "section": "Mamba",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    512
+   ],
+   "ms": 0.04201599955558777,
+   "flops": 31457280,
+   "bytes": 1140736,
+   "intensity": 27.576301615798922,
+   "gbps": 27.15003836790292,
+   "tflops": 0.748697646913804,
+   "pct_bw": 9.427096655521847,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.2.norm",
+   "section": "Mamba",
+   "kind": "LayerNorm",
+   "out_shape": [
+    1,
+    30,
+    512
+   ],
+   "ms": 0.03379200026392937,
+   "flops": 61440,
+   "bytes": 63488,
+   "intensity": 0.967741935483871,
+   "gbps": 1.8787878641137759,
+   "tflops": 0.0018181818039810732,
+   "pct_bw": 0.6523568972617276,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.2.mixer.in_proj",
+   "section": "Mamba",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    2048
+   ],
+   "ms": 0.04022400081157684,
+   "flops": 62914560,
+   "bytes": 2250752,
+   "intensity": 27.952684258416742,
+   "gbps": 55.95544835391443,
+   "tflops": 1.5641049803751146,
+   "pct_bw": 19.428975122886953,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.2.mixer.conv1d",
+   "section": "Mamba",
+   "kind": "Conv1d",
+   "out_shape": [
+    1,
+    1024,
+    33
+   ],
+   "ms": 0.049984000623226166,
+   "flops": 270336,
+   "bytes": 139264,
+   "intensity": 1.9411764705882353,
+   "gbps": 2.7861715401645526,
+   "tflops": 0.0054084506367900135,
+   "pct_bw": 0.9674206736682475,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.2.mixer.dt_proj",
+   "section": "Mamba",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    1024
+   ],
+   "ms": 0.056063998490571976,
+   "flops": 62914560,
+   "bytes": 2222080,
+   "intensity": 28.31336405529954,
+   "gbps": 39.63470426344416,
+   "tflops": 1.1221918110350273,
+   "pct_bw": 13.762050091473668,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.2.mixer.x_proj",
+   "section": "Mamba",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    32
+   ],
+   "ms": 0.043007999658584595,
+   "flops": 1966080,
+   "bytes": 128896,
+   "intensity": 15.253227408143,
+   "gbps": 2.997023833315432,
+   "tflops": 0.045714286077184745,
+   "pct_bw": 1.0406332754567473,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.2.mixer.out_proj",
+   "section": "Mamba",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    512
+   ],
+   "ms": 0.0387520007789135,
+   "flops": 31457280,
+   "bytes": 1140736,
+   "intensity": 27.576301615798922,
+   "gbps": 29.43682847520791,
+   "tflops": 0.8117588606448717,
+   "pct_bw": 10.22112099833608,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.3.norm",
+   "section": "Mamba",
+   "kind": "LayerNorm",
+   "out_shape": [
+    1,
+    30,
+    512
+   ],
+   "ms": 0.038495998829603195,
+   "flops": 61440,
+   "bytes": 63488,
+   "intensity": 0.967741935483871,
+   "gbps": 1.6492103577054897,
+   "tflops": 0.0015960100235859578,
+   "pct_bw": 0.5726424853144062,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.3.mixer.in_proj",
+   "section": "Mamba",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    2048
+   ],
+   "ms": 0.03993599861860275,
+   "flops": 62914560,
+   "bytes": 2250752,
+   "intensity": 27.952684258416742,
+   "gbps": 56.358976308446884,
+   "tflops": 1.5753846698776055,
+   "pct_bw": 19.5690889959885,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.3.mixer.conv1d",
+   "section": "Mamba",
+   "kind": "Conv1d",
+   "out_shape": [
+    1,
+    1024,
+    33
+   ],
+   "ms": 0.060416001826524734,
+   "flops": 270336,
+   "bytes": 139264,
+   "intensity": 1.9411764705882353,
+   "gbps": 2.305084676074315,
+   "tflops": 0.004474576135908965,
+   "pct_bw": 0.8003766236369149,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.3.mixer.dt_proj",
+   "section": "Mamba",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    1024
+   ],
+   "ms": 0.05718399956822395,
+   "flops": 62914560,
+   "bytes": 2222080,
+   "intensity": 28.31336405529954,
+   "gbps": 38.85842222961206,
+   "tflops": 1.1002126552015508,
+   "pct_bw": 13.492507718615299,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.3.mixer.x_proj",
+   "section": "Mamba",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    32
+   ],
+   "ms": 0.04608000069856644,
+   "flops": 1966080,
+   "bytes": 128896,
+   "intensity": 15.253227408143,
+   "gbps": 2.7972221798167203,
+   "tflops": 0.0426666660198459,
+   "pct_bw": 0.9712577013252502,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.3.mixer.out_proj",
+   "section": "Mamba",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    30,
+    512
+   ],
+   "ms": 0.041120000183582306,
+   "flops": 31457280,
+   "bytes": 1140736,
+   "intensity": 27.576301615798922,
+   "gbps": 27.741634117391218,
+   "tflops": 0.765011669736318,
+   "pct_bw": 9.632511846316394,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.norm_f",
+   "section": "Head",
+   "kind": "LayerNorm",
+   "out_shape": [
+    1,
+    30,
+    512
+   ],
+   "ms": 0.03622400015592575,
+   "flops": 61440,
+   "bytes": 63488,
+   "intensity": 0.967741935483871,
+   "gbps": 1.7526501691341847,
+   "tflops": 0.0016961130669040495,
+   "pct_bw": 0.6085590865049252,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.head.0",
+   "section": "Head",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    256
+   ],
+   "ms": 0.03587200120091438,
+   "flops": 262144,
+   "bytes": 264192,
+   "intensity": 0.9922480620155039,
+   "gbps": 7.364852563432276,
+   "tflops": 0.007307760683095592,
+   "pct_bw": 2.5572404734139846,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.head.1",
+   "section": "Head",
+   "kind": "GELU",
+   "out_shape": [
+    1,
+    256
+   ],
+   "ms": 0.027648000046610832,
+   "flops": 256,
+   "bytes": 1024,
+   "intensity": 0.25,
+   "gbps": 0.03703703697459754,
+   "tflops": 9.259259243649386e-06,
+   "pct_bw": 0.012860082282846368,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.head.3",
+   "section": "Head",
+   "kind": "Linear",
+   "out_shape": [
+    1,
+    2
+   ],
+   "ms": 0.03859199956059456,
+   "flops": 1024,
+   "bytes": 1544,
+   "intensity": 0.6632124352331606,
+   "gbps": 0.040008292329494745,
+   "tflops": 2.653399698536439e-05,
+   "pct_bw": 0.013891768169963452,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.0.mixer.scan",
+   "section": "Mamba",
+   "kind": "selective scan (python loop)",
+   "out_shape": [
+    1,
+    30,
+    1024
+   ],
+   "ms": 4.800288200378418,
+   "flops": 68321280,
+   "bytes": 8052736,
+   "intensity": 8.484231943031537,
+   "gbps": 1.6775526101464457,
+   "tflops": 0.014232745441120406,
+   "pct_bw": 0.5824835451897382,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.1.mixer.scan",
+   "section": "Mamba",
+   "kind": "selective scan (python loop)",
+   "out_shape": [
+    1,
+    30,
+    1024
+   ],
+   "ms": 5.403039932250977,
+   "flops": 68321280,
+   "bytes": 8052736,
+   "intensity": 8.484231943031537,
+   "gbps": 1.4904083813878322,
+   "tflops": 0.012644970397532573,
+   "pct_bw": 0.5175029102041083,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.2.mixer.scan",
+   "section": "Mamba",
+   "kind": "selective scan (python loop)",
+   "out_shape": [
+    1,
+    30,
+    1024
+   ],
+   "ms": 5.06060791015625,
+   "flops": 68321280,
+   "bytes": 8052736,
+   "intensity": 8.484231943031537,
+   "gbps": 1.5912586280076706,
+   "tflops": 0.013500607281367216,
+   "pct_bw": 0.5525203569471079,
+   "bound": "memory"
+  },
+  {
+   "name": "temporal.layers.3.mixer.scan",
+   "section": "Mamba",
+   "kind": "selective scan (python loop)",
+   "out_shape": [
+    1,
+    30,
+    1024
+   ],
+   "ms": 4.829984188079834,
+   "flops": 68321280,
+   "bytes": 8052736,
+   "intensity": 8.484231943031537,
+   "gbps": 1.6672385843154023,
+   "tflops": 0.014145238853703413,
+   "pct_bw": 0.5789022862206258,
+   "bound": "memory"
+  }
+ ]
+}

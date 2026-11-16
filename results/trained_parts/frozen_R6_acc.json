@@ -1,0 +1,22 @@
+{
+ "rung": "R6",
+ "model": "frozen",
+ "name": "+ CUDA graph",
+ "meta": {
+  "dw_blocks_fused": 16,
+  "dw_variant": "nhwc",
+  "conv_bn_folded": 33,
+  "scans_fused": 4
+ },
+ "eval_s": 6.575899600982666,
+ "accuracy": 0.7139844108207244,
+ "auc": 0.7808203699948695,
+ "tp": 4754,
+ "tn": 3032,
+ "fp": 2381,
+ "fn": 738,
+ "n": 10905,
+ "pred_flips_vs_R0s": 123,
+ "max_abs_dprob_vs_R0s": 0.5289720594882965,
+ "mean_abs_dprob_vs_R0s": 0.009924293845845021
+}

@@ -1,0 +1,22 @@
+{
+ "rung": "R6b",
+ "model": "frozen",
+ "name": "R6 with bf16 weights pre-cast (no autocast)",
+ "meta": {
+  "dw_blocks_fused": 16,
+  "dw_variant": "nhwc",
+  "conv_bn_folded": 33,
+  "scans_fused": 4
+ },
+ "eval_s": 3.4952595233917236,
+ "accuracy": 0.7147180192572214,
+ "auc": 0.7783898323329138,
+ "tp": 4733,
+ "tn": 3061,
+ "fp": 2352,
+ "fn": 759,
+ "n": 10905,
+ "pred_flips_vs_R0s": 195,
+ "max_abs_dprob_vs_R0s": 0.7612173706293106,
+ "mean_abs_dprob_vs_R0s": 0.015615393964567856
+}

@@ -1,0 +1,22 @@
+{
+ "rung": "R6b",
+ "model": "/tmp/bb_runs/ft_effnet_b0_v2",
+ "name": "R6 with bf16 weights pre-cast (no autocast)",
+ "meta": {
+  "dw_blocks_fused": 16,
+  "dw_variant": "nhwc",
+  "conv_bn_folded": 33,
+  "scans_fused": 0
+ },
+ "eval_s": 4.408297300338745,
+ "accuracy": 0.8958276020174232,
+ "auc": 0.959492395704065,
+ "tp": 5345,
+ "tn": 4424,
+ "fp": 989,
+ "fn": 147,
+ "n": 10905,
+ "pred_flips_vs_R0s": 526,
+ "max_abs_dprob_vs_R0s": 0.9477666734796912,
+ "mean_abs_dprob_vs_R0s": 0.04546191606774449
+}

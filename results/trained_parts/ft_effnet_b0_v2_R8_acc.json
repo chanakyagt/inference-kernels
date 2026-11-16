@@ -1,0 +1,22 @@
+{
+ "rung": "R8",
+ "model": "/tmp/bb_runs/ft_effnet_b0_v2",
+ "name": "R6c + INT8 weight-only head Linears",
+ "meta": {
+  "conv_bn_folded": 49,
+  "scans_fused": 0,
+  "head_linears_quantized": 0,
+  "head_linears_total": 1
+ },
+ "eval_s": 6.2154436111450195,
+ "accuracy": 0.896377808344796,
+ "auc": 0.959574085827475,
+ "tp": 5345,
+ "tn": 4430,
+ "fp": 983,
+ "fn": 147,
+ "n": 10905,
+ "pred_flips_vs_R0s": 524,
+ "max_abs_dprob_vs_R0s": 0.9473785280329139,
+ "mean_abs_dprob_vs_R0s": 0.04545779140463361
+}

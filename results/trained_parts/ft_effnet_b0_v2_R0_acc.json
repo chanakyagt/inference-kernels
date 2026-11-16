@@ -1,0 +1,17 @@
+{
+ "rung": "R0",
+ "model": "/tmp/bb_runs/ft_effnet_b0_v2",
+ "name": "fp32 eager NCHW",
+ "meta": {},
+ "eval_s": 11.133577346801758,
+ "accuracy": 0.8960110041265474,
+ "auc": 0.9586980992724886,
+ "tp": 5344,
+ "tn": 4427,
+ "fp": 986,
+ "fn": 148,
+ "n": 10905,
+ "pred_flips_vs_R0s": 2,
+ "max_abs_dprob_vs_R0s": 0.01015019416809082,
+ "mean_abs_dprob_vs_R0s": 0.00011495882880108338
+}
